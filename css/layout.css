@@ -737,7 +737,8 @@ ul#nav li.current a {
 }
 
 .popup-modal a:hover {
-    color: #f06000;
+    color: #;
+    f06000
 }
 
 .popup-modal a.popup-modal-dismiss {
@@ -1274,7 +1275,7 @@ footer a:visited {
 
 footer a:hover,
 footer a:focus {
-    color: #fff;
+    color: #f06000;
 }
 
 
@@ -1357,5 +1358,5 @@ footer .social-links li:first-child {
 }
 
 #go-top a:hover {
-    background-color: #0F9095;
+    background-color: #f06000;
 }
