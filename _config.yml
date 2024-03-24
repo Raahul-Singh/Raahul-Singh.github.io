@@ -1,7 +1,7 @@
 # Site Settings
-name: Raahul's Blog
-title: Test
-description: Let's see if this works
+name: The Melange
+title: The Melange - What We Keep from Life's Many Wonders
+description: The word "Melange" refers to an assortment of disparate and often incongruous elements, much like the journey through life itself. There is so much to explore, to learn, to discover, to understand, and hopefully when my time comes, to leave behind. This particular melange belongs to me, and I wish to fill it with everything I fall in love with, from math, science, tech to introspective philosophy and poetry, with no defined goal or destination in mind. Tolkien once said, "Not all who wander are lost." Perhaps, one must wander to not be lost.
 tags:
   - blog
   - template
@@ -18,22 +18,17 @@ menu:
     url: /contact
   - title: Feed
     url: /feed.xml
-email: youremail@test.com
-# See: https://disqus.com/
-disqus_username: disqus_username
-# Contact Form Setting
-# See: https://formspree.io/
-formspree_form_id: formspree_form_id
+email: raahulsingh002@gmail.com
 
 
 # Social Media Settings
 # Remove the item if you don't need it
-github_username: github_username
-facebook_username: facebook_username
-twitter_username: twitter_username
-instagram_username: instagram_username
-linkedin_username: linkedin_username
-medium_username: medium_username
+github_username: Raahul-Singh
+# facebook_username: facebook_username
+twitter_username: raahulsingh42
+instagram_username: raahul.singh42
+linkedin_username: raahulsingh42
+medium_username: raahulsingh42
 
 
 # Posts Settings

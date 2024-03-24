@@ -2,18 +2,13 @@
 layout: page
 menu: false
 date: '2020-02-27 01:53:59'
-title: About
+title: What is "The Melange"?
 description: Some description.
 permalink: /about/
 ---
 
 <img class="img-rounded" src="/assets/img/uploads/profile.png" alt="Thomas A. Anderson" width="200">
 
-# About
+# What is "The Melange"?
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The word "Melange" refers to an assortment of disparate and often incongruous elements, much like the journey through life itself. There is so much to explore, to learn, to discover, to understand, and hopefully when my time comes, to leave behind. This particular melange belongs to me, and I wish to fill it with everything I fall in love with, from math, science, tech to introspective philosophy and poetry, with no defined goal or destination in mind. Tolkien once said, "Not all who wander are lost." Perhaps, one must wander to not be lost.
