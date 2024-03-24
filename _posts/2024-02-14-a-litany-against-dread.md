@@ -1,11 +1,11 @@
 ---
-date: 2024-03-24 11:45:45
+date: 2024-02-14 23:45:45
 layout: post
 title: "A Litany Against Dread"
 subtitle: "On building and leaving something behind"
 description: "A Litany Against Dread. On the drive that makes us human. On purpose, on being alive."
-image: assets/img/uploads/astro.jpg
-optimized_image: assets/img/uploads/astro.jpg
+image: https://res.cloudinary.com/dw7todqug/image/upload/v1711282064/honyvklz3n1zakcg5bqj.jpg
+optimized_image: https://res.cloudinary.com/dw7todqug/image/upload/v1711282064/honyvklz3n1zakcg5bqj.jpg
 category: life
 tags:
   - musings
