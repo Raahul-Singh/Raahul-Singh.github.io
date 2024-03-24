@@ -1,5 +1,5 @@
 ---
-date: 2024-02-14 23:45:45
+date: 2024-02-13 23:45:45
 layout: post
 title: "A Litany Against Dread"
 subtitle: "On building and leaving something behind"
