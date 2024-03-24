@@ -9,7 +9,7 @@ optimized_image: https://res.cloudinary.com/dw7todqug/image/upload/v1711282064/h
 category: life
 tags:
   - musings
-
+  - late night writing
 author: raahul
 paginate: false
 ---
