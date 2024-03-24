@@ -1,3 +1,8 @@
+# NOTE:
+This theme was cloned from [jekflix-template](https://github.com/thiagorossener/jekflix-template)
+Huge thanks to @thiagorossener for this!
+
+
 # Home
 
 Welcome to the *Jekflix Template* docs!
