@@ -1,224 +1,151 @@
-# Jekflix Template
+# Personal Essays Website
 
-![Jekflix Template Cover Image](https://res.cloudinary.com/dm7h7e8xj/image/upload/v1505354182/jekflix-logo_mfngps.png)
-
-See the [demo here](https://jekflix.rossener.com/).
-
-## What is it?
-
-A theme for Jekyll inspired by Netflix panel for who loves movies and series and would like to have a blog with this cool appearance.
-
-![Jekflix Screenshot Image](https://res.cloudinary.com/dm7h7e8xj/image/upload/v1566390829/jekflix-screenshot-2_zfiog2.jpg)
+This is a personal website inspired by [gwern.net](https://gwern.net) for publishing essays with mathematics and interactive visualizations.
 
 ## Features
 
-- [Live Search](docs/features.md#live-search)
-- [Estimated Reading Time](docs/features.md#estimated-reading-time)
-- [Reading Progress Bar](docs/features.md#reading-progress-bar) *(optional)*
-- ["New Post" tag](docs/features.md#new-post-tag)
-- [Load images on demand](docs/features.md#load-images-on-demand)
-- [Push Menu](docs/features.md#push-menu)
-- [SVG icons](docs/features.md#svg-icons)
-- [Shell script to create posts](docs/features.md#shell-script-to-create-posts)
-- [Tags page](docs/features.md#tags-page)
-- [About page](docs/features.md#about-page)
-- [Contact page](docs/features.md#contact-page)
-- [404 error page](docs/features.md#404-error-page)
-- [Feed RSS](docs/features.md#feed-rss)
-- [Disqus](docs/features.md#disqus) *(optional)*
-- [Featured post](docs/features.md#featured-post) *(optional)*
-- [Home page pagination](docs/features.md#home-page-pagination) *(optional)*
-- [Posts sidebar](docs/features.md#posts-sidebar) *(optional)*
-- [Paginated posts](docs/features.md#paginated-posts) *(optional)*
-- ["Before you go" modal](docs/features.md#before-you-go-modal) *(optional)*
-- [Post recommendation](docs/features.md#post-recommendation)
-- [Netlify CMS ready](docs/features.md#netlify-cms-ready)
-- [Translations](docs/setup.md#translations) **new!**
-- [Math Expressions](docs/features.md#math-expressions) *(optional)* **new!**
+- Clean, minimalist design optimized for reading
+- Dark mode support with persistent theme preference
+- Mathematical typesetting with MathJax
+- Interactive visualizations with Plotly.js
+- Markdown support for easy content creation
+- Mobile-friendly responsive design
 
-## SEO
+## Writing New Essays
 
-- Google Analytics
-- Meta tags
-- JSON-LD
-- Sitemap.xml
-- Social Media ready
+Essays are written in Markdown format with YAML front matter, stored in the `markdown-essays` directory.
 
-## Quick Install
+### Essay Structure
 
-In the case you're installing to existing Jekyll project, add this line to your project's `Gemfile`:
+Each essay should be a Markdown file with the following structure:
 
-```
-gem "jekflix"
-```
-
-Add this line to your project's `_config.yml`:
-
-```
-theme: jekflix
-```
-
-And then run:
-
-```
-$ bundle
-```
-
-Or install it yourself as:
-
-```
-$ gem install jekflix
-```
-
-### Theme Colors
-
-Create the file `/assets/css/styles.scss` and add:
-
-```
+```markdown
 ---
+title: Your Essay Title
+date: YYYY-MM-DD
+tags: [Tag1, Tag2, Tag3]
 ---
 
-$themeColor: #ff0a16;
-$primaryDark: #141414;
-$accentDark: #ffffff;
-$lightGray: #f2f2f2;
-$texts: #333333;
+## Abstract
 
-@import "jekflix";
+A brief summary of your essay.
+
+## Introduction
+
+Your introduction here.
+
+## Section Title
+
+Your content with $E = mc^2$ inline math and:
+
+$$\int_{a}^{b} f(x) \, dx = F(b) - F(a)$$
+
+And so on...
+
+## References
+
+1. Author, A. (Year). Title of the work. Publisher.
 ```
 
-Modify the variables above to change your theme colors.
+### Adding a New Essay
 
-### Site configuration
+1. Create a new Markdown file in the `markdown-essays` directory
+2. Add the front matter with title, date, and tags
+3. Write your essay content using Markdown
+4. Add a link to your essay in `essays.html`
 
-Below are some properties you can change in your project `_config.yml`, check the [documentation](docs/settings.md#settings) for more details.
+### Using the Essay Generator
 
-```
-# Site Settings
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
-description: Jekflix is a template for Jekyll inspired by Netflix and made by Thiago Rossener.
-tags:
-  - blog
-  - template
-  - jekyll
-  - theme
-  - netlify
-email: youremail@xyz.com
-disqus_username: disqus_username
-show_hero: true
-menu:
-  - title: Home
-    url: /
-  - title: About
-    url: /about
-  - title: Contact
-    url: /contact
-  - title: Feed
-    url: /feed.xml
+You can create new essays in two ways:
 
-# Social Media Settings
-# Remove the item if you don't need it
-github_username: github_username
-facebook_username: facebook_username
-twitter_username: twitter_username
-instagram_username: instagram_username
-linkedin_username: linkedin_username
-medium_username: medium_username
+#### Method 1: Using the Terminal Script
 
-# Posts Settings
-show_time_bar: true
-show_modal_on_exit: false
-show_modal_on_finish_post: true
-two_columns_layout: true
+Run the `create-essay.js` script to generate a new essay:
 
-# Advanced Settings
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-google_analytics: "UA-XXXXXXXX-X"
-language: "en"
-categories_folder: category
-sent_message_url: "/contact/message-sent/"
+```bash
+# With all arguments provided:
+./create-essay.js filename "Essay Title" "Tag1,Tag2,Tag3"
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-permalink: /:title/
-collections:
-  authors:
-    output: true
-paginate_path: "/page/:num/"
-show_get_theme_btn: true
-use_logo: false
-
-# Content paginator
-paginate_content:
-  enabled: true
-  debug: false
-  collections:
-    - posts
-  auto: false
-  separator: "--page-break--"
-  permalink: "/:num/"
-  seo_canonical: true
-  properties:
-    part:
-      is_generated: true
-    last:
-      is_generated: true
-    single:
-      is_generated: true
-
-# SASS
-sass:
-  style: compressed
-
-# Plugins
-plugins:
-  - jekyll-paginate
-  - jekyll-paginate-content
+# Or interactively:
+./create-essay.js
 ```
 
-## Setup
+The script will:
+1. Create a new Markdown file with the proper template
+2. Provide HTML code to add to essays.html
 
-In the case you're cloning this repo, follow those instructions:
+#### Method 2: Using the Browser Console
 
-- [Environment](docs/setup.md#environment)
-- [Installing template](docs/setup.md#installing-template)
-- [Running local](docs/setup.md#running-local)
+For convenience, you can also use the essay template generator from your browser's console:
 
-### Customization
+1. Open your website in a browser
+2. Open the developer tools (F12 or Ctrl+Shift+I)
+3. In the console tab, run:
 
-See the [settings documentation](docs/settings.md#settings) to customize layout, titles, social media and more.
+```javascript
+generateNewEssayTemplate('file-name', 'Essay Title', ['Tag1', 'Tag2'])
+```
 
-### Theme
+4. Copy the generated Markdown template and save it as `markdown-essays/file-name.md`
+5. Copy the HTML snippet and add it to the appropriate section in `essays.html`
 
-You can easily change the theme colors by changing the file `src/yml/theme.yml`, then running `gulp build` in your terminal.
+## Mathematics Support
 
-#### GitHub pages
+You can use LaTeX syntax for mathematical formulas:
 
-It's a known issue that you can't run Gulp when deploying the website into GitHub pages. So, you must change the theme colors and run `gulp build` locally, then push the changes into your repo, there is no other way.
+- Inline math: `$E = mc^2$`
+- Display math: `$$\int_{0}^{1} x^2 dx = \frac{1}{3}$$`
 
-To see how your website is going to look like when you deploy it, run `bundle exec jekyll serve` locally and access `http://127.0.0.1:4000/`.
+## Interactive Visualizations
 
-## Posts
+To add a Plotly visualization:
 
-Use the [Front Matter properties](docs/post.md#front-matter-properties) to create posts.
+1. Create a container div with an ID:
 
-> **Note:** In the case you're cloning this repo, you can use the available [script](docs/post.md#creating-a-post) to generate posts automatically.
+```html
+<div id="myPlot" style="width:100%; height:400px;"></div>
+```
 
-## Questions?
+2. Add JavaScript code to initialize the plot:
 
-File a [GitHub issue](https://github.com/thiagorossener/jekflix-template/issues/new) please.
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    // Plot data and configuration
+    const data = [
+        {
+            x: [1, 2, 3, 4],
+            y: [10, 15, 13, 17],
+            type: 'scatter'
+        }
+    ];
+    
+    const layout = {
+        title: 'My Plot'
+    };
+    
+    Plotly.newPlot('myPlot', data, layout);
+});
+```
 
-## Author
+## Deployment
 
-[Thiago Rossener](https://rossener.com/)
+This site is designed to be hosted on GitHub Pages. Just push your changes to the GitHub repository and they will be automatically deployed.
 
-Do you like my work? Buy me a coffee!
+## Customization
 
-<a href="https://www.buymeacoffee.com/thiagorossener" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+To personalize the site:
 
-## License
+1. Update your name and information in the HTML files
+2. Customize the CSS in `css/style.css`
+3. Add your own logo or profile picture if desired
 
-*Jekflix Template* is available under the MIT license. See the [LICENSE](https://github.com/thiagorossener/jekflix-template/blob/master/LICENSE) file for more info.
+## Dark Mode
+
+The site includes a dark mode toggle that:
+
+1. Respects the user's system preference by default
+2. Allows manual toggling between light and dark themes
+3. Remembers the user's preference in local storage
+4. Adjusts MathJax rendering for dark mode
+
+The toggle appears in the top-right corner of every page. 

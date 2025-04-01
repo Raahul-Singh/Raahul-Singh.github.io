@@ -3,28 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Essays</title>
-    <meta name="description" content="A collection of essays and writings on various topics including tech, science, and philosophy.">
+    <title>About - Your Name</title>
+    <meta name="description" content="About me and this personal website.">
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Theme script early load to prevent flashing -->
     <script src="js/theme.js"></script>
-    
-    <!-- MathJax for LaTeX support -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true,
-                processEnvironments: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Fix for navigation issues -->
     <script>
@@ -69,30 +53,66 @@
     </header>
 
     <main>
-        <article class="intro">
-            <h2>Welcome</h2>
-            <p>This is a personal website dedicated to essays and writings on various topics including technology, science, and philosophy.</p>
-            <p>Example equation: $E = mc^2$ and a displayed equation:</p>
-            <p>
-                $$
-                \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-                $$
-            </p>
+        <article>
+            <h1>About</h1>
+            
+            <section>
+                <h2>About Me</h2>
+                <p>
+                    Hello! I'm [Your Name], a [your profession/interests] with a passion for [topics you're interested in].
+                    This personal website serves as a repository for my essays, research, and thoughts on various topics.
+                </p>
+                <p>
+                    My background is in [your background]. I'm particularly interested in [specific interests],
+                    and I enjoy exploring these topics through writing and visualization.
+                </p>
+            </section>
+            
+            <section>
+                <h2>About This Site</h2>
+                <p>
+                    This site is inspired by the design and philosophy of <a href="https://gwern.net" target="_blank">gwern.net</a>.
+                    I value clear presentation of complex ideas, with proper mathematical notation when needed and
+                    interactive visualizations to aid understanding.
+                </p>
+                <p>
+                    The site is built with HTML, CSS, and JavaScript, with the following libraries:
+                </p>
+                <ul>
+                    <li><a href="https://www.mathjax.org/" target="_blank">MathJax</a> - For rendering mathematical equations</li>
+                    <li><a href="https://plotly.com/javascript/" target="_blank">Plotly.js</a> - For interactive data visualizations</li>
+                </ul>
+                <p>
+                    The site is hosted on GitHub Pages, and the content is version-controlled. You can view the source code
+                    <a href="https://github.com/yourusername/yourusername.github.io" target="_blank">on GitHub</a>.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Contact</h2>
+                <p>
+                    You can reach me via:
+                </p>
+                <ul>
+                    <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+                    <li>Twitter: <a href="https://twitter.com/yourusername" target="_blank">@yourusername</a></li>
+                    <li>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Future Plans</h2>
+                <p>
+                    In the future, I plan to:
+                </p>
+                <ul>
+                    <li>Add more essays on [topics]</li>
+                    <li>Improve the site's design and user experience</li>
+                    <li>Incorporate more interactive elements and visualizations</li>
+                    <li>Potentially add a commenting system or newsletter</li>
+                </ul>
+            </section>
         </article>
-
-        <section class="featured-essays">
-            <h2>Featured Essays</h2>
-            <ul class="essay-list">
-                <li>
-                    <a href="essay-template.html?essay=sample-essay">
-                        <h3>Sample Essay Title</h3>
-                        <time datetime="2023-01-01">January 1, 2023</time>
-                        <p>A brief description of the essay and its main points...</p>
-                    </a>
-                </li>
-                <!-- More essays would be listed here -->
-            </ul>
-        </section>
     </main>
 
     <footer>
@@ -106,6 +126,5 @@
         </script>
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/new-essay.js"></script>
 </body>
 </html> 

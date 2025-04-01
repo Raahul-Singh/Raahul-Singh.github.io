@@ -3,28 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Essays</title>
-    <meta name="description" content="A collection of essays and writings on various topics including tech, science, and philosophy.">
+    <title>Essay - Your Name</title>
+    <meta name="description" content="An essay from Your Name's personal website.">
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Theme script early load to prevent flashing -->
     <script src="js/theme.js"></script>
-    
-    <!-- MathJax for LaTeX support -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true,
-                processEnvironments: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Fix for navigation issues -->
     <script>
@@ -45,6 +29,25 @@
             sessionStorage.removeItem('navigating');
         }
     </script>
+    
+    <!-- MathJax for LaTeX support -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Plotly.js for interactive plots -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <header>
@@ -69,30 +72,20 @@
     </header>
 
     <main>
-        <article class="intro">
-            <h2>Welcome</h2>
-            <p>This is a personal website dedicated to essays and writings on various topics including technology, science, and philosophy.</p>
-            <p>Example equation: $E = mc^2$ and a displayed equation:</p>
-            <p>
-                $$
-                \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-                $$
-            </p>
-        </article>
+        <article>
+            <header>
+                <h1>Essay Title</h1>
+                <time datetime="2023-01-01">January 1, 2023</time>
+                <div class="tags">
+                    <!-- Tags will be populated by JavaScript -->
+                </div>
+            </header>
 
-        <section class="featured-essays">
-            <h2>Featured Essays</h2>
-            <ul class="essay-list">
-                <li>
-                    <a href="essay-template.html?essay=sample-essay">
-                        <h3>Sample Essay Title</h3>
-                        <time datetime="2023-01-01">January 1, 2023</time>
-                        <p>A brief description of the essay and its main points...</p>
-                    </a>
-                </li>
-                <!-- More essays would be listed here -->
-            </ul>
-        </section>
+            <!-- This div will be populated with the content from the markdown file -->
+            <div id="markdown-content" data-markdown-path="">
+                <p>Loading essay content...</p>
+            </div>
+        </article>
     </main>
 
     <footer>
@@ -105,7 +98,24 @@
             document.getElementById('current-year').textContent = new Date().getFullYear();
         </script>
     </footer>
+
     <script src="js/main.js"></script>
-    <script src="js/new-essay.js"></script>
+    <script src="js/markdown-parser.js"></script>
+    
+    <script>
+        // Set the markdown path based on the URL parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const essayPath = urlParams.get('essay');
+            
+            if (essayPath) {
+                const markdownContainer = document.getElementById('markdown-content');
+                markdownContainer.setAttribute('data-markdown-path', 'markdown-essays/' + essayPath + '.md');
+            } else {
+                document.getElementById('markdown-content').innerHTML = 
+                    '<p class="error">No essay specified. Please select an essay from the <a href="essays.html">essays page</a>.</p>';
+            }
+        });
+    </script>
 </body>
 </html> 

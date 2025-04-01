@@ -3,28 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Essays</title>
-    <meta name="description" content="A collection of essays and writings on various topics including tech, science, and philosophy.">
+    <title>Essays - Your Name</title>
+    <meta name="description" content="A collection of essays on various topics including mathematics, technology, and philosophy.">
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Theme script early load to prevent flashing -->
     <script src="js/theme.js"></script>
-    
-    <!-- MathJax for LaTeX support -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true,
-                processEnvironments: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <!-- Fix for navigation issues -->
     <script>
@@ -69,28 +53,52 @@
     </header>
 
     <main>
-        <article class="intro">
-            <h2>Welcome</h2>
-            <p>This is a personal website dedicated to essays and writings on various topics including technology, science, and philosophy.</p>
-            <p>Example equation: $E = mc^2$ and a displayed equation:</p>
-            <p>
-                $$
-                \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-                $$
-            </p>
-        </article>
-
-        <section class="featured-essays">
-            <h2>Featured Essays</h2>
+        <h1>Essays</h1>
+        
+        <p class="intro">
+            This page catalogs my essays on various topics. I use mathematical notation where appropriate
+            and include interactive visualizations to help explain complex concepts.
+        </p>
+        
+        <section>
+            <h2>Mathematical Essays</h2>
             <ul class="essay-list">
                 <li>
                     <a href="essay-template.html?essay=sample-essay">
-                        <h3>Sample Essay Title</h3>
+                        <h3>Sample Essay With Mathematics</h3>
                         <time datetime="2023-01-01">January 1, 2023</time>
-                        <p>A brief description of the essay and its main points...</p>
+                        <p>A demonstration of mathematical formulas and interactive plots using MathJax and Plotly.</p>
+                        <div class="tags">
+                            <span class="tag">Mathematics</span>
+                            <span class="tag">Data Visualization</span>
+                        </div>
                     </a>
                 </li>
-                <!-- More essays would be listed here -->
+                <!-- More essays would be added here as you write them -->
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Technology Essays</h2>
+            <ul class="essay-list">
+                <li>
+                    <span class="coming-soon">Coming Soon</span>
+                    <h3>Future Technology Essay</h3>
+                    <p>This is a placeholder for future essays on technology topics.</p>
+                </li>
+                <!-- More essays would be added here as you write them -->
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Philosophy Essays</h2>
+            <ul class="essay-list">
+                <li>
+                    <span class="coming-soon">Coming Soon</span>
+                    <h3>Future Philosophy Essay</h3>
+                    <p>This is a placeholder for future essays on philosophical topics.</p>
+                </li>
+                <!-- More essays would be added here as you write them -->
             </ul>
         </section>
     </main>
@@ -106,6 +114,5 @@
         </script>
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/new-essay.js"></script>
 </body>
 </html> 
