@@ -1,151 +1,60 @@
-# Personal Essays Website
+# Raahul Singh's Personal Website
 
-This is a personal website inspired by [gwern.net](https://gwern.net) for publishing essays with mathematics and interactive visualizations.
+This is the source code for my personal website where I share essays and projects. The site is built with plain HTML, CSS, and JavaScript.
 
 ## Features
 
-- Clean, minimalist design optimized for reading
-- Dark mode support with persistent theme preference
-- Mathematical typesetting with MathJax
-- Interactive visualizations with Plotly.js
-- Markdown support for easy content creation
-- Mobile-friendly responsive design
+- Responsive design that works on desktop and mobile
+- Dark mode toggle with automatic system preference detection
+- Clean, content-focused layout
+- Markdown-based essay system
+- MathJax integration for mathematical notation
+- Resume download functionality
+- Contact form for direct communication
+- Smooth page transitions
 
-## Writing New Essays
+## Structure
 
-Essays are written in Markdown format with YAML front matter, stored in the `markdown-essays` directory.
+- `index.html` - Home page
+- `essays.html` - Collection of all essays
+- `about.html` - About me page
+- `contact.html` - Contact form and information
+- `essay-template.html` - Template for individual essays
+- `css/` - Stylesheets
+- `js/` - JavaScript files
+- `markdown-essays/` - Markdown files for essays
+- `assets/` - Resume and other downloadable files
 
-### Essay Structure
+## Local Development
 
-Each essay should be a Markdown file with the following structure:
+To run the website locally:
 
-```markdown
----
-title: Your Essay Title
-date: YYYY-MM-DD
-tags: [Tag1, Tag2, Tag3]
----
+1. Clone this repository
+2. Open `index.html` in your browser
 
-## Abstract
-
-A brief summary of your essay.
-
-## Introduction
-
-Your introduction here.
-
-## Section Title
-
-Your content with $E = mc^2$ inline math and:
-
-$$\int_{a}^{b} f(x) \, dx = F(b) - F(a)$$
-
-And so on...
-
-## References
-
-1. Author, A. (Year). Title of the work. Publisher.
-```
-
-### Adding a New Essay
-
-1. Create a new Markdown file in the `markdown-essays` directory
-2. Add the front matter with title, date, and tags
-3. Write your essay content using Markdown
-4. Add a link to your essay in `essays.html`
-
-### Using the Essay Generator
-
-You can create new essays in two ways:
-
-#### Method 1: Using the Terminal Script
-
-Run the `create-essay.js` script to generate a new essay:
+Or use a local server:
 
 ```bash
-# With all arguments provided:
-./create-essay.js filename "Essay Title" "Tag1,Tag2,Tag3"
+# Using Python 3
+python -m http.server
 
-# Or interactively:
-./create-essay.js
+# Or with Node.js
+npx serve
 ```
 
-The script will:
-1. Create a new Markdown file with the proper template
-2. Provide HTML code to add to essays.html
+## Contact Form Setup
 
-#### Method 2: Using the Browser Console
+The contact form uses [Formspree](https://formspree.io) for handling form submissions. To make it work:
 
-For convenience, you can also use the essay template generator from your browser's console:
+1. Sign up for a Formspree account
+2. Create a new form and replace the placeholder email in the form action URL
+3. Confirm your email with Formspree
 
-1. Open your website in a browser
-2. Open the developer tools (F12 or Ctrl+Shift+I)
-3. In the console tab, run:
+## Acknowledgments
 
-```javascript
-generateNewEssayTemplate('file-name', 'Essay Title', ['Tag1', 'Tag2'])
-```
+This website was created with the assistance of [Cursor](https://cursor.sh/), an AI-powered code editor. The use of Cursor greatly enhanced the development process, allowing for more efficient implementation of features and design elements.
 
-4. Copy the generated Markdown template and save it as `markdown-essays/file-name.md`
-5. Copy the HTML snippet and add it to the appropriate section in `essays.html`
+## Contact
 
-## Mathematics Support
-
-You can use LaTeX syntax for mathematical formulas:
-
-- Inline math: `$E = mc^2$`
-- Display math: `$$\int_{0}^{1} x^2 dx = \frac{1}{3}$$`
-
-## Interactive Visualizations
-
-To add a Plotly visualization:
-
-1. Create a container div with an ID:
-
-```html
-<div id="myPlot" style="width:100%; height:400px;"></div>
-```
-
-2. Add JavaScript code to initialize the plot:
-
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-    // Plot data and configuration
-    const data = [
-        {
-            x: [1, 2, 3, 4],
-            y: [10, 15, 13, 17],
-            type: 'scatter'
-        }
-    ];
-    
-    const layout = {
-        title: 'My Plot'
-    };
-    
-    Plotly.newPlot('myPlot', data, layout);
-});
-```
-
-## Deployment
-
-This site is designed to be hosted on GitHub Pages. Just push your changes to the GitHub repository and they will be automatically deployed.
-
-## Customization
-
-To personalize the site:
-
-1. Update your name and information in the HTML files
-2. Customize the CSS in `css/style.css`
-3. Add your own logo or profile picture if desired
-
-## Dark Mode
-
-The site includes a dark mode toggle that:
-
-1. Respects the user's system preference by default
-2. Allows manual toggling between light and dark themes
-3. Remembers the user's preference in local storage
-4. Adjusts MathJax rendering for dark mode
-
-The toggle appears in the top-right corner of every page. 
+Email: [raahulsingh002@gmail.com](mailto:raahulsingh002@gmail.com)
+GitHub: [Raahul-Singh](https://github.com/Raahul-Singh) 

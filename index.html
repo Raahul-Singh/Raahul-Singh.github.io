@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Essays</title>
-    <meta name="description" content="A collection of essays and writings on various topics including tech, science, and philosophy.">
+    <title>Raahul Singh</title>
+    <meta name="description" content="Personal website of Raahul Singh, featuring essays and projects.">
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Theme script early load to prevent flashing -->
     <script src="js/theme.js"></script>
+    
+    <!-- Central navigation handler -->
+    <script src="js/navigation.js"></script>
     
     <!-- MathJax for LaTeX support -->
     <script>
@@ -25,31 +28,11 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <!-- Fix for navigation issues -->
-    <script>
-        // Store page state in session storage to prevent blank pages
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mark page as loaded in session storage
-            sessionStorage.setItem('pageLoaded', 'true');
-            
-            // Listen for beforeunload event to clean up
-            window.addEventListener('beforeunload', function() {
-                sessionStorage.setItem('navigating', 'true');
-            });
-        });
-        
-        // Check if we need to reload due to failed navigation
-        if (sessionStorage.getItem('pageLoaded') === 'true' && 
-            sessionStorage.getItem('navigating') === 'true') {
-            sessionStorage.removeItem('navigating');
-        }
-    </script>
 </head>
 <body>
     <header>
         <div class="header-top">
-            <h1>Your Name</h1>
+            <h1>Raahul Singh</h1>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                 <svg class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"></path>
@@ -64,48 +47,67 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="essays.html">Essays</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <article class="intro">
+        <section class="intro">
             <h2>Welcome</h2>
-            <p>This is a personal website dedicated to essays and writings on various topics including technology, science, and philosophy.</p>
-            <p>Example equation: $E = mc^2$ and a displayed equation:</p>
             <p>
-                $$
-                \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
-                $$
+                I'm Raahul Singh, and this is my personal website where I share my thoughts, 
+                ideas, and projects. Feel free to explore my essays and learn more about me.
             </p>
-        </article>
+            <p>
+                You can contact me at <a href="mailto:raahulsingh002@gmail.com">raahulsingh002@gmail.com</a>
+                or check out my professional background in the <a href="about.html">About</a> section where you can 
+                also download my resume.
+            </p>
+            <div class="home-actions">
+                <a href="about.html#about-me" class="btn btn-primary">
+                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    About Me
+                </a>
+                <a href="assets/Raahul-Singh-Resume.pdf" download class="btn btn-primary">
+                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                        <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm9 4v-2H3v2h18z"/>
+                    </svg>
+                    Download Resume
+                </a>
+            </div>
+        </section>
 
-        <section class="featured-essays">
-            <h2>Featured Essays</h2>
+        <section class="recent-essays">
+            <h2>Recent Essays</h2>
             <ul class="essay-list">
                 <li>
                     <a href="essay-template.html?essay=sample-essay">
-                        <h3>Sample Essay Title</h3>
+                        <span class="essay-title">Sample Essay</span>
                         <time datetime="2023-01-01">January 1, 2023</time>
-                        <p>A brief description of the essay and its main points...</p>
                     </a>
                 </li>
-                <!-- More essays would be listed here -->
+                <!-- More essays will be added here -->
             </ul>
+            <p><a href="essays.html">View all essays →</a></p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year">2023</span> Your Name</p>
+        <p>&copy; <span id="current-year">2023</span> Raahul Singh</p>
         <p>
-            <a href="https://github.com/yourusername">GitHub</a> • 
-            <a href="https://twitter.com/yourusername">Twitter</a>
+            <a href="https://github.com/Raahul-Singh">GitHub</a>
+        </p>
+        <p class="acknowledgement">
+            Created with the assistance of <a href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">Cursor</a>
         </p>
         <script>
             document.getElementById('current-year').textContent = new Date().getFullYear();
         </script>
     </footer>
+
     <script src="js/main.js"></script>
-    <script src="js/new-essay.js"></script>
 </body>
 </html> 
