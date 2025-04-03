@@ -4,8 +4,9 @@
   "description": "Personal essays website inspired by gwern.net",
   "main": "index.js",
   "scripts": {
-    "start": "npx serve",
-    "create-essay": "node create-essay.js"
+    "start": "npm run generate-essays && npx serve",
+    "create-essay": "node create-essay.js",
+    "generate-essays": "node generate-essays-json.js"
   },
   "keywords": [
     "essays",

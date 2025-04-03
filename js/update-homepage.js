@@ -13,12 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateRecentContent() {
     console.log('Updating recent content on homepage...');
     
-    // Update recent essays with known files (most recent first)
-    updateWithKnownFiles('essays', [
-        { id: 'sample-philosophy-essay', title: 'Sample Philosophy Essay', date: '2023-03-01' },
-        { id: 'sample-tech-essay', title: 'Sample Technology Essay', date: '2023-02-01' },
-        { id: 'sample-essay', title: 'Sample Mathematics Essay', date: '2023-01-01' }
-    ]);
+    // Update recent essays by scanning the essays directory
+    updateEssays();
     
     // Update recent books with known files (most recent first)
     updateWithKnownFiles('books', [
@@ -26,6 +22,52 @@ function updateRecentContent() {
         { id: 'sample-nonfiction-book', title: 'Sample Non-Fiction Book', author: 'Author Name', date: '2023-01-01', cover_image: 'https://via.placeholder.com/300x450/e0f0ff/333333?text=Sample+Non-Fiction+Book' },
         { id: 'sample-book', title: 'Sample Book', author: 'Author Name', date: '2023-01-01', cover_image: 'https://via.placeholder.com/300x450/f5f5f5/333333?text=Sample+Book' }
     ]);
+}
+
+/**
+ * Updates the essays section by reading from essays.json
+ */
+function updateEssays() {
+    const container = document.querySelector('.recent-essays .essay-list');
+    
+    if (!container) {
+        console.error('Essays container not found');
+        return;
+    }
+    
+    console.log('Updating recent essays from essays.json');
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Load essays from the JSON file
+    fetch('essays.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load essays.json: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(essays => {
+            console.log(`Loaded ${essays.length} essays from essays.json for homepage`);
+            
+            if (essays.length === 0) {
+                container.innerHTML = '<li>No recent essays available.</li>';
+                return;
+            }
+            
+            // Display the most recent essays (limit to 3)
+            const limit = 3;
+            essays.slice(0, limit).forEach(essay => {
+                addContentItem(container, 'essays', essay);
+            });
+            
+            console.log(`Added ${Math.min(essays.length, limit)} essays to home page`);
+        })
+        .catch(error => {
+            console.error('Error loading essays for homepage:', error);
+            container.innerHTML = '<li class="error-message">Failed to load recent essays.</li>';
+        });
 }
 
 /**

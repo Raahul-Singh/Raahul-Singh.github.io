@@ -25,7 +25,7 @@ This is the source code for my personal website where I share essays and project
 - `book-template.html` - Template for individual book notes
 - `css/` - Stylesheets
 - `js/` - JavaScript files
-- `markdown-essays/` - Markdown files for essays
+- `essays/` - Markdown files for essays
 - `markdown-books/` - Markdown files for book notes
 - `assets/` - Resume and other downloadable files
 
@@ -44,7 +44,7 @@ node create-essay.js filename "Essay Title" "tag1,tag2,tag3"
 ```
 
 The script will:
-1. Create a new Markdown file in the `markdown-essays/` directory
+1. Create a new Markdown file in the `essays/` directory
 2. Generate a frontmatter template with title, date, and tags
 3. Include placeholder sections for your essay content
 4. Output the HTML code you can add to `essays.html` to link to your new essay

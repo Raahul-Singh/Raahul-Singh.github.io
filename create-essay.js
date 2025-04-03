@@ -3,14 +3,15 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const generateEssaysJson = require('./generate-essays-json');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-// Create the markdown-essays directory if it doesn't exist
-const essayDir = path.join(__dirname, 'markdown-essays');
+// Create the essays directory if it doesn't exist
+const essayDir = path.join(__dirname, 'essays');
 if (!fs.existsSync(essayDir)) {
   fs.mkdirSync(essayDir, { recursive: true });
 }
@@ -26,13 +27,16 @@ function generateEssay() {
   const dateString = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
   
   // Parse tags
-  const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()) : [];
+  const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+  
+  // Create the tags section for frontmatter
+  const tagsSection = tags.length > 0 ? `tags: [${tags.join(', ')}]` : 'tags: []';
   
   // Create the markdown template
   const template = `---
 title: ${title}
 date: ${dateString}
-tags: [${tags.join(', ')}]
+${tagsSection}
 ---
 
 ## Abstract
@@ -51,25 +55,13 @@ Write your introduction here. Explain the topic and why it's interesting or impo
   
   console.log(`\nCreated new essay: ${filePath}`);
   
-  // Create HTML for essays.html
-  const month = today.toLocaleString('default', { month: 'long' });
-  const day = today.getDate();
-  const year = today.getFullYear();
-  const formattedDate = `${month} ${day}, ${year}`;
-  
-  const htmlListItem = `<li>
-    <a href="essay-template.html?essay=${filename}">
-        <h3>${title}</h3>
-        <time datetime="${dateString}">${formattedDate}</time>
-        <p>Brief description of the essay...</p>
-        <div class="tags">
-            ${tags.map(tag => `<span class="tag">${tag}</span>`).join('\n            ')}
-        </div>
-    </a>
-</li>`;
-
-  console.log('\nHTML for essays.html:');
-  console.log(htmlListItem);
+  // Generate the essays.json file
+  console.log('\nUpdating essays.json file...');
+  if (generateEssaysJson()) {
+    console.log('The essay has been added to essays.json and will automatically appear on your website.');
+  } else {
+    console.log('There was an error updating essays.json. Your essay might not appear on the website.');
+  }
   
   rl.close();
 }
@@ -91,8 +83,8 @@ function promptForMissingInfo() {
     return;
   }
   
-  if (!tagsInput) {
-    rl.question('Enter tags (comma-separated): ', answer => {
+  if (tagsInput === undefined) {
+    rl.question('Enter tags (comma-separated, or press Enter for no tags): ', answer => {
       tagsInput = answer.trim();
       promptForMissingInfo();
     });
@@ -106,6 +98,6 @@ function promptForMissingInfo() {
 promptForMissingInfo();
 
 // If all arguments are provided, generate the essay immediately
-if (filename && title && tagsInput) {
+if (filename && title && tagsInput !== undefined) {
   generateEssay();
 } 
