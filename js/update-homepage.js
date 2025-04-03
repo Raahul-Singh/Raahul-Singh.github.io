@@ -3,12 +3,16 @@
  * based on the available markdown files in the respective directories.
  */
 
+// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Update homepage: Initializing...');
     updateRecentContent();
 });
 
 // Main function to update both books and essays
 function updateRecentContent() {
+    console.log('Updating recent content on homepage...');
+    
     // Update recent essays with known files (most recent first)
     updateWithKnownFiles('essays', [
         { id: 'sample-philosophy-essay', title: 'Sample Philosophy Essay', date: '2023-03-01' },
@@ -39,6 +43,8 @@ function updateWithKnownFiles(contentType, knownFiles, limit = 3) {
         return;
     }
     
+    console.log(`Found container for ${contentType}: ${containerSelector}`);
+    
     // Clear existing content
     container.innerHTML = '';
     
@@ -46,6 +52,8 @@ function updateWithKnownFiles(contentType, knownFiles, limit = 3) {
     knownFiles.slice(0, limit).forEach(item => {
         addContentItem(container, contentType, item);
     });
+    
+    console.log(`Added ${Math.min(knownFiles.length, limit)} ${contentType} to home page`);
 }
 
 /**

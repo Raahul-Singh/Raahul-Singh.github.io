@@ -1,6 +1,25 @@
 // Main JavaScript file for the website
 
+// Social links are handled separately in social-links.js
+// We don't need to import, as social-links.js self-initializes
+
+/**
+ * Initialize everything when the DOM is loaded
+ */
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Main.js: DOM loaded, initializing...');
+    
+    // Set page ready class for transition effect
+    setTimeout(() => {
+        document.body.classList.add('page-ready');
+    }, 50);
+    
+    // Update current year in the footer
+    const yearElem = document.getElementById('current-year');
+    if (yearElem) {
+        yearElem.textContent = new Date().getFullYear();
+    }
+    
     // Add a class to the body when the page is fully loaded
     document.body.classList.add('loaded');
     
@@ -31,29 +50,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Handle book and essay links with localStorage
+    setupContentLinks();
+});
+
+/**
+ * Set up event listeners for book and essay links
+ */
+function setupContentLinks() {
     // Handle book links
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.book-link')) {
+    document.querySelectorAll('.book-link').forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const bookLink = e.target.closest('.book-link');
-            const bookId = bookLink.getAttribute('data-book');
+            const bookId = this.getAttribute('data-book');
             if (bookId) {
-                localStorage.setItem('currentBookId', bookId);
-                window.location.href = 'book-template.html';
+                localStorage.setItem('selectedBook', bookId);
+                console.log(`Stored book ID: ${bookId} in localStorage`);
+                window.location.href = this.getAttribute('href');
             }
-        }
+        });
     });
     
     // Handle essay links
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.essay-link')) {
+    document.querySelectorAll('.essay-link').forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const essayLink = e.target.closest('.essay-link');
-            const essayId = essayLink.getAttribute('data-essay');
+            const essayId = this.getAttribute('data-essay');
             if (essayId) {
-                localStorage.setItem('currentEssayId', essayId);
-                window.location.href = 'essay-template.html';
+                localStorage.setItem('selectedEssay', essayId);
+                console.log(`Stored essay ID: ${essayId} in localStorage`);
+                window.location.href = this.getAttribute('href');
             }
-        }
+        });
     });
-}); 
+} 

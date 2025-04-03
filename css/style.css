@@ -294,6 +294,46 @@ header {
     margin-bottom: 1rem;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-social-links .social-links {
+    display: flex;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+.header-social-links .social-link {
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-social-links .social-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+    fill: var(--background-color);
+}
+
+.header-social-links .social-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
 header h1 {
     margin: 0;
 }
@@ -506,31 +546,31 @@ footer p {
 
 .social-links {
     display: flex;
-    justify-content: center;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 .social-link {
-    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: var(--text-light);
-    background-color: var(--text-muted);
-    transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    background-color: var(--text-color);
+}
+
+.social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--bg-color);
 }
 
 .social-link:hover {
     transform: translateY(-3px);
-}
-
-.social-icon {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
+    opacity: 0.9;
 }
 
 .github-link {
