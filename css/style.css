@@ -811,4 +811,52 @@ footer p {
 
 .essay-list a.loading .essay-title {
     color: var(--text-muted);
+}
+
+/* Profile image styles */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.profile-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .about-intro {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    
+    .profile-container {
+        flex-shrink: 0;
+        margin: 0 0 1rem 0;
+    }
+    
+    .about-text {
+        flex: 1;
+    }
 } 
