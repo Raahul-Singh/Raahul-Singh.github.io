@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raahul Singh</title>
+    <meta name="description" content="Personal website of Raahul Singh - Essays, book notes, and more.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Theme script early load to prevent flashing -->
+    <script src="js/theme.js"></script>
+    
+    <!-- Components script for common elements -->
+    <script src="js/components.js"></script>
+    
+    <!-- Central navigation handler - must be after components.js -->
+    <script src="js/navigation.js"></script>
+    
+    <!-- Social links module for rendering social icons -->
+    <script src="js/social-links.js"></script>
+</head>
+<body>
+    <!-- Header will be inserted by components.js -->
+    <header></header>
+
+    <main>
+        <section class="welcome">
+            <h1>Welcome</h1>
+            <p>This is my personal website where I share my thoughts, essays, and book notes.</p>
+        </section>
+        
+        <section class="recent">
+            <h2>Recent Books</h2>
+            <div id="recent-books" class="card-grid">
+<!-- Loading recent books... -->
+</div>
+            <p class="view-all"><a href="books.html">View all books →</a></p>
+            
+            <h2>Recent Essays</h2>
+            <div id="recent-essays" class="card-grid">
+
+        <div class="card">
+          <h3><a href="compiled/essays/lambda.html" class="essay-link">Lambda test</a></h3>
+          <p class="essay-date">April 3, 2025</p>
+          <div class="tags"><span class="tag"></span></div>
+        </div>
+      
+
+        <div class="card">
+          <h3><a href="compiled/essays/lambda2.html" class="essay-link">Lambda test 2</a></h3>
+          <p class="essay-date">April 3, 2025</p>
+          <div class="tags"><span class="tag"></span></div>
+        </div>
+      
+
+        <div class="card">
+          <h3><a href="compiled/essays/sample-tech-essay.html" class="essay-link">Sample Technology Essay</a></h3>
+          <p class="essay-date">February 1, 2023</p>
+          <div class="tags"><span class="tag">Technology</span><span class="tag">Web Development</span><span class="tag">Programming</span></div>
+        </div>
+      
+</div>
+            <p class="view-all"><a href="essays.html">View all essays →</a></p>
+        </section>
+    </main>
+
+    <!-- Footer will be inserted by components.js -->
+    <footer></footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

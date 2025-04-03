@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Raahul Singh</title>
+    <meta name="description" content="Contact information and form to get in touch with Raahul Singh.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Theme script early load to prevent flashing -->
+    <script src="js/theme.js"></script>
+    
+    <!-- Components script for common elements -->
+    <script src="js/components.js"></script>
+    
+    <!-- Central navigation handler - must be after components.js -->
+    <script src="js/navigation.js"></script>
+    
+    <!-- Social links module for rendering social icons -->
+    <script src="js/social-links.js"></script>
+</head>
+<body>
+    <!-- Header will be inserted by components.js -->
+    <header></header>
+
+    <main class="container">
+        <section id="contact-form">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-description">
+                Feel free to reach out to me with questions, opportunities, or just to say hello.
+            </p>
+            
+            <form id="contact-form" action="https://formspree.io/f/xgegvqwr" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                        <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+                    </svg>
+                    Send Message
+                </button>
+            </form>
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> <a href="mailto:raahulsingh002@gmail.com">raahulsingh002@gmail.com</a></p>
+                <p><strong>Location:</strong> San Francisco, California</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be inserted by components.js -->
+    <footer></footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.querySelector('.contact-form');
+            const formStatus = document.getElementById('form-status');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(contactForm);
+                    const action = contactForm.getAttribute('action');
+                    
+                    // Show loading status
+                    formStatus.innerHTML = '<p class="loading">Sending message...</p>';
+                    formStatus.classList.remove('hidden');
+                    
+                    fetch(action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            formStatus.innerHTML = '<p class="success">Message sent! I\'ll respond as soon as possible.</p>';
+                            contactForm.reset();
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        formStatus.innerHTML = '<p class="error">Sorry, there was a problem sending your message. Please try again or email me directly.</p>';
+                        console.error('Error:', error);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
