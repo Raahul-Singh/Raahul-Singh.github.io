@@ -23,14 +23,21 @@ function insertCommonNavigation() {
         return;
     }
     
+    // Determine if we're in a subdirectory
+    const path = window.location.pathname;
+    const isInSubdirectory = path.includes('/books/') || path.includes('/essays/');
+    
+    // Base path prefix for navigation links
+    const basePrefix = isInSubdirectory ? '../' : '';
+    
     // The common navigation HTML
     const navHTML = `
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="essays.html">Essays</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="${basePrefix}index.html">Home</a></li>
+            <li><a href="${basePrefix}essays.html">Essays</a></li>
+            <li><a href="${basePrefix}books.html">Books</a></li>
+            <li><a href="${basePrefix}about.html">About</a></li>
+            <li><a href="${basePrefix}contact.html">Contact</a></li>
         </ul>
     `;
     
@@ -44,15 +51,28 @@ function insertCommonNavigation() {
  * Highlights the current page in the navigation menu
  */
 function highlightCurrentPage() {
-    // Get the current page filename
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    // Get the current page path and filename
+    const path = window.location.pathname;
+    const currentPage = path.split('/').pop() || 'index.html';
     
     // Find the link that matches the current page
     const navLinks = document.querySelectorAll('nav a');
     
+    // Check if we're on a book or essay page
+    const isBookPage = path.includes('/books/');
+    const isEssayPage = path.includes('/essays/');
+    
     navLinks.forEach(link => {
-        // Check if the href matches the current page
-        if (link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        
+        // For book or essay detail pages, highlight the corresponding section
+        if (isBookPage && href.endsWith('books.html')) {
+            link.classList.add('active');
+        } else if (isEssayPage && href.endsWith('essays.html')) {
+            link.classList.add('active');
+        }
+        // For main pages, check the filename
+        else if (!isBookPage && !isEssayPage && href.endsWith(currentPage)) {
             link.classList.add('active');
         }
     });
