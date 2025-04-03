@@ -1,6 +1,124 @@
 # Raahul Singh's Personal Website
 
-This is the source code for my personal website where I share essays and projects. The site is built with plain HTML, CSS, and JavaScript.
+A clean, minimalist website for publishing essays and book reviews, inspired by gwern.net.
+
+## Structure
+
+The repository is organized into two main folders:
+
+1. `scripts/` - Contains all scripts for generating and maintaining content
+2. `website/` - Contains the actual website content
+
+### Scripts
+
+- `scripts/create-content.js` - Main entry point for creating new content
+- `scripts/compile.js` - Compiles JSON files from markdown content
+- `scripts/compile-static.js` - Compiles static HTML from JSON data
+- `scripts/deploy.js` - Handles GitHub Pages deployment preparation
+- `scripts/helpers/` - Helper scripts:
+  - `create-book.js` - Creates a new book review markdown file
+  - `create-essay.js` - Creates a new essay markdown file
+  - `generate-books-json.js` - Generates the books.json file from markdown files
+  - `generate-essays-json.js` - Generates the essays.json file from markdown files
+  - `markdown-parser.js` - Parses markdown to HTML
+
+### Website
+
+- `website/books/` - Book review markdown files
+- `website/essays/` - Essay markdown files
+- `website/css/` - Stylesheets
+- `website/js/` - JavaScript files
+- `website/assets/` - Images and other assets
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+### Commands
+
+- `npm start` - Compile the static website and start a local server
+- `npm run create` - Launch the content creation menu
+- `npm run create-book` - Create a new book review
+- `npm run create-essay` - Create a new essay
+- `npm run compile` - Generate JSON files from markdown
+- `npm run compile-static` - Generate static HTML pages
+- `npm run deploy` - Prepare the website for GitHub Pages deployment
+
+## Creating Content
+
+### Creating a Book Review
+
+1. Run `npm run create-book`
+2. Enter the requested information:
+   - Filename (will be used in the URL)
+   - Book title
+   - Author
+   - Tags (comma-separated)
+   - Rating (0-5, can use decimals like 4.5)
+
+### Creating an Essay
+
+1. Run `npm run create-essay`
+2. Enter the requested information:
+   - Filename (will be used in the URL)
+   - Essay title
+   - Tags (comma-separated)
+
+## Compilation Process
+
+When you run `npm run compile-static`, the following happens:
+
+1. The system scans all book and essay markdown files
+2. It extracts metadata from frontmatter and generates JSON files
+3. It generates static HTML for all pages with content from the JSON files
+4. All pages are ready to be served without any client-side content loading
+
+## Deployment to GitHub Pages
+
+This website is designed to be easily deployed to GitHub Pages.
+
+### GitHub Pages Setup
+
+1. Run `npm run compile-static` to build the static site
+2. Run `npm run deploy` to prepare for GitHub Pages deployment
+3. Go to your GitHub repository settings → Pages
+4. Select the branch where you want to deploy (e.g., gh-pages)
+5. Select the folder as `/` (root) or `/docs` depending on your setup
+6. Click Save
+
+### Manual Deployment
+
+To manually deploy to GitHub Pages:
+
+1. Run `npm run compile-static` to build the static site
+2. Use one of these methods:
+   - Create a new branch for deployment: `git checkout -b gh-pages`
+   - Use git subtree: `git subtree push --prefix website origin gh-pages`
+   - Or copy the website folder contents to your gh-pages branch
+
+### Using a Custom Domain
+
+If you have a custom domain:
+
+1. Create a file named `CNAME` in the website directory
+2. Add your domain name to this file (e.g., `yourdomain.com`)
+3. Configure your DNS provider as specified in GitHub Pages documentation
+4. In your GitHub repository settings → Pages, add your custom domain
+
+## License
+
+MIT
 
 ## Features
 
@@ -15,23 +133,6 @@ This is the source code for my personal website where I share essays and project
 - Contact form for direct communication
 - Smooth page transitions
 - Social media integration
-
-## Structure
-
-- `index.html` - Home page
-- `essays.html` - Collection of all essays
-- `books.html` - Collection of all book notes
-- `about.html` - About me page
-- `contact.html` - Contact form and information
-- `essay-template.html` - Template for individual essays
-- `book-template.html` - Template for individual book notes
-- `essays.json` - Automatically generated metadata for all essays
-- `books.json` - Automatically generated metadata for all books
-- `css/` - Stylesheets
-- `js/` - JavaScript files
-- `essays/` - Markdown files for essays
-- `books/` - Markdown files for book notes
-- `assets/` - Resume and other downloadable files
 
 ## Adding New Content
 

@@ -4,6 +4,7 @@
     "filename": "lambda.md",
     "title": "Lambda test",
     "date": "2025-04-03",
+    "status": "draft",
     "tags": [
       ""
     ]
@@ -13,6 +14,7 @@
     "filename": "lambda2.md",
     "title": "Lambda test 2",
     "date": "2025-04-03",
+    "status": "draft",
     "tags": [
       ""
     ]
@@ -22,6 +24,7 @@
     "filename": "sample-tech-essay.md",
     "title": "Sample Technology Essay",
     "date": "2023-02-01",
+    "status": "draft",
     "tags": [
       "Technology",
       "Web Development",
@@ -33,6 +36,7 @@
     "filename": "sample-essay.md",
     "title": "Sample Essay With Mathematics",
     "date": "2023-01-01",
+    "status": "draft",
     "tags": [
       "Mathematics",
       "Data Visualization",

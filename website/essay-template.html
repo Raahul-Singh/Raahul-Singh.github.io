@@ -36,25 +36,24 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <!-- Plotly.js for interactive plots -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Markdown parser script - our custom implementation -->
+    <script src="js/markdown-parser.js"></script>
 </head>
 <body>
     <!-- Header will be inserted by components.js -->
     <header></header>
 
     <main>
-        <article>
-            <header>
-                <h1>Essay Title</h1>
-                <time datetime="2023-01-01">January 1, 2023</time>
-                <div class="tags">
-                    <!-- Tags will be populated by JavaScript -->
+        <article class="essay-content">
+            <header id="essay-header">
+                <h1 id="essay-title"></h1>
+                <div class="essay-meta">
+                    <time id="essay-date"></time>
                 </div>
+                <div id="essay-tags" class="tags"></div>
             </header>
 
-            <!-- This div will be populated with the content from the markdown file -->
-            <div id="markdown-content" data-markdown-path="">
+            <div id="essay-content">
                 <p>Loading essay...</p>
             </div>
         </article>
@@ -64,14 +63,13 @@
     <footer></footer>
 
     <script src="js/main.js" defer></script>
-    <script src="js/markdown-parser.js" defer></script>
     
     <script>
         // Get essay ID and call the parser function
         document.addEventListener('DOMContentLoaded', function() {
             // Try to get the essay ID from localStorage
             const essayId = localStorage.getItem('selectedEssay');
-            const containerId = 'markdown-content'; // ID of the div to load content into
+            const containerId = 'essay-content'; // ID of the div to load content into
             
             console.log('Retrieved essayId from localStorage:', essayId);
             

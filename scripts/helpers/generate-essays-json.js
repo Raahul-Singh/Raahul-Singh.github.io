@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * This script scans the books directory and generates a JSON file
- * containing metadata for all books. This avoids the need for
+ * This script scans the essays directory and generates a JSON file
+ * containing metadata for all essays. This avoids the need for
  * directory listing on the server or hardcoding filenames.
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// Path to books directory
-const booksDir = path.join(__dirname, 'books');
-const outputFile = path.join(__dirname, 'books.json');
+// Path to essays directory and output file
+const essaysDir = path.join(__dirname, '../../website/essays');
+const outputFile = path.join(__dirname, '../../website/essays.json');
 
 /**
  * Extract frontmatter from a markdown file
@@ -51,24 +51,30 @@ function extractFrontmatter(filePath) {
 }
 
 /**
- * Generate the books.json file
+ * Generate the essays.json file
  */
-function generateBooksJson() {
+function generateEssaysJson() {
   try {
-    // Check if books directory exists
-    if (!fs.existsSync(booksDir)) {
-      console.error(`Books directory not found: ${booksDir}`);
+    // Check if essays directory exists
+    if (!fs.existsSync(essaysDir)) {
+      console.error(`Essays directory not found: ${essaysDir}`);
       return false;
     }
     
-    // Read all files in the books directory
-    const files = fs.readdirSync(booksDir);
+    // Make sure the website directory exists
+    const websiteDir = path.dirname(outputFile);
+    if (!fs.existsSync(websiteDir)) {
+      fs.mkdirSync(websiteDir, { recursive: true });
+    }
+    
+    // Read all files in the essays directory
+    const files = fs.readdirSync(essaysDir);
     
     // Filter for markdown files and extract metadata
-    const books = files
+    const essays = files
       .filter(file => file.endsWith('.md'))
       .map(file => {
-        const filePath = path.join(booksDir, file);
+        const filePath = path.join(essaysDir, file);
         const frontmatter = extractFrontmatter(filePath);
         
         if (!frontmatter) {
@@ -79,36 +85,32 @@ function generateBooksJson() {
         return {
           id: file.replace('.md', ''),
           filename: file,
-          title: frontmatter.title || 'Untitled',
-          author: frontmatter.author || 'Unknown Author',
+          title: frontmatter.title || 'Untitled Essay',
           date: frontmatter.date || new Date().toISOString().split('T')[0],
-          rating: frontmatter.rating || '',
-          cover_image: frontmatter.cover_image || '',
-          amazon_link: frontmatter.amazon_link || '',
-          goodreads_link: frontmatter.goodreads_link || '',
+          status: frontmatter.status || 'draft',
           tags: frontmatter.tags || []
         };
       })
-      .filter(book => book !== null);
+      .filter(essay => essay !== null);
     
-    // Sort books by date (newest first)
-    books.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // Sort essays by date (newest first)
+    essays.sort((a, b) => new Date(b.date) - new Date(a.date));
     
     // Write the JSON file
-    fs.writeFileSync(outputFile, JSON.stringify(books, null, 2));
+    fs.writeFileSync(outputFile, JSON.stringify(essays, null, 2));
     
-    console.log(`Generated books.json with ${books.length} books`);
+    console.log(`Generated essays.json with ${essays.length} essays`);
     return true;
   } catch (error) {
-    console.error('Error generating books.json:', error);
+    console.error('Error generating essays.json:', error);
     return false;
   }
 }
 
 // Run the function if called directly
 if (require.main === module) {
-  generateBooksJson();
+  generateEssaysJson();
 }
 
 // Export for use in other scripts
-module.exports = generateBooksJson; 
+module.exports = generateEssaysJson; 

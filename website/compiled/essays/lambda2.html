@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda test 2 - Raahul Singh</title>
+    <meta name="description" content="An essay by Raahul Singh.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Theme script early load to prevent flashing -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Components script for common elements -->
+    <script src="../js/components.js"></script>
+    
+    <!-- Central navigation handler - must be after components.js -->
+    <script src="../js/navigation.js"></script>
+    
+    <!-- Social links module for rendering social icons -->
+    <script src="../js/social-links.js"></script>
+    
+    <!-- MathJax for LaTeX support -->
+    
+    <script>
+        // Get document ID from URL path and load the content
+        document.addEventListener('DOMContentLoaded', function() {
+            const containerId = 'essay-content'; // ID of the div to load content into
+            
+            // Extract ID from URL path
+            const pathParts = window.location.pathname.split('/');
+            const fileNameWithExtension = pathParts[pathParts.length - 1];
+            const id = fileNameWithExtension.replace('.html', '');
+            
+            console.log('Extracted ID from URL path:', id);
+            
+            if (id) {
+                // Set in localStorage for compatibility with other scripts
+                localStorage.setItem('selectedEssay', id);
+                
+                const markdownPath = '../essays/lambda2.md';
+                console.log('Loading markdown from:', markdownPath);
+                
+                // Call the function defined in markdown-parser.js
+                loadAndRenderMarkdown({ containerId, markdownPath });
+            } else {
+                console.warn('Could not extract ID from URL path');
+                document.getElementById(containerId).innerHTML = 
+                    '<p class="error">Could not determine which essay to display. Please select a essay from the <a href="../essays.html">essays page</a>.</p>';
+            }
+        });
+    </script>
+</body>
+</html> 
