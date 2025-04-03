@@ -38,7 +38,7 @@
                 // Set in localStorage for compatibility with other scripts
                 localStorage.setItem('selectedBook', id);
                 
-                const markdownPath = '../books/sample-nonfiction-book.md';
+                const markdownPath = './' + id + '.md';
                 console.log('Loading markdown from:', markdownPath);
                 
                 // Call the function defined in markdown-parser.js

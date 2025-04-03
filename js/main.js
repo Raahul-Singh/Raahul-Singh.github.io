@@ -92,13 +92,13 @@ function setupContentLinks() {
     // and set the localStorage accordingly
     const currentPath = window.location.pathname;
     
-    if (currentPath.includes('/compiled/books/')) {
+    if (currentPath.includes('/books/')) {
         const bookId = currentPath.split('/').pop().replace('.html', '');
         if (bookId) {
             localStorage.setItem('selectedBook', bookId);
             console.log(`Set selectedBook to ${bookId} from URL path`);
         }
-    } else if (currentPath.includes('/compiled/essays/')) {
+    } else if (currentPath.includes('/essays/')) {
         const essayId = currentPath.split('/').pop().replace('.html', '');
         if (essayId) {
             localStorage.setItem('selectedEssay', essayId);
