@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raahul Singh</title>
-    <meta name="description" content="Personal website of Raahul Singh, featuring essays and projects.">
+    <title>Book - Raahul Singh</title>
+    <meta name="description" content="A book review from Raahul Singh's personal website.">
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Theme script early load to prevent flashing -->
@@ -28,6 +28,9 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Markdown parser script - our custom implementation -->
+    <script src="js/markdown-parser.js"></script>
 </head>
 <body>
     <header>
@@ -54,68 +57,21 @@
     </header>
 
     <main>
-        <section class="intro">
-            <h2>Welcome</h2>
-            <p>
-                I'm Raahul Singh, and this is my personal website where I share my thoughts, 
-                ideas, and projects. Feel free to explore my essays and learn more about me.
-            </p>
-            <p>
-                You can contact me at <a href="mailto:raahulsingh002@gmail.com">raahulsingh002@gmail.com</a>
-                or check out my professional background in the <a href="about.html">About</a> section where you can 
-                also download my resume.
-            </p>
-            <div class="home-actions">
-                <a href="about.html#about-me" class="btn btn-primary">
-                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    About Me
-                </a>
-                <a href="assets/Raahul-Singh-Resume.pdf" download class="btn btn-primary">
-                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                        <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm9 4v-2H3v2h18z"/>
-                    </svg>
-                    Download Resume
-                </a>
+        <article class="book-content">
+            <header id="book-header">
+                <h1 id="book-title"></h1>
+                <div class="book-meta">
+                    <span id="book-author"></span>
+                    <time id="book-date"></time>
+                </div>
+                <div id="book-rating" class="book-rating"></div>
+                <div id="book-tags" class="tags"></div>
+            </header>
+
+            <div id="book-content">
+                <p>Loading book content...</p>
             </div>
-        </section>
-
-        <section class="recent-essays">
-            <h2>Recent Essays</h2>
-            <ul class="essay-list">
-                <li>
-                    <a href="essay-template.html?essay=sample-essay">
-                        <span class="essay-title">Sample Essay</span>
-                        <time datetime="2023-01-01">January 1, 2023</time>
-                    </a>
-                </li>
-                <!-- More essays will be added here -->
-            </ul>
-            <p><a href="essays.html">View all essays →</a></p>
-        </section>
-
-        <section class="recent-books">
-            <h2>Recent Books</h2>
-            <ul class="book-list">
-                <li>
-                    <a href="book-template.html?book=thinking-fast-and-slow">
-                        <span class="book-title">Thinking, Fast and Slow</span>
-                        <span class="book-author">by Daniel Kahneman</span>
-                        <time datetime="2023-02-15">February 15, 2023</time>
-                    </a>
-                </li>
-                <li>
-                    <a href="book-template.html?book=sample-book">
-                        <span class="book-title">Sample Book</span>
-                        <span class="book-author">by Author Name</span>
-                        <time datetime="2023-01-01">January 1, 2023</time>
-                    </a>
-                </li>
-                <!-- More books will be added here -->
-            </ul>
-            <p><a href="books.html">View all books →</a></p>
-        </section>
+        </article>
     </main>
 
     <footer>
@@ -132,5 +88,29 @@
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <script>
+        // Get book ID and call the parser function
+        document.addEventListener('DOMContentLoaded', function() {
+            // Try to get the book ID from localStorage
+            const bookId = localStorage.getItem('currentBookId');
+            const containerId = 'book-content'; // ID of the div to load content into
+            
+            console.log('Retrieved bookId from localStorage:', bookId);
+            
+            if (bookId) {
+                const markdownPath = 'markdown-books/' + bookId + '.md';
+                console.log('Constructed markdownPath:', markdownPath);
+                
+                // Call the function defined in markdown-parser.js
+                loadAndRenderMarkdown({ containerId, markdownPath });
+            } else {
+                console.warn('No bookId found in localStorage.');
+                // Handle case where no book ID is provided
+                document.getElementById(containerId).innerHTML = 
+                    '<p class="error">No book specified. Please select a book from the <a href="books.html">books page</a>.</p>';
+            }
+        });
+    </script>
 </body>
 </html> 

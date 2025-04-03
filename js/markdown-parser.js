@@ -1,237 +1,156 @@
-// Markdown parser for essays
-document.addEventListener('DOMContentLoaded', function() {
-    // If we're on a page that needs to load Markdown
-    const markdownContainer = document.getElementById('markdown-content');
-    if (!markdownContainer) return;
-    
-    // Show loading indicator
-    markdownContainer.innerHTML = '<p class="loading-message"><span class="loading"></span> Loading essay content...</p>';
-    
-    // Get the path to the markdown file from the data attribute
-    const markdownPath = markdownContainer.getAttribute('data-markdown-path');
-    if (!markdownPath) {
-        markdownContainer.innerHTML = '<p class="error">No essay specified. Please select an essay from the <a href="essays.html">essays page</a>.</p>';
+// Simplified markdown parser
+function loadAndRenderMarkdown(options) {
+    const { containerId, markdownPath } = options;
+    const markdownContainer = document.getElementById(containerId);
+
+    if (!markdownContainer) {
+        console.error(`Markdown container with ID '${containerId}' not found.`);
         return;
     }
-    
-    // Function to parse front matter and markdown content
+    if (!markdownPath) {
+        console.error('Markdown path not provided.');
+        markdownContainer.innerHTML = '<p class="error">Error: Markdown path not specified.</p>';
+        return;
+    }
+
+    const contentType = containerId === 'book-content' ? 'book' : 'essay';
+    markdownContainer.innerHTML = `<p class="loading-message">Loading ${contentType} content...</p>`;
+    console.log(`Loading markdown from: ${markdownPath}`);
+
+    // Function to parse front matter
     function parseFrontMatter(markdown) {
         const frontMatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
         const match = markdown.match(frontMatterRegex);
-        
         if (!match) {
-            return { 
-                frontMatter: {}, 
-                content: markdown 
-            };
+            console.warn('Front matter not found in markdown file:', markdownPath);
+            return { frontMatter: {}, content: markdown };
         }
-        
         const frontMatterText = match[1];
         const content = match[2];
         const frontMatter = {};
-        
-        // Parse YAML-like front matter
         frontMatterText.split('\n').forEach(line => {
             const colonPos = line.indexOf(':');
             if (colonPos !== -1) {
                 const key = line.slice(0, colonPos).trim();
                 let value = line.slice(colonPos + 1).trim();
-                
-                // Handle arrays in tags: [tag1, tag2]
                 if (value.startsWith('[') && value.endsWith(']')) {
                     value = value.slice(1, -1).split(',').map(tag => tag.trim());
                 }
-                
                 frontMatter[key] = value;
             }
         });
-        
         return { frontMatter, content };
     }
-    
-    // Load Marked.js if not already loaded
-    function loadMarkedJS() {
+
+    // Load a script dynamically
+    function loadScript(url) {
         return new Promise((resolve, reject) => {
-            if (typeof marked !== 'undefined') {
-                resolve();
-                return;
-            }
-            
             const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-            script.onload = () => resolve();
-            script.onerror = () => reject(new Error('Failed to load marked.js'));
+            script.src = url;
+            script.onload = resolve;
+            script.onerror = reject;
             document.head.appendChild(script);
         });
     }
-    
-    // Load the Markdown file
+
+    // Render the content using marked
+    function renderContent(markdown) {
+        try {
+            const { frontMatter, content } = parseFrontMatter(markdown);
+            console.log('Rendering content. Front matter:', frontMatter);
+            
+            // Convert markdown to HTML - manually if needed
+            let html;
+            
+            if (typeof marked === 'function') {
+                console.log('Using marked.js to parse markdown');
+                html = marked(content);
+            } else {
+                console.warn('Marked.js not found - using basic markdown parsing');
+                // Very basic markdown parsing fallback
+                html = content
+                    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/\n\* (.*)/gm, '<ul><li>$1</li></ul>')
+                    .replace(/\n> (.*)/gm, '<blockquote>$1</blockquote>')
+                    .replace(/\n/gm, '<br>');
+            }
+
+            // Update metadata
+            if (frontMatter.title) {
+                document.title = frontMatter.title + ' - Raahul Singh';
+                const titleEl = document.getElementById('book-title') || document.querySelector('article header h1');
+                if (titleEl) titleEl.textContent = frontMatter.title;
+            }
+            if (frontMatter.author && document.getElementById('book-author')) {
+                document.getElementById('book-author').textContent = 'by ' + frontMatter.author;
+            }
+            if (frontMatter.rating && document.getElementById('book-rating')) {
+                document.getElementById('book-rating').textContent = frontMatter.rating;
+            }
+            if (frontMatter.date) {
+                const dateEl = document.getElementById('book-date') || document.querySelector('article header time');
+                if (dateEl) {
+                    const date = new Date(frontMatter.date);
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    dateEl.textContent = date.toLocaleDateString('en-US', options);
+                    dateEl.setAttribute('datetime', frontMatter.date);
+                }
+            }
+            if (frontMatter.tags && Array.isArray(frontMatter.tags)) {
+                const tagsEl = document.getElementById('book-tags') || document.querySelector('article header .tags');
+                if (tagsEl) {
+                    tagsEl.innerHTML = frontMatter.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                }
+            }
+
+            // Insert the converted HTML
+            markdownContainer.innerHTML = html;
+
+            // Re-render MathJax if present
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typesetPromise([markdownContainer]).catch(err => console.error('Error typesetting math:', err));
+            }
+        } catch (error) {
+            console.error('Error rendering markdown:', error);
+            markdownContainer.innerHTML = `<p class="error">Error rendering content: ${error.message}. Please check the console.</p>`;
+        }
+    }
+
+    // Fetch the markdown file
     fetch(markdownPath)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Failed to load markdown file: ${response.status} ${response.statusText}`);
+                throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
             }
             return response.text();
         })
         .then(markdown => {
-            // Parse front matter
-            const { frontMatter, content } = parseFrontMatter(markdown);
+            console.log('Markdown file loaded successfully, length:', markdown.length);
             
-            // Load Marked.js and then render the content
-            return loadMarkedJS().then(() => {
-                renderMarkdown(content, frontMatter);
-            });
+            // Check if marked is available, if not, try to load it
+            if (typeof marked !== 'function') {
+                console.log('Marked.js not available, trying to load it');
+                return loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js')
+                    .then(() => {
+                        console.log('Marked.js loaded successfully');
+                        return markdown;
+                    })
+                    .catch(error => {
+                        console.warn('Failed to load marked.js:', error);
+                        return markdown; // Continue with basic parsing
+                    });
+            }
+            return markdown;
+        })
+        .then(markdown => {
+            renderContent(markdown);
         })
         .catch(error => {
-            console.error('Error loading markdown:', error);
-            markdownContainer.innerHTML = `<p class="error">Error loading essay: ${error.message}. Please try again later or <a href="essays.html">return to essays list</a>.</p>`;
+            console.error('Error loading markdown file:', error);
+            const returnPage = contentType === 'book' ? 'books.html' : 'essays.html';
+            markdownContainer.innerHTML = `<p class="error">Error loading ${contentType}: ${error.message}. Please <a href="${returnPage}">return to the ${contentType}s list</a>.</p>`;
         });
-    
-    // Function to render markdown content
-    function renderMarkdown(content, frontMatter) {
-        try {
-            // Configure marked with appropriate options
-            marked.setOptions({
-                gfm: true,         // GitHub Flavored Markdown
-                breaks: false,     // Treat newlines as hard breaks
-                pedantic: false,   // Don't conform strictly to original spec
-                smartLists: true,  // Smarter list behavior than original markdown
-                smartypants: true, // Smart typographic punctuation
-                xhtml: false       // Don't close HTML tags as XHTML
-            });
-            
-            // Convert markdown to HTML
-            const html = marked(content);
-            
-            // Update document title
-            if (frontMatter.title) {
-                document.title = frontMatter.title + ' - Your Name';
-                
-                // Update the essay title in the header
-                const titleElement = document.querySelector('article header h1');
-                if (titleElement) {
-                    titleElement.textContent = frontMatter.title;
-                }
-            }
-            
-            // Update the publication date
-            if (frontMatter.date) {
-                const dateElement = document.querySelector('article header time');
-                if (dateElement) {
-                    const date = new Date(frontMatter.date);
-                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                    const formattedDate = date.toLocaleDateString('en-US', options);
-                    dateElement.textContent = formattedDate;
-                    dateElement.setAttribute('datetime', frontMatter.date);
-                }
-            }
-            
-            // Update tags
-            if (frontMatter.tags && Array.isArray(frontMatter.tags)) {
-                const tagsContainer = document.querySelector('article header .tags');
-                if (tagsContainer) {
-                    tagsContainer.innerHTML = '';
-                    frontMatter.tags.forEach(tag => {
-                        const tagSpan = document.createElement('span');
-                        tagSpan.className = 'tag';
-                        tagSpan.textContent = tag;
-                        tagsContainer.appendChild(tagSpan);
-                    });
-                }
-            }
-            
-            // Insert the converted HTML
-            markdownContainer.innerHTML = html;
-            
-            // Re-render MathJax if present
-            if (typeof MathJax !== 'undefined') {
-                MathJax.typesetPromise([markdownContainer]).catch(function (err) {
-                    console.error('Error typesetting math:', err);
-                });
-            }
-            
-            // Initialize Plotly if needed
-            if (document.getElementById('plotDiv') && typeof Plotly !== 'undefined') {
-                initializePlot();
-            }
-        } catch (error) {
-            console.error('Error rendering markdown:', error);
-            markdownContainer.innerHTML = `<p class="error">Error rendering content: ${error.message}. Please try again later.</p>`;
-        }
-    }
-    
-    // Function to initialize the plot (same as in our original sample-essay.html)
-    function initializePlot() {
-        const plotDiv = document.getElementById('plotDiv');
-        if (!plotDiv) return;
-        
-        try {
-            // Generate x values
-            const x = [];
-            for (let i = -3; i <= 3; i += 0.1) {
-                x.push(i);
-            }
-            
-            // Calculate function values: f(x) = x^2
-            const y1 = x.map(val => val * val);
-            
-            // Calculate derivative values: f'(x) = 2x
-            const y2 = x.map(val => 2 * val);
-            
-            // Create the plot
-            const data = [
-                {
-                    x: x,
-                    y: y1,
-                    type: 'scatter',
-                    mode: 'lines',
-                    name: 'f(x) = x²',
-                    line: {
-                        color: 'rgb(55, 128, 191)',
-                        width: 3
-                    }
-                },
-                {
-                    x: x,
-                    y: y2,
-                    type: 'scatter',
-                    mode: 'lines',
-                    name: 'f\'(x) = 2x',
-                    line: {
-                        color: 'rgb(219, 64, 82)',
-                        width: 3
-                    }
-                }
-            ];
-            
-            const layout = {
-                title: 'Function and its Derivative',
-                xaxis: {
-                    title: 'x'
-                },
-                yaxis: {
-                    title: 'y'
-                },
-                autosize: true,
-                margin: {
-                    l: 50,
-                    r: 50,
-                    b: 50,
-                    t: 50,
-                    pad: 4
-                },
-                // Dark theme adjustments
-                paper_bgcolor: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1e1e1e' : '#fff',
-                plot_bgcolor: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1e1e1e' : '#fff',
-                font: {
-                    color: document.documentElement.getAttribute('data-theme') === 'dark' ? '#eee' : '#111'
-                }
-            };
-            
-            Plotly.newPlot('plotDiv', data, layout, {responsive: true});
-        } catch (error) {
-            console.error('Error initializing plot:', error);
-            plotDiv.innerHTML = `<p class="error">Error initializing plot: ${error.message}</p>`;
-        }
-    }
-}); 
+} 
