@@ -21,34 +21,54 @@
     <script src="../js/social-links.js"></script>
     
     <!-- MathJax for LaTeX support -->
-    
     <script>
-        // Get document ID from URL path and load the content
-        document.addEventListener('DOMContentLoaded', function() {
-            const containerId = 'essay-content'; // ID of the div to load content into
-            
-            // Extract ID from URL path
-            const pathParts = window.location.pathname.split('/');
-            const fileNameWithExtension = pathParts[pathParts.length - 1];
-            const id = fileNameWithExtension.replace('.html', '');
-            
-            console.log('Extracted ID from URL path:', id);
-            
-            if (id) {
-                // Set in localStorage for compatibility with other scripts
-                localStorage.setItem('selectedEssay', id);
-                
-                const markdownPath = './' + id + '.md';
-                console.log('Loading markdown from:', markdownPath);
-                
-                // Call the function defined in markdown-parser.js
-                loadAndRenderMarkdown({ containerId, markdownPath });
-            } else {
-                console.warn('Could not extract ID from URL path');
-                document.getElementById(containerId).innerHTML = 
-                    '<p class="error">Could not determine which essay to display. Please select a essay from the <a href="../essays.html">essays page</a>.</p>';
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
             }
-        });
+        };
     </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Markdown parser script - our custom implementation -->
+    
+</head>
+<body>
+    <!-- Header will be inserted by components.js -->
+    <header></header>
+
+    <main>
+      <article>
+        
+        <header>
+          <h1>Lambda test</h1>
+          <time datetime="2025-04-03">April 3, 2025</time>
+          <div class="tags">
+        <span class="tag"></span>
+      </div>
+        </header>
+      
+        <div id="essay-content">
+          <h2>Abstract</h2>
+<p>Write your abstract here. This should be a brief summary of the essay.</p>
+<h2>Introduction</h2>
+<p>Write your introduction here. Explain the topic and why it&#39;s interesting or important.</p>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- Footer will be inserted by components.js -->
+    <footer></footer>
+
+    <script src="../js/main.js" defer></script>
+    
+    
 </body>
 </html> 
