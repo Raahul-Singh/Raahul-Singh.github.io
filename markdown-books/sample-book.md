@@ -4,6 +4,9 @@ author: Author Name
 date: 2023-01-01
 rating: ★★★★☆
 tags: [Fiction, Classic, Literature]
+cover_image: https://via.placeholder.com/300x450/f5f5f5/333333?text=Sample+Book
+amazon_link: https://www.amazon.com
+goodreads_link: https://www.goodreads.com
 ---
 
 ## Summary

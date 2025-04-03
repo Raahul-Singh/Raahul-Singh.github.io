@@ -105,6 +105,67 @@ function loadAndRenderMarkdown(options) {
                     tagsEl.innerHTML = frontMatter.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
                 }
             }
+            
+            // Add book links and cover image
+            if (containerId === 'book-content') {
+                const bookHeaderEl = document.getElementById('book-header');
+                
+                // Add cover image if provided
+                if (frontMatter.cover_image && bookHeaderEl) {
+                    const coverContainerEl = document.createElement('div');
+                    coverContainerEl.className = 'book-cover';
+                    
+                    const imgEl = document.createElement('img');
+                    imgEl.src = frontMatter.cover_image;
+                    imgEl.alt = frontMatter.title ? `Cover of ${frontMatter.title}` : 'Book cover';
+                    
+                    coverContainerEl.appendChild(imgEl);
+                    bookHeaderEl.insertBefore(coverContainerEl, bookHeaderEl.firstChild);
+                }
+                
+                // Add links to Amazon and Goodreads
+                const linksEl = document.createElement('div');
+                linksEl.className = 'book-links';
+                
+                let hasLinks = false;
+                
+                if (frontMatter.amazon_link) {
+                    const amazonLink = document.createElement('a');
+                    amazonLink.href = frontMatter.amazon_link;
+                    amazonLink.target = '_blank';
+                    amazonLink.rel = 'noopener noreferrer';
+                    amazonLink.innerHTML = '<span class="book-link-icon">📚</span> Amazon';
+                    amazonLink.className = 'book-external-link amazon-link';
+                    linksEl.appendChild(amazonLink);
+                    hasLinks = true;
+                }
+                
+                if (frontMatter.goodreads_link) {
+                    if (hasLinks) {
+                        linksEl.appendChild(document.createTextNode(' | '));
+                    }
+                    
+                    const goodreadsLink = document.createElement('a');
+                    goodreadsLink.href = frontMatter.goodreads_link;
+                    goodreadsLink.target = '_blank';
+                    goodreadsLink.rel = 'noopener noreferrer';
+                    goodreadsLink.innerHTML = '<span class="book-link-icon">📖</span> Goodreads';
+                    goodreadsLink.className = 'book-external-link goodreads-link';
+                    linksEl.appendChild(goodreadsLink);
+                    hasLinks = true;
+                }
+                
+                // Only add links container if there are links
+                if (hasLinks && bookHeaderEl) {
+                    // Find the last child of book-header (should be tags)
+                    const tagsEl = document.getElementById('book-tags');
+                    if (tagsEl) {
+                        bookHeaderEl.insertBefore(linksEl, tagsEl.nextSibling);
+                    } else {
+                        bookHeaderEl.appendChild(linksEl);
+                    }
+                }
+            }
 
             // Insert the converted HTML
             markdownContainer.innerHTML = html;

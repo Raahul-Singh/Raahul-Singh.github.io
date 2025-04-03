@@ -1,13 +1,20 @@
 /* Base Styles */
 :root {
-    --text-color: #333;
     --background-color: #fff;
-    --link-color: #0066cc;
-    --link-hover-color: #004080;
-    --border-color: #ddd;
-    --heading-color: #222;
+    --background-alt: #f8f9fa;
+    --text-color: #333;
+    --text-muted: #666;
+    --text-light: #fff;
+    --border-color: #e0e0e0;
+    --primary-color: #3498db;
+    --accent-color: #e74c3c;
+    --shadow-color: rgba(0, 0, 0, 0.1);
     --code-bg: #f5f5f5;
     --blockquote-bg: #f9f9f9;
+    --header-color: #222;
+    --rating-color: #f5b342; /* Star color for ratings */
+    --link-color: #0066cc;
+    --link-hover-color: #004080;
     --nav-active: #0066cc;
     --transition-speed: 0.3s;
     --btn-primary-bg: #0066cc;
@@ -22,14 +29,22 @@
 }
 
 [data-theme="dark"] {
-    --text-color: #eee;
     --background-color: #222;
+    --background-alt: #333;
+    --dark-background-alt: #444;
+    --text-color: #eee;
+    --text-muted: #bbb;
+    --text-light: #fff;
+    --border-color: #555;
+    --primary-color: #3498db;
+    --accent-color: #e74c3c;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --code-bg: #2d2d2d;
+    --blockquote-bg: #2d2d2d;
+    --header-color: #eee;
+    --rating-color: #f5b342; /* Star color for ratings */
     --link-color: #6ab0ff;
     --link-hover-color: #8ac5ff;
-    --border-color: #444;
-    --heading-color: #fff;
-    --code-bg: #2d2d2d;
-    --blockquote-bg: #333;
     --nav-active: #6ab0ff;
     --btn-primary-bg: #4a8eff;
     --btn-primary-color: #fff;
@@ -71,7 +86,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
+    color: var(--header-color);
     margin: 1.5rem 0 1rem;
     line-height: 1.2;
 }
@@ -376,7 +391,7 @@ section {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.3rem;
-    color: var(--heading-color);
+    color: var(--header-color);
     transition: color var(--transition-speed);
 }
 
@@ -560,24 +575,90 @@ footer p {
     margin-bottom: 2rem;
 }
 
+.book-content #book-title {
+    margin-bottom: 0.5rem;
+}
+
 .book-meta {
     display: flex;
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
     gap: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
 }
 
 .book-rating {
-    margin: 0.5rem 0;
-    color: #f5b342;
-    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--rating-color);
 }
 
+/* Book cover image */
+.book-cover {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    max-width: 180px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Book external links */
+.book-links {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.book-external-link {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.7rem;
+    background-color: var(--background-alt);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.book-external-link:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.book-link-icon {
+    margin-right: 0.4rem;
+}
+
+.amazon-link {
+    color: var(--text-color);
+}
+
+.goodreads-link {
+    color: var(--text-color);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .book-cover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .book-external-link {
+    background-color: var(--dark-background-alt);
+}
+
+[data-theme="dark"] .book-external-link:hover {
+    background-color: var(--primary-color);
+}
+
+/* Book list on books.html */
 .book-list {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0 0 2rem 0;
 }
 
 .book-list li {
@@ -588,16 +669,46 @@ footer p {
 
 .book-list li:last-child {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 .book-list a {
-    display: block;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text-color);
+    transition: color 0.2s ease;
 }
 
 .book-list a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.book-thumbnail {
+    width: 70px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-list a:hover .book-thumbnail {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .book-thumbnail {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .book-list a:hover .book-thumbnail {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.book-list-content {
+    flex: 1;
 }
 
 .book-list .book-title {
@@ -609,13 +720,13 @@ footer p {
 
 .book-list .book-author {
     display: block;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     font-style: italic;
     margin-bottom: 0.25rem;
 }
 
 .book-list time {
-    color: var(--text-secondary);
+    color: var(--text-muted);
     font-size: 0.85rem;
 }
 
@@ -623,24 +734,37 @@ footer p {
     margin-bottom: 2rem;
 }
 
-/* Book cover styling if needed */
-.book-cover {
-    max-width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 1rem;
-}
-
-/* Add blockquote styling for book quotes */
-blockquote {
-    border-left: 4px solid var(--accent-color);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: var(--text-secondary);
+/* Responsive adjustments for book list */
+@media (max-width: 480px) {
+    .book-list a {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .book-thumbnail {
+        width: 100px;
+        height: 150px;
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+    }
+    
+    .book-list-content {
+        width: 100%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     .book-rating {
         color: #ffc857;
     }
+}
+
+.book-list a.loading {
+    opacity: 0.7;
+    cursor: wait;
+    pointer-events: none;
+}
+
+.book-list a.loading .book-thumbnail {
+    filter: grayscale(50%);
 } 

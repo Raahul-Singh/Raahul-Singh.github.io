@@ -4,6 +4,9 @@ author: Author Name
 date: 2023-01-01
 rating: ★★★☆☆
 tags: [Non-Fiction, Science, Research]
+cover_image: https://via.placeholder.com/300x450/e0f0ff/333333?text=Sample+Non-Fiction+Book
+amazon_link: https://www.amazon.com/sample-nonfiction
+goodreads_link: https://www.goodreads.com/sample-nonfiction
 ---
 
 ## Summary

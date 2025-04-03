@@ -47,16 +47,22 @@
                 <ul class="book-list">
                     <li>
                         <a href="book-template.html" class="book-link" data-book="thinking-fast-and-slow">
-                            <span class="book-title">Thinking, Fast and Slow</span>
-                            <span class="book-author">by Daniel Kahneman</span>
-                            <time datetime="2023-02-15">February 15, 2023</time>
+                            <img class="book-thumbnail" src="https://m.media-amazon.com/images/I/61fdrEuPJwL._SL1200_.jpg" alt="Cover of Thinking, Fast and Slow">
+                            <div class="book-list-content">
+                                <span class="book-title">Thinking, Fast and Slow</span>
+                                <span class="book-author">by Daniel Kahneman</span>
+                                <time datetime="2023-02-15">February 15, 2023</time>
+                            </div>
                         </a>
                     </li>
                     <li>
                         <a href="book-template.html" class="book-link" data-book="sample-nonfiction-book">
-                            <span class="book-title">Sample Non-Fiction Book</span>
-                            <span class="book-author">by Author Name</span>
-                            <time datetime="2023-01-01">January 1, 2023</time>
+                            <img class="book-thumbnail" src="https://via.placeholder.com/300x450/e0f0ff/333333?text=Sample+Non-Fiction+Book" alt="Cover of Sample Non-Fiction Book">
+                            <div class="book-list-content">
+                                <span class="book-title">Sample Non-Fiction Book</span>
+                                <span class="book-author">by Author Name</span>
+                                <time datetime="2023-01-01">January 1, 2023</time>
+                            </div>
                         </a>
                     </li>
                     <!-- More non-fiction books will be added here -->
@@ -68,9 +74,12 @@
                 <ul class="book-list">
                     <li>
                         <a href="book-template.html" class="book-link" data-book="sample-book">
-                            <span class="book-title">Sample Book</span>
-                            <span class="book-author">by Author Name</span>
-                            <time datetime="2023-01-01">January 1, 2023</time>
+                            <img class="book-thumbnail" src="https://via.placeholder.com/300x450/f5f5f5/333333?text=Sample+Book" alt="Cover of Sample Book">
+                            <div class="book-list-content">
+                                <span class="book-title">Sample Book</span>
+                                <span class="book-author">by Author Name</span>
+                                <time datetime="2023-01-01">January 1, 2023</time>
+                            </div>
                         </a>
                     </li>
                     <!-- More fiction books will be added here -->
@@ -107,11 +116,24 @@
                     const bookId = this.getAttribute('data-book');
                     console.log('Book link clicked, bookId:', bookId);
                     
+                    // Add loading state to the clicked link
+                    this.classList.add('loading');
+                    const originalHTML = this.innerHTML;
+                    const titleText = this.querySelector('.book-title').textContent;
+                    this.querySelector('.book-list-content').innerHTML = `<span class="book-title">Loading ${titleText}...</span>`;
+                    
                     // Store in localStorage
                     if (bookId) {
                         localStorage.setItem('currentBookId', bookId);
-                        // Navigate to the book template page
-                        window.location.href = 'book-template.html';
+                        // Navigate to the book template page after a short delay
+                        // This gives visual feedback that something is happening
+                        setTimeout(() => {
+                            window.location.href = 'book-template.html';
+                        }, 300);
+                    } else {
+                        // Restore original content if error
+                        this.classList.remove('loading');
+                        this.innerHTML = originalHTML;
                     }
                 });
             });
