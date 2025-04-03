@@ -8,10 +8,7 @@
     "create": "node scripts/create-content.js",
     "create-essay": "node index.js create-essay",
     "create-book": "node index.js create-book",
-    "compile": "node index.js compile",
     "compile-static": "node index.js compile-static",
-    "generate-essays": "node scripts/helpers/generate-essays-json.js",
-    "generate-books": "node scripts/helpers/generate-books-json.js",
     "deploy": "node index.js deploy"
   },
   "keywords": [
@@ -21,5 +18,8 @@
     "markdown"
   ],
   "author": "Raahul Singh",
-  "license": "MIT"
-} 
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^15.0.7"
+  }
+}

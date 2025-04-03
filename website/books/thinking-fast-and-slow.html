@@ -21,34 +21,98 @@
     <script src="../js/social-links.js"></script>
     
     <!-- MathJax for LaTeX support -->
-    
     <script>
-        // Get document ID from URL path and load the content
-        document.addEventListener('DOMContentLoaded', function() {
-            const containerId = 'book-content'; // ID of the div to load content into
-            
-            // Extract ID from URL path
-            const pathParts = window.location.pathname.split('/');
-            const fileNameWithExtension = pathParts[pathParts.length - 1];
-            const id = fileNameWithExtension.replace('.html', '');
-            
-            console.log('Extracted ID from URL path:', id);
-            
-            if (id) {
-                // Set in localStorage for compatibility with other scripts
-                localStorage.setItem('selectedBook', id);
-                
-                const markdownPath = './' + id + '.md';
-                console.log('Loading markdown from:', markdownPath);
-                
-                // Call the function defined in markdown-parser.js
-                loadAndRenderMarkdown({ containerId, markdownPath });
-            } else {
-                console.warn('Could not extract ID from URL path');
-                document.getElementById(containerId).innerHTML = 
-                    '<p class="error">Could not determine which book to display. Please select a book from the <a href="../books.html">books page</a>.</p>';
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
             }
-        });
+        };
     </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Markdown parser script - our custom implementation -->
+    
+</head>
+<body>
+    <!-- Header will be inserted by components.js -->
+    <header></header>
+
+    <main>
+      <article>
+        
+        <div id="book-header">
+          <div class="book-cover">
+          <img src="https://m.media-amazon.com/images/I/61fdrEuPJwL._SL1200_.jpg" alt="Cover of Thinking, Fast and Slow">
+        </div>
+          <h1 id="book-title">Thinking, Fast and Slow</h1>
+          <p id="book-author">by Daniel Kahneman</p>
+          <div class="rating">★★★★★</div>
+          <time id="book-date" datetime="2023-02-15">February 15, 2023</time>
+          <div class="tags">
+        <span class="tag">Psychology</span><span class="tag">Behavioral Economics</span><span class="tag">Decision Making</span><span class="tag">Non-Fiction</span>
+      </div>
+          <div class="book-links"><a href="https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555/" target="_blank" rel="noopener noreferrer" class="book-external-link amazon-link">
+            <span class="book-link-icon">📚</span> Amazon
+          </a> | <a href="https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow" target="_blank" rel="noopener noreferrer" class="book-external-link goodreads-link">
+            <span class="book-link-icon">📖</span> Goodreads
+          </a></div>
+        </div>
+      
+        <div id="book-content">
+          <h2>Summary</h2>
+<p>In &quot;Thinking, Fast and Slow,&quot; Nobel Prize-winning psychologist Daniel Kahneman synthesizes decades of research on cognitive biases and decision-making. The book presents a framework of two cognitive systems: System 1 (fast, intuitive, emotional) and System 2 (slow, deliberate, logical). Through this lens, Kahneman explains why we make predictable errors in judgment and how understanding these patterns can help us make better decisions.</p>
+<h2>Key Ideas</h2>
+<ul>
+<li>Our minds operate with two distinct systems: System 1 (fast, automatic, intuitive) and System 2 (slow, effortful, analytical)</li>
+<li>We consistently overestimate our knowledge and underestimate the role of chance in events</li>
+<li>Our decisions are heavily influenced by how information is presented to us (framing effects)</li>
+<li>We have strong cognitive biases toward overconfidence, loss aversion, and anchoring to initial information</li>
+<li>Memory and experience are not reliable guides to happiness or future decisions</li>
+<li>Expert intuition can be trustworthy, but only in environments with sufficient regularities and opportunities for learning</li>
+</ul>
+<h2>Favorite Quotes</h2>
+<blockquote>
+<p>&quot;A reliable way to make people believe in falsehoods is frequent repetition, because familiarity is not easily distinguished from truth.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Our comforting conviction that the world makes sense rests on a secure foundation: our almost unlimited ability to ignore our ignorance.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Intelligence is not only the ability to reason; it is also the ability to find relevant material in memory and to deploy attention when needed.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Nothing in life is as important as you think it is when you are thinking about it.&quot;</p>
+</blockquote>
+<h2>My Thoughts</h2>
+<p>Kahneman&#39;s work has profoundly influenced how I understand not just psychology but economics, politics, and daily decision-making. The distinction between Systems 1 and 2 provides a compelling framework for understanding why smart people make irrational choices and how our minds navigate complex information environments.</p>
+<p>I found the sections on the planning fallacy and optimism bias particularly relevant to my professional life. Understanding why we consistently underestimate completion times for projects helps me build more realistic timelines and set better expectations.</p>
+<p>The book&#39;s treatment of happiness versus satisfaction challenged my assumptions about what makes for a good life. Kahneman&#39;s distinction between the experiencing self and the remembering self explains why we often make choices that don&#39;t maximize our moment-to-moment happiness.</p>
+<p>While the book is dense with research findings and can be challenging to digest in one reading, this complexity actually becomes a strength—I&#39;ve revisited sections multiple times and continue to gain new insights.</p>
+<h2>Recommendations</h2>
+<p>This book would be particularly valuable for:</p>
+<ul>
+<li>Anyone involved in decision-making processes (essentially everyone)</li>
+<li>Professionals in fields requiring judgment under uncertainty (finance, medicine, management)</li>
+<li>People interested in behavioral economics or cognitive psychology</li>
+<li>Those looking to understand their own thinking patterns and biases</li>
+</ul>
+<p>It pairs especially well with &quot;Nudge&quot; by Thaler and Sunstein, which builds on many of these concepts to show how they can be applied to policy design, and &quot;Predictably Irrational&quot; by Dan Ariely, which explores similar territory in a more accessible format. </p>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- Footer will be inserted by components.js -->
+    <footer></footer>
+
+    <script src="../js/main.js" defer></script>
+    
+    
 </body>
 </html> 

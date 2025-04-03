@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const marked = require('marked');
 
 // Format a date string to be more readable
 function formatDate(dateString) {
@@ -71,7 +72,10 @@ function generateHtmlFromMarkdown(templatePath, markdownPath, outputPath) {
     
     // Read the template and extract the markdown frontmatter
     const template = fs.readFileSync(templatePath, 'utf8');
-    const { frontmatter } = extractFrontmatter(markdownPath);
+    const { frontmatter, content } = extractFrontmatter(markdownPath);
+    
+    // Convert markdown to HTML
+    const htmlContent = marked.parse(content);
     
     // Create directories if they don't exist
     const outputDir = path.dirname(outputPath);
@@ -83,36 +87,90 @@ function generateHtmlFromMarkdown(templatePath, markdownPath, outputPath) {
     const contentType = markdownPath.includes('/books/') ? 'book' : 'essay';
     const id = path.basename(markdownPath, '.md');
     
-    // Prepare the modified script that extracts ID from URL path
-    const scriptContent = `
-    <script>
-        // Get document ID from URL path and load the content
-        document.addEventListener('DOMContentLoaded', function() {
-            const containerId = '${contentType}-content'; // ID of the div to load content into
-            
-            // Extract ID from URL path
-            const pathParts = window.location.pathname.split('/');
-            const fileNameWithExtension = pathParts[pathParts.length - 1];
-            const id = fileNameWithExtension.replace('.html', '');
-            
-            console.log('Extracted ID from URL path:', id);
-            
-            if (id) {
-                // Set in localStorage for compatibility with other scripts
-                localStorage.setItem('selected${contentType.charAt(0).toUpperCase() + contentType.slice(1)}', id);
-                
-                const markdownPath = './' + id + '.md';
-                console.log('Loading markdown from:', markdownPath);
-                
-                // Call the function defined in markdown-parser.js
-                loadAndRenderMarkdown({ containerId, markdownPath });
-            } else {
-                console.warn('Could not extract ID from URL path');
-                document.getElementById(containerId).innerHTML = 
-                    '<p class="error">Could not determine which ${contentType} to display. Please select a ${contentType} from the <a href="../${contentType}s.html">${contentType}s page</a>.</p>';
-            }
-        });
-    </script>`;
+    // Format date nicely if available
+    let formattedDate = '';
+    if (frontmatter.date) {
+      const date = new Date(frontmatter.date);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      formattedDate = date.toLocaleDateString('en-US', options);
+    }
+    
+    // Format tags if available
+    let tagsHtml = '';
+    if (frontmatter.tags && Array.isArray(frontmatter.tags)) {
+      tagsHtml = `<div class="tags">
+        ${frontmatter.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      </div>`;
+    }
+    
+    // Book-specific sections
+    let bookInfo = '';
+    if (contentType === 'book') {
+      // Rating display
+      let ratingHtml = '';
+      if (frontmatter.rating) {
+        const rating = parseFloat(frontmatter.rating);
+        const stars = '★'.repeat(Math.floor(rating)) + (rating % 1 === 0.5 ? '½' : '');
+        ratingHtml = `<div class="rating">${stars}</div>`;
+      }
+      
+      // Book cover
+      let coverHtml = '';
+      if (frontmatter.cover_image) {
+        coverHtml = `<div class="book-cover">
+          <img src="${frontmatter.cover_image}" alt="Cover of ${frontmatter.title || id}">
+        </div>`;
+      }
+      
+      // External links
+      let linksHtml = '';
+      if (frontmatter.amazon_link || frontmatter.goodreads_link) {
+        const amazonLink = frontmatter.amazon_link ? 
+          `<a href="${frontmatter.amazon_link}" target="_blank" rel="noopener noreferrer" class="book-external-link amazon-link">
+            <span class="book-link-icon">📚</span> Amazon
+          </a>` : '';
+          
+        const separator = (frontmatter.amazon_link && frontmatter.goodreads_link) ? ' | ' : '';
+        
+        const goodreadsLink = frontmatter.goodreads_link ? 
+          `<a href="${frontmatter.goodreads_link}" target="_blank" rel="noopener noreferrer" class="book-external-link goodreads-link">
+            <span class="book-link-icon">📖</span> Goodreads
+          </a>` : '';
+          
+        linksHtml = `<div class="book-links">${amazonLink}${separator}${goodreadsLink}</div>`;
+      }
+      
+      bookInfo = `
+        <div id="book-header">
+          ${coverHtml}
+          <h1 id="book-title">${frontmatter.title || ''}</h1>
+          <p id="book-author">by ${frontmatter.author || ''}</p>
+          ${ratingHtml}
+          <time id="book-date" datetime="${frontmatter.date || ''}">${formattedDate}</time>
+          ${tagsHtml}
+          ${linksHtml}
+        </div>
+      `;
+    } else {
+      // Essay header
+      bookInfo = `
+        <header>
+          <h1>${frontmatter.title || ''}</h1>
+          <time datetime="${frontmatter.date || ''}">${formattedDate}</time>
+          ${tagsHtml}
+        </header>
+      `;
+    }
+    
+    // Create static content section instead of dynamic loading
+    const contentSection = `
+      <article>
+        ${bookInfo}
+        <div id="${contentType}-content">
+          ${htmlContent}
+        </div>
+      </article>
+    `;
     
     // Adjust paths for output directory
     let html = template
@@ -129,12 +187,16 @@ function generateHtmlFromMarkdown(templatePath, markdownPath, outputPath) {
       .replace(/href="essays.html"/g, 'href="../essays.html"')
       .replace(/href="about.html"/g, 'href="../about.html"')
       .replace(/href="contact.html"/g, 'href="../contact.html"')
-      // Replace the entire script block that loads content
-      .replace(/<script>[\s\S]*?localStorage\.getItem[\s\S]*?<\/script>/, scriptContent);
+      // Replace the content loading script and container with the actual content
+      .replace(/<main[\s\S]*?<\/main>/, `<main>${contentSection}</main>`)
+      // Remove the markdown parser script import
+      .replace(/<script src=".*?markdown-parser.js"><\/script>/, '')
+      // Remove the script that loads markdown at the bottom
+      .replace(/<script>\s+\/\/ Get (book|essay) ID[\s\S]*?<\/script>/, '');
     
     // Write the output file
     fs.writeFileSync(outputPath, html);
-    console.log(`Generated HTML file: ${outputPath}`);
+    console.log(`Generated static HTML file: ${outputPath}`);
     return true;
   } catch (error) {
     console.error(`Error generating HTML from markdown: ${markdownPath}`, error);
