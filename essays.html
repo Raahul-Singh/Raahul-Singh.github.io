@@ -108,28 +108,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Attach click handler to all essay links
-            const essayLinks = document.querySelectorAll('.essay-link');
-            essayLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Prevent default navigation
-                    e.preventDefault();
-                    
-                    // Get the essay ID from the data attribute
-                    const essayId = this.getAttribute('data-essay');
-                    console.log('Essay link clicked, essayId:', essayId);
-                    
-                    // Store in localStorage and navigate immediately
-                    if (essayId) {
-                        localStorage.setItem('currentEssayId', essayId);
-                        window.location.href = 'essay-template.html';
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html> 

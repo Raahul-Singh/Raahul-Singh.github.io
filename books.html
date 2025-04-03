@@ -102,28 +102,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Attach click handler to all book links
-            const bookLinks = document.querySelectorAll('.book-link');
-            bookLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Prevent default navigation
-                    e.preventDefault();
-                    
-                    // Get the book ID from the data attribute
-                    const bookId = this.getAttribute('data-book');
-                    console.log('Book link clicked, bookId:', bookId);
-                    
-                    // Store in localStorage and navigate immediately
-                    if (bookId) {
-                        localStorage.setItem('currentBookId', bookId);
-                        window.location.href = 'book-template.html';
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html> 

@@ -30,4 +30,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Handle book links
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.book-link')) {
+            e.preventDefault();
+            const bookLink = e.target.closest('.book-link');
+            const bookId = bookLink.getAttribute('data-book');
+            if (bookId) {
+                localStorage.setItem('currentBookId', bookId);
+                window.location.href = 'book-template.html';
+            }
+        }
+    });
+    
+    // Handle essay links
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.essay-link')) {
+            e.preventDefault();
+            const essayLink = e.target.closest('.essay-link');
+            const essayId = essayLink.getAttribute('data-essay');
+            if (essayId) {
+                localStorage.setItem('currentEssayId', essayId);
+                window.location.href = 'essay-template.html';
+            }
+        }
+    });
 }); 
