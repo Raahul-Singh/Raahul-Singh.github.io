@@ -921,47 +921,81 @@ footer p {
 /* Profile image styles */
 .profile-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 2rem 0;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.profile-image {
-    width: 220px;
-    height: 220px;
+.profile-photo {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: none;
-    box-shadow: 0 8px 20px var(--shadow-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.profile-image:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px var(--shadow-color);
+.profile-info {
+    flex: 1;
 }
 
-.profile-title {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-    .about-intro {
-        display: flex;
-        align-items: flex-start;
-        gap: 2rem;
-    }
-    
+@media (max-width: 768px) {
     .profile-container {
-        flex-shrink: 0;
-        margin: 0 0 1rem 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     
-    .about-text {
-        flex: 1;
+    .profile-photo {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Book card with cover */
+.book-card {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.book-card-cover {
+    flex-shrink: 0;
+    width: 80px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-card-content {
+    flex: 1;
+}
+
+@media (max-width: 500px) {
+    .book-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .book-card-cover {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2/3;
+        max-width: 120px;
+        margin-bottom: 0.5rem;
     }
 }
 
