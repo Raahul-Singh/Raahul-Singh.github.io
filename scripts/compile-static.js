@@ -342,8 +342,15 @@ ${content}
 
     <main>
         <section class="welcome">
-            <h1>Welcome</h1>
-            <p>This is my personal website where I share my thoughts, essays, and book notes.</p>
+            <div class="profile-container">
+                <div class="profile-photo">
+                    <img src="assets/profile-image.jpg" alt="Raahul Singh" />
+                </div>
+                <div class="profile-info">
+                    <h1>Welcome</h1>
+                    <p>This is my personal website where I share my thoughts, essays, and book notes.</p>
+                </div>
+            </div>
         </section>
         
         <section class="recent">
@@ -459,16 +466,24 @@ async function compileStatic() {
     // Generate HTML for each section with links to compiled files
     // Note: No data attributes needed anymore since we extract IDs from the URL
     const allBooksHtml = books.map(book => {
-      const { id, title, author, rating, date, tags } = book;
+      const { id, title, author, rating, date, tags, cover_image } = book;
       
       return `
-        <div class="card">
-          <h3><a href="books/${id}.html" class="book-link">${title}</a></h3>
-          <p class="book-author">by ${author}</p>
-          ${rating ? `<div class="rating">${'★'.repeat(Math.floor(parseFloat(rating)))}${parseFloat(rating) % 1 === 0.5 ? '½' : ''}</div>` : ''}
-          <p class="book-date">${formatDate(date)}</p>
-          ${tags && tags.length > 0 ? 
-            `<div class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
+        <div class="card book-card">
+          ${cover_image ? 
+            `<div class="book-card-cover">
+              <a href="books/${id}.html" class="book-link">
+                <img src="${cover_image}" alt="Cover of ${title}" class="book-cover-thumb">
+              </a>
+            </div>` : ''}
+          <div class="book-card-content">
+            <h3><a href="books/${id}.html" class="book-link">${title}</a></h3>
+            <p class="book-author">by ${author}</p>
+            ${rating ? `<div class="rating">${'★'.repeat(Math.floor(parseFloat(rating)))}${parseFloat(rating) % 1 === 0.5 ? '½' : ''}</div>` : ''}
+            <p class="book-date">${formatDate(date)}</p>
+            ${tags && tags.length > 0 ? 
+              `<div class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
+          </div>
         </div>
       `;
     }).join('\n');
@@ -487,16 +502,24 @@ async function compileStatic() {
     }).join('\n');
     
     const recentBooksHtml = recentBooks.map(book => {
-      const { id, title, author, rating, date, tags } = book;
+      const { id, title, author, rating, date, tags, cover_image } = book;
       
       return `
-        <div class="card">
-          <h3><a href="books/${id}.html" class="book-link">${title}</a></h3>
-          <p class="book-author">by ${author}</p>
-          ${rating ? `<div class="rating">${'★'.repeat(Math.floor(parseFloat(rating)))}${parseFloat(rating) % 1 === 0.5 ? '½' : ''}</div>` : ''}
-          <p class="book-date">${formatDate(date)}</p>
-          ${tags && tags.length > 0 ? 
-            `<div class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
+        <div class="card book-card">
+          ${cover_image ? 
+            `<div class="book-card-cover">
+              <a href="books/${id}.html" class="book-link">
+                <img src="${cover_image}" alt="Cover of ${title}" class="book-cover-thumb">
+              </a>
+            </div>` : ''}
+          <div class="book-card-content">
+            <h3><a href="books/${id}.html" class="book-link">${title}</a></h3>
+            <p class="book-author">by ${author}</p>
+            ${rating ? `<div class="rating">${'★'.repeat(Math.floor(parseFloat(rating)))}${parseFloat(rating) % 1 === 0.5 ? '½' : ''}</div>` : ''}
+            <p class="book-date">${formatDate(date)}</p>
+            ${tags && tags.length > 0 ? 
+              `<div class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
+          </div>
         </div>
       `;
     }).join('\n');

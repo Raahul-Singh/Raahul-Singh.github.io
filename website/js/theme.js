@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
+        console.log('Theme set to:', theme);
     }
     
     // Function to toggle theme
@@ -32,7 +33,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add event listener to theme toggle button
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleBtn.addEventListener('click', function(e) {
+            console.log('Theme toggle clicked');
+            toggleTheme();
+            e.preventDefault();
+        });
+    } else {
+        console.warn('Theme toggle button not found!');
+        // Try again after a short delay in case components.js hasn't finished
+        setTimeout(() => {
+            const delayedToggleBtn = document.getElementById('theme-toggle');
+            if (delayedToggleBtn) {
+                delayedToggleBtn.addEventListener('click', function(e) {
+                    console.log('Theme toggle clicked (delayed)');
+                    toggleTheme();
+                    e.preventDefault();
+                });
+            } else {
+                console.error('Theme toggle button still not found after delay');
+            }
+        }, 500);
     }
     
     // Check for saved theme preference or prefer-color-scheme
