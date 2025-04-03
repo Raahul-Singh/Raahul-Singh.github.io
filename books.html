@@ -116,24 +116,10 @@
                     const bookId = this.getAttribute('data-book');
                     console.log('Book link clicked, bookId:', bookId);
                     
-                    // Add loading state to the clicked link
-                    this.classList.add('loading');
-                    const originalHTML = this.innerHTML;
-                    const titleText = this.querySelector('.book-title').textContent;
-                    this.querySelector('.book-list-content').innerHTML = `<span class="book-title">Loading ${titleText}...</span>`;
-                    
-                    // Store in localStorage
+                    // Store in localStorage and navigate immediately
                     if (bookId) {
                         localStorage.setItem('currentBookId', bookId);
-                        // Navigate to the book template page after a short delay
-                        // This gives visual feedback that something is happening
-                        setTimeout(() => {
-                            window.location.href = 'book-template.html';
-                        }, 300);
-                    } else {
-                        // Restore original content if error
-                        this.classList.remove('loading');
-                        this.innerHTML = originalHTML;
+                        window.location.href = 'book-template.html';
                     }
                 });
             });

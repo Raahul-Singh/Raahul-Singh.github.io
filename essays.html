@@ -30,6 +30,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="essays.html">Essays</a></li>
+                <li><a href="books.html">Books</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -45,9 +46,13 @@
                 <h2>Mathematics</h2>
                 <ul class="essay-list">
                     <li>
-                        <a href="essay-template.html?essay=sample-math-essay">
+                        <a href="essay-template.html" class="essay-link" data-essay="sample-essay">
                             <span class="essay-title">Sample Mathematics Essay</span>
                             <time datetime="2023-01-01">January 1, 2023</time>
+                            <div class="tags">
+                                <span class="tag">Mathematics</span>
+                                <span class="tag">Data Visualization</span>
+                            </div>
                         </a>
                     </li>
                     <!-- More math essays will be added here -->
@@ -58,9 +63,14 @@
                 <h2>Technology</h2>
                 <ul class="essay-list">
                     <li>
-                        <a href="essay-template.html?essay=sample-tech-essay">
+                        <a href="essay-template.html" class="essay-link" data-essay="sample-tech-essay">
                             <span class="essay-title">Sample Technology Essay</span>
                             <time datetime="2023-02-01">February 1, 2023</time>
+                            <div class="tags">
+                                <span class="tag">Technology</span>
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Programming</span>
+                            </div>
                         </a>
                     </li>
                     <!-- More tech essays will be added here -->
@@ -71,9 +81,14 @@
                 <h2>Philosophy</h2>
                 <ul class="essay-list">
                     <li>
-                        <a href="essay-template.html?essay=sample-philosophy-essay">
+                        <a href="essay-template.html" class="essay-link" data-essay="sample-philosophy-essay">
                             <span class="essay-title">Sample Philosophy Essay</span>
                             <time datetime="2023-03-01">March 1, 2023</time>
+                            <div class="tags">
+                                <span class="tag">Philosophy</span>
+                                <span class="tag">Ethics</span>
+                                <span class="tag">Epistemology</span>
+                            </div>
                         </a>
                     </li>
                     <!-- More philosophy essays will be added here -->
@@ -93,5 +108,28 @@
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Attach click handler to all essay links
+            const essayLinks = document.querySelectorAll('.essay-link');
+            essayLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Prevent default navigation
+                    e.preventDefault();
+                    
+                    // Get the essay ID from the data attribute
+                    const essayId = this.getAttribute('data-essay');
+                    console.log('Essay link clicked, essayId:', essayId);
+                    
+                    // Store in localStorage and navigate immediately
+                    if (essayId) {
+                        localStorage.setItem('currentEssayId', essayId);
+                        window.location.href = 'essay-template.html';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

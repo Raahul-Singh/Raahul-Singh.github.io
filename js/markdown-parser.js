@@ -14,7 +14,7 @@ function loadAndRenderMarkdown(options) {
     }
 
     const contentType = containerId === 'book-content' ? 'book' : 'essay';
-    markdownContainer.innerHTML = `<p class="loading-message">Loading ${contentType} content...</p>`;
+    markdownContainer.innerHTML = `<p>Loading ${contentType}...</p>`;
     console.log(`Loading markdown from: ${markdownPath}`);
 
     // Function to parse front matter

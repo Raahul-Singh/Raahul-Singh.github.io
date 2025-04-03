@@ -49,6 +49,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="essays.html">Essays</a></li>
+                <li><a href="books.html">Books</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -67,7 +68,7 @@
 
             <!-- This div will be populated with the content from the markdown file -->
             <div id="markdown-content" data-markdown-path="">
-                <p>Loading essay content...</p>
+                <p>Loading essay...</p>
             </div>
         </article>
     </main>
@@ -86,16 +87,24 @@
     <script src="js/markdown-parser.js"></script>
     
     <script>
-        // Set the markdown path based on the URL parameter
+        // Get essay ID and call the parser function
         document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const essayPath = urlParams.get('essay');
+            // Try to get the essay ID from localStorage
+            const essayId = localStorage.getItem('currentEssayId');
+            const containerId = 'markdown-content'; // ID of the div to load content into
             
-            if (essayPath) {
-                const markdownContainer = document.getElementById('markdown-content');
-                markdownContainer.setAttribute('data-markdown-path', 'markdown-essays/' + essayPath + '.md');
+            console.log('Retrieved essayId from localStorage:', essayId);
+            
+            if (essayId) {
+                const markdownPath = 'markdown-essays/' + essayId + '.md';
+                console.log('Constructed markdownPath:', markdownPath);
+                
+                // Call the function defined in markdown-parser.js
+                loadAndRenderMarkdown({ containerId, markdownPath });
             } else {
-                document.getElementById('markdown-content').innerHTML = 
+                console.warn('No essayId found in localStorage.');
+                // Handle case where no essay ID is provided
+                document.getElementById(containerId).innerHTML = 
                     '<p class="error">No essay specified. Please select an essay from the <a href="essays.html">essays page</a>.</p>';
             }
         });
