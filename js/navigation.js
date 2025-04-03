@@ -1,39 +1,61 @@
 /**
- * Simple navigation handler
- * Basic navigation script to handle page transitions and ensure content loads properly
+ * navigation.js
+ * Handles common navigation elements across the site
  */
 
-// Add handlers once DOM is ready
+// Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Add page-ready class to enable CSS transitions
-    document.body.classList.add('page-ready');
+    // Insert common navigation
+    insertCommonNavigation();
     
-    // 2. Mark current page in navigation
-    const currentPath = window.location.pathname;
-    document.querySelectorAll('nav a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (currentPath.endsWith(href) || 
-           (href === 'index.html' && (currentPath === '/' || currentPath.endsWith('/')))) {
-            link.classList.add('current');
+    // Highlight current page in navigation
+    highlightCurrentPage();
+});
+
+/**
+ * Inserts the common navigation menu into the page
+ */
+function insertCommonNavigation() {
+    const navPlaceholder = document.querySelector('nav');
+    
+    if (!navPlaceholder) {
+        console.error('Navigation placeholder not found');
+        return;
+    }
+    
+    // The common navigation HTML
+    const navHTML = `
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="essays.html">Essays</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    `;
+    
+    // Insert the navigation
+    navPlaceholder.innerHTML = navHTML;
+    
+    console.log('Common navigation inserted');
+}
+
+/**
+ * Highlights the current page in the navigation menu
+ */
+function highlightCurrentPage() {
+    // Get the current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Find the link that matches the current page
+    const navLinks = document.querySelectorAll('nav a');
+    
+    navLinks.forEach(link => {
+        // Check if the href matches the current page
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
         }
     });
     
-    // 3. Simple reload for home page when clicked from home page
-    document.querySelectorAll('a[href="index.html"], a[href="/"], a[href=""]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (currentPath.endsWith('index.html') || currentPath === '/' || currentPath.endsWith('/')) {
-                e.preventDefault();
-                window.location.reload();
-            }
-        });
-    });
-    
-    // 4. Basic check for empty content
-    setTimeout(function() {
-        const main = document.querySelector('main');
-        if (main && (main.offsetHeight < 10 || main.innerHTML.trim() === '')) {
-            console.log('Content appears to be missing, reloading page');
-            window.location.reload();
-        }
-    }, 300);
-}); 
+    console.log('Current page highlighted in navigation');
+} 
