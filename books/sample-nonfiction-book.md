@@ -2,7 +2,7 @@
 title: Sample Non-Fiction Book
 author: Author Name
 date: 2023-01-01
-rating: ★★★☆☆
+rating: 3
 tags: [Non-Fiction, Science, Research]
 cover_image: https://via.placeholder.com/300x450/e0f0ff/333333?text=Sample+Non-Fiction+Book
 amazon_link: https://www.amazon.com/sample-nonfiction

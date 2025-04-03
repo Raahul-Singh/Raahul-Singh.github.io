@@ -17,6 +17,9 @@
     <!-- Central navigation handler - must be after components.js -->
     <script src="js/navigation.js"></script>
     
+    <!-- Content JSON checker - must load before content scripts -->
+    <script src="js/init-content.js"></script>
+    
     <!-- Social links module for rendering social icons -->
     <script src="js/social-links.js"></script>
 </head>
@@ -27,9 +30,9 @@
     <main>
         <article>
             <h1>Books</h1>
-            <p>A collection of my book notes, summaries, and reviews. Books are categorized by genre.</p>
+            <p>A collection of my book notes, summaries, and reviews. Books are listed in chronological order with the most recent at the top.</p>
             
-            <!-- Book categories will be dynamically loaded here by load-books.js -->
+            <!-- Book list will be dynamically loaded here by load-books.js -->
         </article>
     </main>
 

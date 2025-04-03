@@ -2,7 +2,7 @@
 title: Thinking, Fast and Slow
 author: Daniel Kahneman
 date: 2023-02-15
-rating: ★★★★★
+rating: 5
 tags: [Psychology, Behavioral Economics, Decision Making, Non-Fiction]
 cover_image: https://m.media-amazon.com/images/I/61fdrEuPJwL._SL1200_.jpg
 amazon_link: https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555/

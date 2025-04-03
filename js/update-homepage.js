@@ -13,15 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateRecentContent() {
     console.log('Updating recent content on homepage...');
     
-    // Update recent essays by scanning the essays directory
+    // Update recent essays from essays.json
     updateEssays();
     
-    // Update recent books with known files (most recent first)
-    updateWithKnownFiles('books', [
-        { id: 'thinking-fast-and-slow', title: 'Thinking, Fast and Slow', author: 'Daniel Kahneman', date: '2023-02-15', cover_image: 'https://m.media-amazon.com/images/I/61fdrEuPJwL._SL1200_.jpg' },
-        { id: 'sample-nonfiction-book', title: 'Sample Non-Fiction Book', author: 'Author Name', date: '2023-01-01', cover_image: 'https://via.placeholder.com/300x450/e0f0ff/333333?text=Sample+Non-Fiction+Book' },
-        { id: 'sample-book', title: 'Sample Book', author: 'Author Name', date: '2023-01-01', cover_image: 'https://via.placeholder.com/300x450/f5f5f5/333333?text=Sample+Book' }
-    ]);
+    // Update recent books from books.json
+    updateBooks();
 }
 
 /**
@@ -67,6 +63,52 @@ function updateEssays() {
         .catch(error => {
             console.error('Error loading essays for homepage:', error);
             container.innerHTML = '<li class="error-message">Failed to load recent essays.</li>';
+        });
+}
+
+/**
+ * Updates the books section by reading from books.json
+ */
+function updateBooks() {
+    const container = document.querySelector('.recent-books .book-list');
+    
+    if (!container) {
+        console.error('Books container not found');
+        return;
+    }
+    
+    console.log('Updating recent books from books.json');
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Load books from the JSON file
+    fetch('books.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load books.json: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(books => {
+            console.log(`Loaded ${books.length} books from books.json for homepage`);
+            
+            if (books.length === 0) {
+                container.innerHTML = '<li>No recent books available.</li>';
+                return;
+            }
+            
+            // Display the most recent books (limit to 3)
+            const limit = 3;
+            books.slice(0, limit).forEach(book => {
+                addContentItem(container, 'books', book);
+            });
+            
+            console.log(`Added ${Math.min(books.length, limit)} books to home page`);
+        })
+        .catch(error => {
+            console.error('Error loading books for homepage:', error);
+            container.innerHTML = '<li class="error-message">Failed to load recent books.</li>';
         });
 }
 

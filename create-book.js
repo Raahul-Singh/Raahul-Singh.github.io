@@ -3,14 +3,15 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const generateBooksJson = require('./generate-books-json');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-// Create the markdown-books directory if it doesn't exist
-const bookDir = path.join(__dirname, 'markdown-books');
+// Create the books directory if it doesn't exist
+const bookDir = path.join(__dirname, 'books');
 if (!fs.existsSync(bookDir)) {
   fs.mkdirSync(bookDir, { recursive: true });
 }
@@ -28,7 +29,10 @@ function generateBook() {
   const dateString = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
   
   // Parse tags
-  const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()) : [];
+  const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+  
+  // Create the tags section for frontmatter
+  const tagsSection = tags.length > 0 ? `tags: [${tags.join(', ')}]` : 'tags: []';
   
   // Create the markdown template
   const template = `---
@@ -36,7 +40,10 @@ title: ${title}
 author: ${author}
 date: ${dateString}
 rating: ${rating}
-tags: [${tags.join(', ')}]
+${tagsSection}
+cover_image: 
+amazon_link: 
+goodreads_link: 
 ---
 
 ## Summary
@@ -71,22 +78,13 @@ Who would you recommend this book to? Why?
   
   console.log(`\nCreated new book review: ${filePath}`);
   
-  // Create HTML for books.html
-  const month = today.toLocaleString('default', { month: 'long' });
-  const day = today.getDate();
-  const year = today.getFullYear();
-  const formattedDate = `${month} ${day}, ${year}`;
-  
-  const htmlListItem = `<li>
-    <a href="book-template.html?book=${filename}">
-        <span class="book-title">${title}</span>
-        <span class="book-author">by ${author}</span>
-        <time datetime="${dateString}">${formattedDate}</time>
-    </a>
-</li>`;
-
-  console.log('\nHTML for books.html:');
-  console.log(htmlListItem);
+  // Generate the books.json file
+  console.log('\nUpdating books.json file...');
+  if (generateBooksJson()) {
+    console.log('The book has been added to books.json and will automatically appear on your website.');
+  } else {
+    console.log('There was an error updating books.json. Your book might not appear on the website.');
+  }
   
   rl.close();
 }
@@ -116,16 +114,16 @@ function promptForMissingInfo() {
     return;
   }
   
-  if (!tagsInput) {
-    rl.question('Enter tags (comma-separated): ', answer => {
+  if (tagsInput === undefined) {
+    rl.question('Enter tags (comma-separated, or press Enter for no tags): ', answer => {
       tagsInput = answer.trim();
       promptForMissingInfo();
     });
     return;
   }
   
-  if (!rating) {
-    rl.question('Enter rating (1-5 stars, leave blank if none): ', answer => {
+  if (rating === undefined) {
+    rl.question('Enter rating (0-5, can use decimals like 4.5): ', answer => {
       rating = answer.trim();
       promptForMissingInfo();
     });
@@ -139,6 +137,6 @@ function promptForMissingInfo() {
 promptForMissingInfo();
 
 // If all arguments are provided, generate the book immediately
-if (filename && title && author && tagsInput) {
+if (filename && title && author && tagsInput !== undefined) {
   generateBook();
 } 

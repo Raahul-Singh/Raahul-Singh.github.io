@@ -88,7 +88,11 @@ function loadAndRenderMarkdown(options) {
                 document.getElementById('book-author').textContent = 'by ' + frontMatter.author;
             }
             if (frontMatter.rating && document.getElementById('book-rating')) {
-                document.getElementById('book-rating').textContent = frontMatter.rating;
+                // Format the rating to show numeric value out of 5
+                const ratingText = frontMatter.rating.includes('★') 
+                    ? frontMatter.rating  // Keep star rating for existing books
+                    : `${frontMatter.rating}/5`;  // Format numeric rating
+                document.getElementById('book-rating').textContent = ratingText;
             }
             if (frontMatter.date) {
                 const dateEl = document.getElementById('book-date') || document.querySelector('article header time');

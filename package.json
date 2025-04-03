@@ -4,12 +4,16 @@
   "description": "Personal essays website inspired by gwern.net",
   "main": "index.js",
   "scripts": {
-    "start": "npm run generate-essays && npx serve",
+    "start": "npm run generate-content && npx serve",
     "create-essay": "node create-essay.js",
-    "generate-essays": "node generate-essays-json.js"
+    "create-book": "node create-book.js",
+    "generate-essays": "node generate-essays-json.js",
+    "generate-books": "node generate-books-json.js",
+    "generate-content": "npm run generate-essays && npm run generate-books"
   },
   "keywords": [
     "essays",
+    "books",
     "static-site",
     "markdown"
   ],
