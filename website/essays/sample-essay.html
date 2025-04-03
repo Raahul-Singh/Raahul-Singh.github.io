@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lambda book - Raahul Singh</title>
-    <meta name="description" content="A book review by Raahul Singh.">
+    <title>Sample Essay With Mathematics - Raahul Singh</title>
+    <meta name="description" content="An essay by Raahul Singh.">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     
@@ -25,7 +25,7 @@
     <script>
         // Get document ID from URL path and load the content
         document.addEventListener('DOMContentLoaded', function() {
-            const containerId = 'book-content'; // ID of the div to load content into
+            const containerId = 'essay-content'; // ID of the div to load content into
             
             // Extract ID from URL path
             const pathParts = window.location.pathname.split('/');
@@ -36,9 +36,9 @@
             
             if (id) {
                 // Set in localStorage for compatibility with other scripts
-                localStorage.setItem('selectedBook', id);
+                localStorage.setItem('selectedEssay', id);
                 
-                const markdownPath = '../books/lamda.md';
+                const markdownPath = './' + id + '.md';
                 console.log('Loading markdown from:', markdownPath);
                 
                 // Call the function defined in markdown-parser.js
@@ -46,7 +46,7 @@
             } else {
                 console.warn('Could not extract ID from URL path');
                 document.getElementById(containerId).innerHTML = 
-                    '<p class="error">Could not determine which book to display. Please select a book from the <a href="../books.html">books page</a>.</p>';
+                    '<p class="error">Could not determine which essay to display. Please select a essay from the <a href="../essays.html">essays page</a>.</p>';
             }
         });
     </script>

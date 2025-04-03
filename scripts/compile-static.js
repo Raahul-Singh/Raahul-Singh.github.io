@@ -101,7 +101,7 @@ function generateHtmlFromMarkdown(templatePath, markdownPath, outputPath) {
                 // Set in localStorage for compatibility with other scripts
                 localStorage.setItem('selected${contentType.charAt(0).toUpperCase() + contentType.slice(1)}', id);
                 
-                const markdownPath = '../${contentType}s/${id}.md';
+                const markdownPath = './' + id + '.md';
                 console.log('Loading markdown from:', markdownPath);
                 
                 // Call the function defined in markdown-parser.js
@@ -114,11 +114,11 @@ function generateHtmlFromMarkdown(templatePath, markdownPath, outputPath) {
         });
     </script>`;
     
-    // Adjust paths for compiled directory (add '../' prefix for resources)
+    // Adjust paths for output directory
     let html = template
       // Update the title
       .replace(/<title>.*?<\/title>/, `<title>${frontmatter.title || id} - Raahul Singh</title>`)
-      // Fix the paths to CSS, JS, and other assets
+      // Fix the paths to CSS, JS, and other assets - use a parent reference
       .replace(/href="css\//g, 'href="../css/')
       .replace(/href="assets\//g, 'href="../assets/')
       .replace(/src="js\//g, 'src="../js/')
@@ -353,31 +353,22 @@ async function compileStatic() {
     // Define all directories
     const websiteDir = path.join(__dirname, '../website');
     
-    // Source markdown directories
-    const booksMarkdownDir = path.join(websiteDir, 'books');
-    const essaysMarkdownDir = path.join(websiteDir, 'essays');
+    // Source markdown directories (also where we'll put the HTML files)
+    const booksDir = path.join(websiteDir, 'books');
+    const essaysDir = path.join(websiteDir, 'essays');
     
-    // Compiled HTML output directories
-    const compiledDir = path.join(websiteDir, 'compiled');
-    const booksHtmlDir = path.join(compiledDir, 'books');
-    const essaysHtmlDir = path.join(compiledDir, 'essays');
-    
-    // Create compiled directories if they don't exist
-    if (!fs.existsSync(compiledDir)) {
-      fs.mkdirSync(compiledDir, { recursive: true });
+    // Create the directories if they don't exist
+    if (!fs.existsSync(booksDir)) {
+      fs.mkdirSync(booksDir, { recursive: true });
     }
     
-    if (!fs.existsSync(booksHtmlDir)) {
-      fs.mkdirSync(booksHtmlDir, { recursive: true });
-    }
-    
-    if (!fs.existsSync(essaysHtmlDir)) {
-      fs.mkdirSync(essaysHtmlDir, { recursive: true });
+    if (!fs.existsSync(essaysDir)) {
+      fs.mkdirSync(essaysDir, { recursive: true });
     }
     
     console.log('Reading markdown files...');
-    const books = readMarkdownFiles(booksMarkdownDir);
-    const essays = readMarkdownFiles(essaysMarkdownDir);
+    const books = readMarkdownFiles(booksDir);
+    const essays = readMarkdownFiles(essaysDir);
     
     console.log(`Found ${books.length} books and ${essays.length} essays`);
     
@@ -387,15 +378,15 @@ async function compileStatic() {
     
     // Generate HTML files for each book
     books.forEach(book => {
-      const markdownPath = path.join(booksMarkdownDir, `${book.id}.md`);
-      const outputPath = path.join(booksHtmlDir, `${book.id}.html`);
+      const markdownPath = path.join(booksDir, `${book.id}.md`);
+      const outputPath = path.join(booksDir, `${book.id}.html`);
       generateHtmlFromMarkdown(bookTemplate, markdownPath, outputPath);
     });
     
     // Generate HTML files for each essay
     essays.forEach(essay => {
-      const markdownPath = path.join(essaysMarkdownDir, `${essay.id}.md`);
-      const outputPath = path.join(essaysHtmlDir, `${essay.id}.html`);
+      const markdownPath = path.join(essaysDir, `${essay.id}.md`);
+      const outputPath = path.join(essaysDir, `${essay.id}.html`);
       generateHtmlFromMarkdown(essayTemplate, markdownPath, outputPath);
     });
     
@@ -410,7 +401,7 @@ async function compileStatic() {
       
       return `
         <div class="card">
-          <h3><a href="compiled/books/${id}.html" class="book-link">${title}</a></h3>
+          <h3><a href="books/${id}.html" class="book-link">${title}</a></h3>
           <p class="book-author">by ${author}</p>
           ${rating ? `<div class="rating">${'★'.repeat(Math.floor(parseFloat(rating)))}${parseFloat(rating) % 1 === 0.5 ? '½' : ''}</div>` : ''}
           <p class="book-date">${formatDate(date)}</p>
@@ -425,7 +416,7 @@ async function compileStatic() {
       
       return `
         <div class="card">
-          <h3><a href="compiled/essays/${id}.html" class="essay-link">${title}</a></h3>
+          <h3><a href="essays/${id}.html" class="essay-link">${title}</a></h3>
           <p class="essay-date">${formatDate(date)}</p>
           ${tags && tags.length > 0 ? 
             `<div class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
@@ -438,7 +429,7 @@ async function compileStatic() {
       
       return `
         <div class="card">
-          <h3><a href="compiled/books/${id}.html" class="book-link">${title}</a></h3>
+          <h3><a href="books/${id}.html" class="book-link">${title}</a></h3>
           <p class="book-author">by ${author}</p>
           ${rating ? `<div class="rating">${'★'.repeat(Math.floor(parseFloat(rating)))}${parseFloat(rating) % 1 === 0.5 ? '½' : ''}</div>` : ''}
           <p class="book-date">${formatDate(date)}</p>
@@ -453,7 +444,7 @@ async function compileStatic() {
       
       return `
         <div class="card">
-          <h3><a href="compiled/essays/${id}.html" class="essay-link">${title}</a></h3>
+          <h3><a href="essays/${id}.html" class="essay-link">${title}</a></h3>
           <p class="essay-date">${formatDate(date)}</p>
           ${tags && tags.length > 0 ? 
             `<div class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
