@@ -1675,4 +1675,57 @@ footer {
   .tooltip-container .tooltip-text {
     width: 250px;
   }
+}
+
+/* Highlight the footnote ref when targeted */
+.footnote-ref:target {
+  background-color: rgba(var(--link-color-rgb), 0.2);
+  padding: 2px 4px;
+  border-radius: 4px;
+  animation: highlight-fade 2s ease-out;
+}
+
+@keyframes highlight-fade {
+  0% {
+    background-color: rgba(var(--link-color-rgb), 0.4);
+  }
+  100% {
+    background-color: rgba(var(--link-color-rgb), 0.2);
+  }
+}
+
+/* Footnote highlighting using JavaScript */
+.footnote-highlight {
+  animation: highlight-pulse 1.5s ease-out;
+}
+
+/* Styling for highlighted footnote list items */
+li.footnote-highlight {
+  background-color: rgba(var(--link-color-rgb), 0.15);
+  padding: 0.5rem;
+  border-radius: 4px;
+  border-left: 3px solid var(--link-color);
+  animation: footnote-pulse 1.5s ease-out;
+}
+
+/* Styling for highlighted footnote references */
+.footnote-ref.footnote-highlight {
+  background-color: rgba(var(--link-color-rgb), 0.25);
+  padding: 2px 4px;
+  border-radius: 4px;
+  animation: footnote-pulse 1.5s ease-out;
+}
+
+@keyframes footnote-pulse {
+  0% {
+    background-color: rgba(var(--link-color-rgb), 0.5);
+    transform: scale(1.05);
+  }
+  70% {
+    background-color: rgba(var(--link-color-rgb), 0.25);
+    transform: scale(1);
+  }
+  100% {
+    background-color: rgba(var(--link-color-rgb), 0.15);
+  }
 } 

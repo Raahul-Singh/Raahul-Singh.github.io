@@ -224,22 +224,93 @@ function setupSearch() {
 function enhanceFootnotes() {
   // Get all footnote references
   const footnoteRefs = document.querySelectorAll('.footnote-ref');
+  const footnotes = document.querySelectorAll('.footnotes li');
+  
+  // Function to clear all highlights
+  function clearAllHighlights() {
+    document.querySelectorAll('.footnote-highlight').forEach(el => {
+      el.classList.remove('footnote-highlight');
+    });
+  }
+  
+  // Clear highlights on page load
+  clearAllHighlights();
   
   // Process each footnote reference
   footnoteRefs.forEach(footnoteRef => {
-    const id = footnoteRef.getAttribute('href').substring(1);
+    // Get the actual href value without modification
+    const href = footnoteRef.getAttribute('href');
+    // Extract the ID from the href
+    const id = href.substring(1); // Remove the leading #
     const footnote = document.getElementById(id);
+    
+    // Add smooth scrolling to footnote references (going down)
+    footnoteRef.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Clear all highlights first
+      clearAllHighlights();
+      
+      if (footnote) {
+        // Add highlight class to the target footnote
+        footnote.classList.add('footnote-highlight');
+        
+        window.scrollTo({
+          top: footnote.offsetTop - 20,
+          behavior: 'smooth'
+        });
+        // Update URL hash without jumping
+        history.pushState(null, null, href);
+      }
+    });
     
     if (footnote) {
       // Add a 'return to content' link at the end of each footnote
       const backRef = footnote.querySelector('.footnote-backref');
       
       if (backRef) {
+        // Get the actual return href value
+        const returnHref = backRef.getAttribute('href');
+        
         // Enhance the existing backref with better visibility
         backRef.innerHTML = '↩ Return to text';
         backRef.title = 'Return to where you were reading';
         backRef.style.fontWeight = 'bold';
+        
+        // Add smooth scrolling to back references (going up)
+        backRef.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Use the actual href from the backref
+          const targetId = returnHref.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            // Clear all highlights first
+            clearAllHighlights();
+            
+            // Add highlight class to the footnote reference
+            targetElement.classList.add('footnote-highlight');
+            
+            // Scroll to the footnote reference with some margin at the top
+            window.scrollTo({
+              top: targetElement.offsetTop - 100, // Add top margin to prevent jarring effect
+              behavior: 'smooth'
+            });
+            // Update URL hash without jumping
+            history.pushState(null, null, returnHref);
+          }
+        });
       }
+    }
+  });
+  
+  // Also clear highlights when clicking elsewhere in the document
+  document.addEventListener('click', function(e) {
+    // Don't clear if clicking on a footnote ref or backref
+    if (!e.target.closest('.footnote-ref') && 
+        !e.target.closest('.footnote-backref') && 
+        !e.target.closest('.footnotes li')) {
+      clearAllHighlights();
     }
   });
 } 
