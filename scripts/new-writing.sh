@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# Script to create a new essay
+# Script to create a new writing
 
 # Set directory
-ESSAYS_DIR="content/essays"
+WRITINGS_DIR="content/writings"
 
 # Check if the directory exists, create if not
-if [ ! -d "$ESSAYS_DIR" ]; then
-  mkdir -p "$ESSAYS_DIR"
-  echo "Created $ESSAYS_DIR directory"
+if [ ! -d "$WRITINGS_DIR" ]; then
+  mkdir -p "$WRITINGS_DIR"
+  echo "Created $WRITINGS_DIR directory"
 fi
 
-# Get essay details
-echo "Enter essay details:"
+# Get writing details
+echo "Enter writing details:"
 read -p "Title: " title
 read -p "Description: " description
 read -p "Tags (comma-separated): " tags_input
@@ -24,7 +24,7 @@ date=$(date +%Y-%m-%d)
 
 # Create filename from title
 filename=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
-filepath="$ESSAYS_DIR/$filename.md"
+filepath="$WRITINGS_DIR/$filename.md"
 
 # Format tags as YAML array
 IFS=',' read -ra tag_array <<< "$tags_input"
@@ -56,7 +56,7 @@ ${featured_image_line}
 
 ## Introduction
 
-Introduce the main topic and provide context. Explain why this topic is important or interesting and what readers can expect to learn from this essay.
+Introduce the main topic and provide context. Explain why this topic is important or interesting and what readers can expect to learn from this writing.
 
 ## Background
 
@@ -107,6 +107,6 @@ Summarize your main points and restate the significance of the topic. Offer fina
 3. Third reference
 EOF
 
-echo "Created new essay at $filepath"
+echo "Created new writing at $filepath"
 echo "You can now edit it with your content editor."
-echo "Preview it with 'hugo server -D' and visit http://localhost:1313/essays/" 
+echo "Preview it with 'hugo server -D' and visit http://localhost:1313/writings/" 

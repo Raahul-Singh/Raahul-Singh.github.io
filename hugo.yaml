@@ -80,18 +80,18 @@ menu:
       name: "Home"
       url: "/"
       weight: 10
-    - identifier: "writings"
-      name: "Writings"
-      url: "/writings/"
-      weight: 20
-    - identifier: "notes"
-      name: "Notes"
-      url: "/notes/"
-      weight: 30
-    - identifier: "reading"
-      name: "Reading List"
-      url: "/reading/"
-      weight: 40
+    # - identifier: "writings"
+    #   name: "Writings"
+    #   url: "/writings/"
+    #   weight: 20
+    # - identifier: "notes"
+    #   name: "Notes"
+    #   url: "/notes/"
+    #   weight: 30
+    # - identifier: "reading"
+    #   name: "Reading List"
+    #   url: "/reading/"
+    #   weight: 40
 
 # Set default content settings
 taxonomies:

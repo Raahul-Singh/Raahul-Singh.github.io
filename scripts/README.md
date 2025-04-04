@@ -35,24 +35,24 @@ Creates a new book review with a predefined template for consistent formatting.
   - Favorite Quotes
   - Conclusion
 
-### 2. New Essay (`new-essay.sh`)
+### 2. New Writing (`new-writing.sh`)
 
-Creates a new essay with a predefined template for consistent formatting.
+Creates a new writing piece with a predefined template for consistent formatting.
 
 **Usage:**
 ```bash
-./scripts/new-essay.sh
+./scripts/new-writing.sh
 ```
 
 **The script will prompt you for:**
-- Essay title
+- Writing title
 - Description (appears in listings)
 - Tags (comma-separated)
 - Confidence level
 - Status (notes/draft/in progress/finished)
 
 **Output:**
-- Creates a new Markdown file in `content/essays/` with a filename based on the essay title
+- Creates a new Markdown file in `content/writings/` with a filename based on the writing title
 - Includes a structured template with sections for:
   - Introduction
   - Background
@@ -103,5 +103,5 @@ Creates a new note with a predefined template for quick thoughts and ideas.
 ## File Locations
 
 - Book reviews are stored in: `content/reading/`
-- Essays are stored in: `content/essays/`
+- Writings are stored in: `content/writings/`
 - Notes are stored in: `content/notes/` 
