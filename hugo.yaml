@@ -92,10 +92,6 @@ menu:
       name: "Reading List"
       url: "/reading/"
       weight: 4
-    - identifier: "about"
-      name: "About"
-      url: "/about/"
-      weight: 5
 
 # Set default content settings
 taxonomies:
