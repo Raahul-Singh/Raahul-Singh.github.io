@@ -3,6 +3,8 @@ title: "Useful Markdown Tips"
 date: 2023-05-15
 description: "A collection of useful Markdown formatting tips"
 tags: ["Markdown", "Writing", "Tips"]
+confidence: "certain"
+status: "finished"
 ---
 
 # Useful Markdown Tips

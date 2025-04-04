@@ -1,0 +1,49 @@
+/* Direct inline style overrides with highest specificity */
+
+/* Make description correctly aligned */
+section.list-section > header.section-header > p.section-description {
+  margin-top: 0.8rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Fix confidence tag appearance */
+.confidence-tag {
+  display: inline-block !important;
+  margin: 0.5rem !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 4px !important;
+  font-size: 0.8rem !important;
+  background-color: #0066cc !important;
+  color: white !important;
+  font-weight: normal !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Single note page confidence tag */
+.content-meta .confidence-tag {
+  margin-left: 0.5rem !important;
+}
+
+/* Reading progress bar - single book view */
+.book-header-details .reading-progress {
+  margin: 1rem 0;
+}
+
+.book-header-details .progress-bar {
+  height: 10px;
+  background-color: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.book-header-details .progress-fill {
+  height: 100%;
+  background-color: var(--link-color);
+}
+
+.book-header-details .progress-text {
+  font-size: 0.85rem;
+  color: var(--tag-color);
+} 

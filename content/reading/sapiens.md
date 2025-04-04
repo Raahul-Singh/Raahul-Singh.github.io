@@ -6,6 +6,9 @@ description: "A thought-provoking exploration of human history from the Stone Ag
 tags: ["History", "Anthropology", "Science", "Evolution", "Non-Fiction"]
 rating: 5
 cover_image: "https://m.media-amazon.com/images/I/713jIoMO3UL._SY522_.jpg"
+status: "reading"
+progress: 65
+confidence: "likely"
 ---
 
 ## Summary

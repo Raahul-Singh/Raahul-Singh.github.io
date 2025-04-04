@@ -18,6 +18,9 @@
             {{ with .Params.status }}
             <span class="content-status">[{{ . }}]</span>
             {{ end }}
+
+            <!-- Confidence tag with default value -->
+            <span class="confidence-tag">Confidence: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
         </div>
         {{ end }}
         

@@ -34,6 +34,12 @@
                     {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
                 </span>
                 {{ end }}
+
+                {{ with .Params.confidence }}
+                <span class="confidence-tag">Confidence: {{ . }}</span>
+                {{ else }}
+                <span class="confidence-tag">Confidence: uncertain</span>
+                {{ end }}
             </div>
             
             {{ with .Params.tags }}

@@ -3,6 +3,8 @@ title: "Digital Minimalism"
 date: 2023-06-10
 description: "Brief thoughts on practicing digital minimalism"
 tags: ["Productivity", "Technology", "Minimalism"]
+confidence: "likely"
+status: "finished"
 ---
 
 # Digital Minimalism

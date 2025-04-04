@@ -3,6 +3,8 @@ title: "Using Tooltips and Footnotes in Essays"
 date: 2023-05-25
 description: "A demonstration of how to use tooltips and footnotes effectively in long-form writing"
 tags: ["Writing", "Typography", "Design"]
+confidence: "highly likely"
+status: "finished"
 ---
 
 # Using Tooltips and Footnotes Effectively

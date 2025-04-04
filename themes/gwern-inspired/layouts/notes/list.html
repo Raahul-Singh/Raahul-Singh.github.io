@@ -1,38 +1,69 @@
 {{ define "main" }}
-<div class="container">
-  <div class="list-section">
-    <div class="section-header">
-      <h1>{{ .Title }}</h1>
-      {{ with .Description }}
-      <p class="section-description">{{ . }}</p>
-      {{ end }}
-    </div>
-    
-    {{ .Content }}
-    
-    <div class="essays-grid">
-      {{ range .Pages.ByDate.Reverse }}
-      <div class="feature-card essay-card">
-        <h3 class="essay-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <div class="essay-meta">
-          <span class="essay-date">{{ .Date.Format ($.Site.Params.dateFormat | default "January 2, 2006") }}</span>
-        </div>
-        {{ if .Description }}
-        <p class="essay-description">{{ .Description }}</p>
+<section class="list-section">
+  <header class="section-header">
+    <h1 class="section-title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="section-description">{{ . }}</p>
+    {{ end }}
+  </header>
+  
+  {{ .Content }}
+  
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+  {{ if $paginator.Pages }}
+  <div class="content-list">
+    {{ range $paginator.Pages }}
+    <article class="list-item">
+      <h2 class="list-item-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      
+      <div class="list-item-meta">
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
         {{ end }}
-        {{ if .Params.tags }}
-        <div class="list-item-tags">
-          {{ range .Params.tags }}
-          <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
-          {{ end }}
-        </div>
+        
+        {{ with .Params.confidence }}
+        <span class="confidence-tag">Confidence: {{ . }}</span>
+        {{ else }}
+        <span class="confidence-tag">Confidence: uncertain</span>
         {{ end }}
-        <a href="{{ .Permalink }}" class="read-more">Read more →</a>
       </div>
-      {{ else }}
-      <p class="no-content">No notes to display yet.</p>
+      
+      {{ with .Params.tags }}
+      <div class="list-item-tags">
+        {{ range . }}
+        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+        {{ end }}
+      </div>
       {{ end }}
-    </div>
+      
+      {{ with .Description }}
+      <p class="list-item-description">{{ . }}</p>
+      {{ else }}
+      <p class="list-item-description">{{ .Summary | plainify | truncate 160 }}</p>
+      {{ end }}
+      
+      <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+    </article>
+    {{ end }}
   </div>
-</div>
+  
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">← Previous</a>
+    {{ end }}
+    
+    <span class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+    
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pagination-next">Next →</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+  {{ else }}
+  <p>No notes found.</p>
+  {{ end }}
+</section>
 {{ end }} 

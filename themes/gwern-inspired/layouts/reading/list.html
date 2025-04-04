@@ -9,7 +9,55 @@
 
     {{ .Content }}
 
-    {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+    <!-- Currently Reading Section -->
+    <div class="currently-reading">
+        <h3>Currently Reading</h3>
+        <div class="books-list">
+            {{ $currentlyReading := where .Pages ".Params.status" "reading" }}
+            {{ if $currentlyReading }}
+            {{ range $currentlyReading }}
+            <article class="book-card-horizontal">
+                <div class="book-card-inner">
+                    <div class="book-cover-container">
+                        {{ if .Params.cover_image }}
+                        <a href="{{ .Permalink }}" class="book-link">
+                            <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="book-cover-img" loading="lazy">
+                        </a>
+                        {{ end }}
+                    </div>
+                    <div class="book-details">
+                        <h2 class="book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                        
+                        {{ with .Params.author }}
+                        <p class="book-author">by {{ . }}</p>
+                        {{ end }}
+                        
+                        {{ with .Params.progress }}
+                        <div class="reading-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ . }}%"></div>
+                            </div>
+                            <span class="progress-text">{{ . }}% complete</span>
+                        </div>
+                        {{ end }}
+                        
+                        {{ with .Description }}
+                        <p class="book-description">{{ . }}</p>
+                        {{ else }}
+                        <p class="book-description">{{ .Summary | plainify | truncate 160 }}</p>
+                        {{ end }}
+                    </div>
+                </div>
+            </article>
+            {{ end }}
+            {{ else }}
+            <p>No books currently being read.</p>
+            {{ end }}
+        </div>
+    </div>
+
+    <h3>Completed Books</h3>
+    {{ $paginator := .Paginate (where .Pages ".Params.status" "ne" "reading") }}
     {{ if $paginator.Pages }}
     <div class="books-list">
         {{ range $paginator.Pages }}
@@ -38,6 +86,10 @@
                         </span>
                         <span class="rating-number">({{ . }}/5)</span>
                     </div>
+                    {{ end }}
+                    
+                    {{ with .Params.confidence }}
+                    <span class="confidence-tag">Confidence: {{ . }}</span>
                     {{ end }}
                     
                     {{ if .Date }}
@@ -79,7 +131,7 @@
     </nav>
     {{ end }}
     {{ else }}
-    <p>No books found.</p>
+    <p>No completed books found.</p>
     {{ end }}
 </section>
 {{ end }} 

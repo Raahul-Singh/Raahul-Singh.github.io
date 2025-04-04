@@ -7,3 +7,19 @@
     {{- end }}
   {{- end }}
 {{- end }}
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/gwern.css" | relURL }}">
+
+<!-- Custom CSS (consolidated) -->
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+<!-- Dark mode preference -->
+<script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+</script>

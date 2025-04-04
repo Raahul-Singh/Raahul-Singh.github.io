@@ -11,6 +11,13 @@
         <span class="update-info">(Updated: {{ .Lastmod.Format ($.Site.Params.dateFormat | default "January 2, 2006") }})</span>
         {{ end }}
         {{ end }}
+        
+        {{ with .Params.status }}
+        <span class="content-status">[{{ . }}]</span>
+        {{ end }}
+        
+        <!-- Confidence tag with default value -->
+        <span class="confidence-tag note-confidence-tag">Confidence: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
       </div>
       
       {{ if .Params.tags }}
