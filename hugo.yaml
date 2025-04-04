@@ -88,10 +88,10 @@ menu:
       name: "Notes"
       url: "/notes/"
       weight: 30
-    # - identifier: "reading"
-    #   name: "Reading List"
-    #   url: "/reading/"
-    #   weight: 40
+    - identifier: "reading"
+      name: "Reading List"
+      url: "/reading/"
+      weight: 40
 
 # Set default content settings
 taxonomies:
