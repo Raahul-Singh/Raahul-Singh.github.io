@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raahul Singh</title>
-    <link>https://raahulsingh.net/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://raahulsingh.net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Digital Minimalism</title>
-      <link>https://raahulsingh.net/notes/digital-minimalism/</link>
+      <link>http://localhost:1313/notes/digital-minimalism/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/notes/digital-minimalism/</guid>
+      <guid>http://localhost:1313/notes/digital-minimalism/</guid>
       <description>&lt;h1 id=&#34;digital-minimalism&#34;&gt;Digital Minimalism&lt;/h1&gt;&#xA;&lt;p&gt;Digital minimalism is a philosophy that helps you question what digital communication tools (and behaviors surrounding these tools) add the most value to your life. It is about using technology with intention and purpose.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-principles&#34;&gt;Core Principles&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Clutter is costly&lt;/strong&gt;: Digital clutter is mentally draining just like physical clutter&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Optimization is important&lt;/strong&gt;: Deciding which technologies to use and how to use them is complex&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Intentionality is satisfying&lt;/strong&gt;: Being more intentional about technology makes life better&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;practical-steps&#34;&gt;Practical Steps&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Perform a digital declutter: Take a 30-day break from optional technologies&lt;/li&gt;&#xA;&lt;li&gt;Rediscover offline activities that you find meaningful and satisfying&lt;/li&gt;&#xA;&lt;li&gt;Rebuild your digital life from scratch, adding back only the tools that serve a purpose&lt;/li&gt;&#xA;&lt;li&gt;Create rules for when and how you use technology&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve found that implementing simple rules like &amp;ldquo;no phones during meals&amp;rdquo; and having designated times for checking email and social media has significantly improved my focus and wellbeing.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using Tooltips and Footnotes in Essays</title>
-      <link>https://raahulsingh.net/essays/tooltips-and-footnotes/</link>
+      <link>http://localhost:1313/essays/tooltips-and-footnotes/</link>
       <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/essays/tooltips-and-footnotes/</guid>
+      <guid>http://localhost:1313/essays/tooltips-and-footnotes/</guid>
       <description>&lt;h1 id=&#34;using-tooltips-and-footnotes-effectively&#34;&gt;Using Tooltips and Footnotes Effectively&lt;/h1&gt;&#xA;&lt;p&gt;Digital writing offers several ways to add supplementary information to your main text. Two powerful options are &lt;span class=&#34;tooltip&#34; data-tooltip=&#34;Tooltips are small text popups that appear when hovering over a word or phrase. &lt;br&gt;&lt;br&gt;They can include &lt;b&gt;rich formatting&lt;/b&gt;, &lt;i&gt;styling&lt;/i&gt;, and even &lt;a href=&#39;https://en.wikipedia.org/wiki/Tooltip&#39;&gt;links&lt;/a&gt; for additional context.&#34;&gt;tooltips&lt;/span&gt; and standard footnotes&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tooltips-for-brief-context&#34;&gt;Tooltips for Brief Context&lt;/h2&gt;&#xA;&lt;p&gt;Tooltips are perfect for providing brief definitions or context without interrupting the reading flow. They are ideal for:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Useful Markdown Tips</title>
-      <link>https://raahulsingh.net/notes/markdown-tips/</link>
+      <link>http://localhost:1313/notes/markdown-tips/</link>
       <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/notes/markdown-tips/</guid>
+      <guid>http://localhost:1313/notes/markdown-tips/</guid>
       <description>&lt;h1 id=&#34;useful-markdown-tips&#34;&gt;Useful Markdown Tips&lt;/h1&gt;&#xA;&lt;p&gt;Markdown is a lightweight markup language that allows you to format text using a simple syntax. Here are some tips that I find particularly useful:&lt;/p&gt;&#xA;&lt;h2 id=&#34;text-formatting&#34;&gt;Text Formatting&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;Italic text&lt;/em&gt; is created with single asterisks or underscores: &lt;code&gt;*italic*&lt;/code&gt; or &lt;code&gt;_italic_&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bold text&lt;/strong&gt; uses double asterisks or underscores: &lt;code&gt;**bold**&lt;/code&gt; or &lt;code&gt;__bold__&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;del&gt;Strikethrough&lt;/del&gt; uses double tildes: &lt;code&gt;~~strikethrough~~&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;code-blocks&#34;&gt;Code Blocks&lt;/h2&gt;&#xA;&lt;p&gt;For inline code, use backticks: &lt;code&gt;console.log(&#39;Hello world!&#39;)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;For code blocks, use triple backticks with an optional language identifier:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Atomic Habits</title>
-      <link>https://raahulsingh.net/reading/atomic-habits/</link>
+      <link>http://localhost:1313/reading/atomic-habits/</link>
       <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/reading/atomic-habits/</guid>
+      <guid>http://localhost:1313/reading/atomic-habits/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Atomic Habits&amp;rdquo; by James Clear is a comprehensive guide to making small changes in behavior that can lead to remarkable results over time. Clear presents a practical framework for understanding how habits form and how they can be changed, emphasizing the importance of systems over goals and identity-based habits over outcome-based habits.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-ideas&#34;&gt;Key Ideas&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-four-laws-of-behavior-change&#34;&gt;The Four Laws of Behavior Change&lt;/h3&gt;&#xA;&lt;p&gt;Clear presents a simple framework for building good habits and breaking bad ones:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Post 3</title>
-      <link>https://raahulsingh.net/posts/post-3/</link>
+      <link>http://localhost:1313/posts/post-3/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>https://raahulsingh.net/posts/post-3/</guid>
+      <guid>http://localhost:1313/posts/post-3/</guid>
       <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Thinking, Fast and Slow</title>
-      <link>https://raahulsingh.net/reading/thinking-fast-and-slow/</link>
+      <link>http://localhost:1313/reading/thinking-fast-and-slow/</link>
       <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/reading/thinking-fast-and-slow/</guid>
+      <guid>http://localhost:1313/reading/thinking-fast-and-slow/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Thinking, Fast and Slow&amp;rdquo; is a groundbreaking work by Nobel Prize-winning psychologist Daniel Kahneman that explores the two systems of thought that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical. Through decades of research, Kahneman reveals the cognitive biases that affect our decision-making and judgment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;two-systems-of-thought&#34;&gt;Two Systems of Thought&lt;/h3&gt;&#xA;&lt;p&gt;The book&amp;rsquo;s central thesis is the dichotomy between two modes of thought:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Post 2</title>
-      <link>https://raahulsingh.net/posts/post-2/</link>
+      <link>http://localhost:1313/posts/post-2/</link>
       <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
-      <guid>https://raahulsingh.net/posts/post-2/</guid>
+      <guid>http://localhost:1313/posts/post-2/</guid>
       <description>&lt;p&gt;Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.&lt;/p&gt;&#xA;&lt;p&gt;Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sapiens: A Brief History of Humankind</title>
-      <link>https://raahulsingh.net/reading/sapiens/</link>
+      <link>http://localhost:1313/reading/sapiens/</link>
       <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/reading/sapiens/</guid>
+      <guid>http://localhost:1313/reading/sapiens/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Sapiens: A Brief History of Humankind&amp;rdquo; offers a sweeping narrative of human history, from the emergence of Homo sapiens in Africa to the present day. Harari&amp;rsquo;s central argument is that humans dominate the world because of their unique ability to cooperate flexibly in large numbers, made possible by shared beliefs in common myths and stories—from religions to money to political systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-cognitive-revolution-70000-bce&#34;&gt;The Cognitive Revolution (70,000 BCE)&lt;/h3&gt;&#xA;&lt;p&gt;Around 70,000 years ago, Homo sapiens underwent a cognitive revolution that enabled them to think in unprecedented ways:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sample Technology Essay</title>
-      <link>https://raahulsingh.net/essays/sample-tech-essay/</link>
+      <link>http://localhost:1313/essays/sample-tech-essay/</link>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/essays/sample-tech-essay/</guid>
+      <guid>http://localhost:1313/essays/sample-tech-essay/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is a sample technical essay to demonstrate the layout and styling of the Gwern-inspired theme. It covers various technical topics and shows how code, blockquotes, and other elements appear in the theme.&lt;/p&gt;&#xA;&lt;h2 id=&#34;typography-and-layout&#34;&gt;Typography and Layout&lt;/h2&gt;&#xA;&lt;p&gt;The typography of this theme is designed for maximum readability. The font choices, line spacing, and margins all contribute to making long-form content easy to read and navigate. This is especially important for technical content that may include complex explanations and code snippets.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Post 1</title>
-      <link>https://raahulsingh.net/posts/post-1/</link>
+      <link>http://localhost:1313/posts/post-1/</link>
       <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
-      <guid>https://raahulsingh.net/posts/post-1/</guid>
+      <guid>http://localhost:1313/posts/post-1/</guid>
       <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.&lt;/p&gt;</description>
     </item>
   </channel>

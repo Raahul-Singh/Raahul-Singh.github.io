@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anthropology on Raahul Singh</title>
-    <link>https://raahulsingh.net/tags/anthropology/</link>
+    <link>http://localhost:1313/tags/anthropology/</link>
     <description>Recent content in Anthropology on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://raahulsingh.net/tags/anthropology/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/anthropology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sapiens: A Brief History of Humankind</title>
-      <link>https://raahulsingh.net/reading/sapiens/</link>
+      <link>http://localhost:1313/reading/sapiens/</link>
       <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/reading/sapiens/</guid>
+      <guid>http://localhost:1313/reading/sapiens/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Sapiens: A Brief History of Humankind&amp;rdquo; offers a sweeping narrative of human history, from the emergence of Homo sapiens in Africa to the present day. Harari&amp;rsquo;s central argument is that humans dominate the world because of their unique ability to cooperate flexibly in large numbers, made possible by shared beliefs in common myths and stories—from religions to money to political systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-cognitive-revolution-70000-bce&#34;&gt;The Cognitive Revolution (70,000 BCE)&lt;/h3&gt;&#xA;&lt;p&gt;Around 70,000 years ago, Homo sapiens underwent a cognitive revolution that enabled them to think in unprecedented ways:&lt;/p&gt;</description>
     </item>
   </channel>

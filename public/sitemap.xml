@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://raahulsingh.net/notes/digital-minimalism/</loc>
+    <loc>http://localhost:1313/notes/digital-minimalism/</loc>
     <lastmod>2023-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/minimalism/</loc>
+    <loc>http://localhost:1313/tags/minimalism/</loc>
     <lastmod>2023-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/productivity/</loc>
+    <loc>http://localhost:1313/tags/productivity/</loc>
     <lastmod>2023-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2023-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/technology/</loc>
+    <loc>http://localhost:1313/tags/technology/</loc>
     <lastmod>2023-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/design/</loc>
+    <loc>http://localhost:1313/tags/design/</loc>
     <lastmod>2023-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/essays/</loc>
+    <loc>http://localhost:1313/essays/</loc>
     <lastmod>2023-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/typography/</loc>
+    <loc>http://localhost:1313/tags/typography/</loc>
     <lastmod>2023-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/essays/tooltips-and-footnotes/</loc>
+    <loc>http://localhost:1313/essays/tooltips-and-footnotes/</loc>
     <lastmod>2023-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/writing/</loc>
+    <loc>http://localhost:1313/tags/writing/</loc>
     <lastmod>2023-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/markdown/</loc>
+    <loc>http://localhost:1313/tags/markdown/</loc>
     <lastmod>2023-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/tips/</loc>
+    <loc>http://localhost:1313/tags/tips/</loc>
     <lastmod>2023-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/notes/markdown-tips/</loc>
+    <loc>http://localhost:1313/notes/markdown-tips/</loc>
     <lastmod>2023-05-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/reading/atomic-habits/</loc>
+    <loc>http://localhost:1313/reading/atomic-habits/</loc>
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/habits/</loc>
+    <loc>http://localhost:1313/tags/habits/</loc>
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/psychology/</loc>
+    <loc>http://localhost:1313/tags/psychology/</loc>
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/self-improvement/</loc>
+    <loc>http://localhost:1313/tags/self-improvement/</loc>
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/blue/</loc>
+    <loc>http://localhost:1313/tags/blue/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/green/</loc>
+    <loc>http://localhost:1313/tags/green/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/posts/post-3/</loc>
+    <loc>http://localhost:1313/posts/post-3/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/red/</loc>
+    <loc>http://localhost:1313/tags/red/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/behavioral-economics/</loc>
+    <loc>http://localhost:1313/tags/behavioral-economics/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/cognitive-biases/</loc>
+    <loc>http://localhost:1313/tags/cognitive-biases/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/decision-making/</loc>
+    <loc>http://localhost:1313/tags/decision-making/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/non-fiction/</loc>
+    <loc>http://localhost:1313/tags/non-fiction/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/reading/thinking-fast-and-slow/</loc>
+    <loc>http://localhost:1313/reading/thinking-fast-and-slow/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/posts/post-2/</loc>
+    <loc>http://localhost:1313/posts/post-2/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/anthropology/</loc>
+    <loc>http://localhost:1313/tags/anthropology/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/evolution/</loc>
+    <loc>http://localhost:1313/tags/evolution/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/history/</loc>
+    <loc>http://localhost:1313/tags/history/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/reading/sapiens/</loc>
+    <loc>http://localhost:1313/reading/sapiens/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/science/</loc>
+    <loc>http://localhost:1313/tags/science/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/programming/</loc>
+    <loc>http://localhost:1313/tags/programming/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/essays/sample-tech-essay/</loc>
+    <loc>http://localhost:1313/essays/sample-tech-essay/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/tags/web-development/</loc>
+    <loc>http://localhost:1313/tags/web-development/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/posts/post-1/</loc>
+    <loc>http://localhost:1313/posts/post-1/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2023-01-01T08:30:00-07:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/notes/</loc>
+    <loc>http://localhost:1313/notes/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/reading/</loc>
+    <loc>http://localhost:1313/reading/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://raahulsingh.net/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>

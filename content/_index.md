@@ -3,8 +3,6 @@ title: "Raahul Singh"
 date: 2023-01-01
 ---
 
-## About Me
-
 <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; max-width: 900px;">
   <img src="/images/profile.jpg" alt="Raahul Singh" style="width: 200px; border-radius: 4px;">
   <div style="align-self: center;">

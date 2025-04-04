@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tips on Raahul Singh</title>
-    <link>https://raahulsingh.net/tags/tips/</link>
+    <link>http://localhost:1313/tags/tips/</link>
     <description>Recent content in Tips on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 May 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://raahulsingh.net/tags/tips/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Useful Markdown Tips</title>
-      <link>https://raahulsingh.net/notes/markdown-tips/</link>
+      <link>http://localhost:1313/notes/markdown-tips/</link>
       <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/notes/markdown-tips/</guid>
+      <guid>http://localhost:1313/notes/markdown-tips/</guid>
       <description>&lt;h1 id=&#34;useful-markdown-tips&#34;&gt;Useful Markdown Tips&lt;/h1&gt;&#xA;&lt;p&gt;Markdown is a lightweight markup language that allows you to format text using a simple syntax. Here are some tips that I find particularly useful:&lt;/p&gt;&#xA;&lt;h2 id=&#34;text-formatting&#34;&gt;Text Formatting&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;Italic text&lt;/em&gt; is created with single asterisks or underscores: &lt;code&gt;*italic*&lt;/code&gt; or &lt;code&gt;_italic_&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bold text&lt;/strong&gt; uses double asterisks or underscores: &lt;code&gt;**bold**&lt;/code&gt; or &lt;code&gt;__bold__&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;del&gt;Strikethrough&lt;/del&gt; uses double tildes: &lt;code&gt;~~strikethrough~~&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;code-blocks&#34;&gt;Code Blocks&lt;/h2&gt;&#xA;&lt;p&gt;For inline code, use backticks: &lt;code&gt;console.log(&#39;Hello world!&#39;)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;For code blocks, use triple backticks with an optional language identifier:&lt;/p&gt;</description>
     </item>
   </channel>
