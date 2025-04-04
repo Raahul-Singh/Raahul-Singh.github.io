@@ -18,6 +18,7 @@ read -p "Description: " description
 read -p "Tags (comma-separated): " tags_input
 read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
 read -p "Status (notes/draft/in progress/finished): " status
+read -p "Released (true/false, determines if published to RSS feed): " released
 
 # Format today's date
 date=$(date +%Y-%m-%d)
@@ -51,6 +52,7 @@ description: "$description"
 tags: $formatted_tags
 confidence: "$confidence"
 status: "$status"
+released: $released
 ${featured_image_line}
 ---
 

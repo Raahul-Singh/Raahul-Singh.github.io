@@ -81,4 +81,24 @@
   margin-left: 0.5rem;
   vertical-align: middle;
   display: inline-block !important;
+}
+
+/* RSS icon styling */
+.social-icon[title="RSS Feed"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.social-icon[title="RSS Feed"]:hover {
+  color: #f26522; /* Standard RSS orange color */
+}
+
+.social-icon[title="RSS Feed"] svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2px;
 } 

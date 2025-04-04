@@ -18,9 +18,10 @@ read -p "Author: " author
 read -p "Description: " description
 read -p "Rating (1-5): " rating
 read -p "Amazon image URL: " cover_image
-read -p "Status (reading/completed): " status
+read -p "Status (reading/finished): " status
 read -p "Progress (0-100) if reading: " progress
 read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
+read -p "Released (true/false, determines if published to RSS feed): " released
 read -p "Tags (comma-separated): " tags_input
 
 # Format today's date
@@ -56,6 +57,7 @@ tags: $formatted_tags
 rating: $rating
 cover_image: "$cover_image"
 status: "$status"
+released: $released
 $([ -n "$progress_field" ] && echo "$progress_field")
 confidence: "$confidence"
 ---

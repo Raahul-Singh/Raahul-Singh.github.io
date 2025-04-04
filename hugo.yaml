@@ -103,3 +103,22 @@ permalinks:
   writings: "/writings/:filename/"
   notes: "/notes/:filename/"
   reading: "/reading/:filename/"
+
+# RSS settings
+outputFormats:
+  RSS:
+    mediatype: "application/rss+xml"
+    baseName: "feed"
+
+# Output formats for different page types
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+  term:
+    - HTML
