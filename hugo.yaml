@@ -55,9 +55,9 @@ params:
     - name: "GitLab"
       url: "https://gitlab.com/rasalghul2"
       icon: "gitlab"
-    - name: "Email"
-      url: "mailto:raahulsingh002@gmail.com"
-      icon: "email"
+    # - name: "Email"
+    #   url: "mailto:raahulsingh002@gmail.com"
+    #   icon: "email"
     # Add other social links as needed
   
   # Content directories
@@ -71,7 +71,7 @@ params:
     darkMode: true
     sidenotes: true
     tableOfContents: true
-    searchEnabled: true
+    searchEnabled: false
     
 # Menu configuration
 menu:

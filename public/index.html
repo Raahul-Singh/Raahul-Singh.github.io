@@ -82,15 +82,6 @@
                                 
                             </a>
                         
-                            <a href="mailto:raahulsingh002@gmail.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Email">
-                                
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                                
-                            </a>
-                        
                     </div>
                     <button id="theme-toggle" aria-label="Toggle Dark Mode">
                         <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" width="24" height="24">
@@ -111,60 +102,26 @@
     <div class="markdown-content">
       <style>
   .container {
-    max-width: 60rem !important;
+    max-width: 60rem !important; /* Match the theme's --content-width variable */
   }
   main, .home-section, .markdown-content {
     max-width: 60rem !important;
   }
+  
+  /* Reduce the number of horizontal lines */
+  hr, .section-header {
+    border-bottom: none;
+  }
 </style>
-<div style="margin-bottom: 3rem;">
-  <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
+<div style="margin-bottom: 2rem;">
+  <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 0;">
     <img src="/images/profile.jpg" alt="Raahul Singh" style="width: 180px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); flex-shrink: 0;">
     <div style="align-self: center; flex: 1; min-width: 0;">
       <p style="font-size: 1.2rem; line-height: 1.6; margin-right: 0;">Hello, I'm Raahul Singh. I'm a software engineer with interests in machine learning and distributed systems. This website serves as my digital garden where I share essays, book reviews, and other thoughts.</p>
-      <p style="font-size: 1.1rem; line-height: 1.6; margin-right: 0;">I'm currently exploring the intersection of machine learning algorithms and distributed computing. My work focuses on building scalable systems that can process and analyze large volumes of data efficiently, while maintaining reliability and fault tolerance.</p>
+      <p style="font-size: 1.1rem; line-height: 1.6; margin-right: 0;">I have a background in computer science with a focus on machine learning algorithms. My work focuses on building scalable systems that can process and analyze large volumes of data efficiently, while maintaining reliability and fault tolerance.</p>
     </div>
   </div>
 </div>
-<h2 id="background">Background</h2>
-<p>I have a background in computer science with a focus on machine learning algorithms. My professional experience includes working on large-scale data systems and developing machine learning models for real-world applications.</p>
-<h2 id="interests">Interests</h2>
-<p>Some topics I&rsquo;m particularly interested in:</p>
-<ul>
-<li>Machine Learning and AI</li>
-<li>Software Engineering</li>
-<li>Philosophy and Ethics</li>
-<li>Literature and Writing</li>
-<li>Economics and Game Theory</li>
-</ul>
-<h2 id="about-this-site">About This Site</h2>
-<p>This site is built with <a href="https://gohugo.io/">Hugo</a> using a custom theme inspired by <a href="https://gwern.net">Gwern Branwen&rsquo;s website</a>. The design emphasizes readability and focuses on long-form content.</p>
-<p>Some features of this site:</p>
-<ul>
-<li><strong>Essays</strong>: Original writings on various topics</li>
-<li><strong>Book Reviews</strong>: Detailed notes and analyses of books I&rsquo;ve read</li>
-<li><strong>Dark Mode</strong>: For comfortable reading in different lighting conditions</li>
-<li><strong>Sidenotes</strong>: For references and asides without breaking the flow of reading</li>
-</ul>
-<h2 id="contact">Contact</h2>
-<div class="contact-links">
-<ul>
-<li>Email: <a href="mailto:raahulsingh002@gmail.com">raahulsingh002@gmail.com</a></li>
-<li>GitHub: <a href="https://github.com/raahul-singh">raahul-singh</a></li>
-<li>GitLab: <a href="https://gitlab.com/rasalghul2">rasalghul2</a></li>
-<li>LinkedIn: <a href="https://linkedin.com/in/raahulsingh42">raahulsingh42</a></li>
-<li>Instagram: <a href="https://instagram.com/raahul.singh42">raahul.singh42</a></li>
-</ul>
-</div>
-<p>Feel free to reach out if you have questions, comments, or just want to connect.</p>
-<h2 id="colophon">Colophon</h2>
-<p>This site is:</p>
-<ul>
-<li>Generated with <a href="https://gohugo.io/">Hugo</a></li>
-<li>Typeset primarily in system fonts</li>
-<li>Hosted on GitHub Pages</li>
-<li>Version controlled with Git</li>
-</ul>
 <!-- The Recent Content section will be automatically added by the theme below -->
     </div>
     
@@ -274,14 +231,6 @@
     </div>
 
     
-    <section class="search-section">
-        <h3 class="section-title">Search</h3>
-        <form id="search-form" class="search-form">
-            <input type="search" id="search-input" placeholder="Search for content..." aria-label="Search">
-            <button type="submit">Search</button>
-        </form>
-    </section>
-    
 </section>
 
         </main>
@@ -304,10 +253,6 @@
                 
                     <a href="https://gitlab.com/rasalghul2" target="_blank" rel="noopener noreferrer" class="social-link gitlab">
                         GitLab
-                    </a>
-                
-                    <a href="mailto:raahulsingh002@gmail.com" target="_blank" rel="noopener noreferrer" class="social-link email">
-                        Email
                     </a>
                 
             </p>
