@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="container">
+  <div class="list-section">
+    <div class="section-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}
+      <p class="section-description">{{ . }}</p>
+      {{ end }}
+    </div>
+    
+    {{ .Content }}
+    
+    <div class="essays-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <div class="feature-card essay-card">
+        <h3 class="essay-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <div class="essay-meta">
+          <span class="essay-date">{{ .Date.Format ($.Site.Params.dateFormat | default "January 2, 2006") }}</span>
+        </div>
+        {{ if .Description }}
+        <p class="essay-description">{{ .Description }}</p>
+        {{ end }}
+        {{ if .Params.tags }}
+        <div class="list-item-tags">
+          {{ range .Params.tags }}
+          <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+        <a href="{{ .Permalink }}" class="read-more">Read more →</a>
+      </div>
+      {{ else }}
+      <p class="no-content">No notes to display yet.</p>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }} 

@@ -1,0 +1,81 @@
+{{ define "main" }}
+<div class="container">
+  <article class="content">
+    <header class="content-header">
+      <div class="book-header-grid">
+        {{ with .Params.cover_image }}
+        <div class="book-cover-container">
+          <img src="{{ . | safeURL }}" alt="Cover of {{ $.Title }}" class="book-cover-large" loading="lazy">
+        </div>
+        {{ end }}
+        
+        <div class="book-header-details">
+          <h1>{{ .Title }}</h1>
+          
+          {{ with .Params.author }}
+          <div class="book-author">by {{ . }}</div>
+          {{ end }}
+          
+          {{ with .Params.rating }}
+          <div class="book-rating-large">
+            <span class="rating-stars">
+              {{ $rating := int . }}
+              {{ range seq $rating }}★{{ end }}
+              {{ if eq (mod . 1) 0.5 }}½{{ end }}
+            </span>
+            <span class="rating-number">{{ . }}/5</span>
+          </div>
+          {{ end }}
+          
+          <div class="content-meta">
+            <span class="content-date">Read on {{ .Date.Format "January 2, 2006" }}</span>
+            
+            {{ if .Lastmod }}
+            {{ if gt .Lastmod .Date }}
+            <span class="update-info">(Updated: {{ .Lastmod.Format "January 2, 2006" }})</span>
+            {{ end }}
+            {{ end }}
+          </div>
+          
+          {{ if .Params.tags }}
+          <div class="content-tags">
+            {{ range .Params.tags }}
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
+          
+          {{ with .Description }}
+          <p class="content-abstract">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+    
+    {{ if and (.Site.Params.enableToc | default true) .TableOfContents }}
+    <div class="table-of-contents">
+      <h2>Contents</h2>
+      {{ .TableOfContents }}
+    </div>
+    {{ end }}
+    
+    <div class="content-body">
+      {{ .Content }}
+    </div>
+    
+    <nav class="pagination">
+      {{ with .PrevInSection }}
+      <a href="{{ .Permalink }}" class="pagination-prev">← {{ .Title }}</a>
+      {{ else }}
+      <span></span>
+      {{ end }}
+      
+      {{ with .NextInSection }}
+      <a href="{{ .Permalink }}" class="pagination-next">{{ .Title }} →</a>
+      {{ else }}
+      <span></span>
+      {{ end }}
+    </nav>
+  </article>
+</div>
+{{ end }} 

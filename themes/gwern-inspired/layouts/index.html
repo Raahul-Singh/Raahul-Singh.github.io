@@ -2,48 +2,51 @@
 <section class="home-section">
     <!-- Content from markdown file -->
     <div class="markdown-content">
-        {{ .Content }}
+      {{ .Content }}
     </div>
-
+    
     <!-- Recent content section -->
     <div class="recent-content">
-        <div class="section-header-simple">
-            <h3 class="section-title">Recent Content</h3>
-        </div>
-        
-        <ul class="content-list">
-            {{ $essays := where .Site.RegularPages "Section" "essays" }}
-            {{ $books := where .Site.RegularPages "Section" "books" }}
-            {{ $combined := $essays | append $books }}
-            {{ $recentContent := first 5 $combined }}
-            {{ if $recentContent }}
-            {{ range $recentContent }}
-            <li class="list-item">
-                <div class="item-title-line">
-                    <h4 class="item-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-                    {{ if eq .Section "books" }}
-                    {{ with .Params.author }}
-                    <span class="item-meta-inline">by {{ . }}</span>
-                    {{ end }}
-                    {{ if .Params.rating }}
-                    <span class="item-rating">
-                        {{ $rating := int .Params.rating }}
-                        {{ range seq $rating }}★{{ end }}
-                        {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
-                    </span>
-                    {{ end }}
-                    {{ end }}
-                </div>
-                <div class="item-meta">
-                    <span class="item-section">{{ if eq .Section "books" }}Book Review{{ else }}Essay{{ end }}</span>
-                    <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
-                </div>
-            </li>
-            {{ end }}
-            {{ else }}
-            <li>No content yet.</li>
-            {{ end }}
-        </ul>
+      <div class="section-header-simple">
+         <h3 class="section-title">Recent Content</h3>
+      </div>
+      
+      <ul class="content-list">
+         {{ $essays := where .Site.RegularPages "Section" "essays" }}
+         {{ $books := where .Site.RegularPages "Section" "reading" }}
+         {{ $notes := where .Site.RegularPages "Section" "notes" }}
+         {{ $combined := $essays | append $books | append $notes }}
+         {{ $recentContent := sort $combined "Date" "desc" | first 5 }}
+         {{ if $recentContent }}
+         {{ range $recentContent }}
+        <li class="list-item">
+          <div class="item-title-line">
+                 <h4 class="item-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                 {{ if eq .Section "reading" }}
+                 {{ with .Params.author }}
+                 <span class="item-meta-inline">by {{ . }}</span>
+                 {{ end }}
+                 {{ if .Params.rating }}
+                 <span class="item-rating">
+                     {{ $rating := int .Params.rating }}
+                     {{ range seq $rating }}★{{ end }}
+                     {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
+                 </span>
+                 {{ end }}
+                 {{ end }}
+          </div>
+             <div class="item-meta">
+                 <span class="item-section">
+                     {{ if eq .Section "reading" }}Reading{{ else if eq .Section "notes" }}Note{{ else }}Essay{{ end }}
+                 </span>
+                 <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
+             </div>
+        </li>
+         {{ end }}
+         {{ else }}
+         <li>No content yet.</li>
+         {{ end }}
+     </ul>
     </div>
 
     {{ if .Site.Params.features.searchEnabled }}

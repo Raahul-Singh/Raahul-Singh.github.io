@@ -1,0 +1,85 @@
+{{ define "main" }}
+<section class="list-section">
+    <header class="section-header">
+        <h1 class="section-title">{{ .Title }}</h1>
+        {{ with .Description }}
+        <p class="section-description">{{ . }}</p>
+        {{ end }}
+    </header>
+
+    {{ .Content }}
+
+    {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+    {{ if $paginator.Pages }}
+    <div class="books-list">
+        {{ range $paginator.Pages }}
+        <article class="book-card-horizontal">
+            <div class="book-card-inner">
+                <div class="book-cover-container">
+                    {{ if .Params.cover_image }}
+                    <a href="{{ .Permalink }}" class="book-link">
+                        <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="book-cover-img" loading="lazy">
+                    </a>
+                    {{ end }}
+                </div>
+                <div class="book-details">
+                    <h2 class="book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                    
+                    {{ with .Params.author }}
+                    <p class="book-author">by {{ . }}</p>
+                    {{ end }}
+                    
+                    {{ with .Params.rating }}
+                    <div class="book-rating">
+                        <span class="rating-stars">
+                            {{ $rating := int . }}
+                            {{ range seq $rating }}★{{ end }}
+                            {{ if eq (mod . 1) 0.5 }}½{{ end }}
+                        </span>
+                        <span class="rating-number">({{ . }}/5)</span>
+                    </div>
+                    {{ end }}
+                    
+                    {{ if .Date }}
+                    <p class="book-date">{{ .Date.Format "January 2, 2006" }}</p>
+                    {{ end }}
+                    
+                    {{ with .Params.tags }}
+                    <div class="book-tags">
+                        {{ range . }}
+                        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    
+                    {{ with .Description }}
+                    <p class="book-description">{{ . }}</p>
+                    {{ else }}
+                    <p class="book-description">{{ .Summary | plainify | truncate 160 }}</p>
+                    {{ end }}
+                    
+                    <a href="{{ .Permalink }}" class="read-more">Read review →</a>
+                </div>
+            </div>
+        </article>
+        {{ end }}
+    </div>
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">← Previous</a>
+        {{ end }}
+        
+        <span class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+        
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="pagination-next">Next →</a>
+        {{ end }}
+    </nav>
+    {{ end }}
+    {{ else }}
+    <p>No books found.</p>
+    {{ end }}
+</section>
+{{ end }} 
