@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Disabled sidenotes in favor of standard footnotes and tooltips
   // convertFootnotesToSidenotes();
   
+  // Enhance footnote navigation
+  enhanceFootnotes();
+  
   // Handle table of contents highlighting
   setupTableOfContents();
   
@@ -214,5 +217,29 @@ function setupSearch() {
     
     // In a full implementation, we would display actual results here
     searchResults.innerHTML += '<p>For a complete search, please use the search function on the <a href="/">homepage</a>.</p>';
+  });
+}
+
+// Function to enhance footnote navigation
+function enhanceFootnotes() {
+  // Get all footnote references
+  const footnoteRefs = document.querySelectorAll('.footnote-ref');
+  
+  // Process each footnote reference
+  footnoteRefs.forEach(footnoteRef => {
+    const id = footnoteRef.getAttribute('href').substring(1);
+    const footnote = document.getElementById(id);
+    
+    if (footnote) {
+      // Add a 'return to content' link at the end of each footnote
+      const backRef = footnote.querySelector('.footnote-backref');
+      
+      if (backRef) {
+        // Enhance the existing backref with better visibility
+        backRef.innerHTML = '↩ Return to text';
+        backRef.title = 'Return to where you were reading';
+        backRef.style.fontWeight = 'bold';
+      }
+    }
   });
 } 

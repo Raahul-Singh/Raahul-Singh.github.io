@@ -1016,6 +1016,15 @@ html.dark .theme-icon-dark {
   margin-bottom: 1rem;
   color: var(--text-color);
   line-height: 1.5;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.footnotes li:target {
+  background-color: rgba(var(--link-color-rgb), 0.1);
+  padding: 0.5rem;
+  border-radius: 4px;
+  border-left: 3px solid var(--link-color);
 }
 
 .footnote-ref {
@@ -1024,6 +1033,13 @@ html.dark .theme-icon-dark {
   line-height: 0;
   color: var(--link-color);
   text-decoration: none;
+  padding: 0 2px;
+  font-weight: bold;
+}
+
+.footnote-ref:hover {
+  background-color: rgba(var(--link-color-rgb), 0.1);
+  border-radius: 2px;
 }
 
 .footnote-backref {
@@ -1031,10 +1047,15 @@ html.dark .theme-icon-dark {
   color: var(--link-color);
   text-decoration: none;
   margin-left: 0.5rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 .footnote-backref:hover {
   text-decoration: underline;
+  background-color: rgba(var(--link-color-rgb), 0.1);
 }
 
 /* Ensure footnotes are visible at smaller screen sizes */
