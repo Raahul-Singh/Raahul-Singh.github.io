@@ -936,13 +936,8 @@ html.dark .theme-icon-dark {
 .tooltip-container {
   position: relative;
   display: inline;
-  border-bottom: none;
   padding: 0;
-  cursor: help;
-}
-
-.tooltip-container:hover {
-  color: var(--link-hover-color);
+  cursor: pointer;
 }
 
 .tooltip-icon {
@@ -964,7 +959,7 @@ html.dark .theme-icon-dark {
   padding: 12px 16px;
   font-size: 0.9rem;
   line-height: 1.6;
-  z-index: 1;
+  z-index: 100;
   bottom: 125%;
   left: 50%;
   margin-bottom: 10px;
@@ -976,7 +971,6 @@ html.dark .theme-icon-dark {
   font-family: var(--font-serif);
   max-height: 80vh;
   overflow-y: auto;
-  pointer-events: none;
 }
 
 .tooltip-container .tooltip-text::after {
@@ -990,17 +984,19 @@ html.dark .theme-icon-dark {
   border-color: var(--link-color) transparent transparent transparent;
 }
 
-.tooltip-container:hover .tooltip-text {
+/* Class added via JS when tooltip is clicked */
+.tooltip-container .tooltip-text.tooltip-visible {
   visibility: visible;
   opacity: 1;
   transform: translateX(-50%);
-  pointer-events: auto;
 }
 
-/* Allow hovering on the tooltip itself */
-.tooltip-text:hover {
-  visibility: visible !important;
-  opacity: 1 !important;
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .tooltip-container .tooltip-text {
+    width: 250px;
+    max-width: 90vw;
+  }
 }
 
 /* Standard Footnotes */

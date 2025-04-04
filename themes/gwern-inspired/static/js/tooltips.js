@@ -28,33 +28,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add tooltip content to container
     container.appendChild(tooltipText);
     
-    // Add event listeners to keep tooltip visible when hovering on it
+    // Add hover events for desktop
     container.addEventListener('mouseenter', function() {
-      tooltipText.style.visibility = 'visible';
-      tooltipText.style.opacity = '1';
-      tooltipText.style.pointerEvents = 'auto';
-    });
-    
-    tooltipText.addEventListener('mouseenter', function() {
-      this.style.visibility = 'visible';
-      this.style.opacity = '1';
-    });
-    
-    tooltipText.addEventListener('mouseleave', function() {
-      // Only hide if not hovering over container
-      if (!container.matches(':hover')) {
-        this.style.visibility = '';
-        this.style.opacity = '';
-      }
+      tooltipText.classList.add('tooltip-visible');
     });
     
     container.addEventListener('mouseleave', function() {
-      // Only hide if not hovering over tooltip
-      if (!tooltipText.matches(':hover')) {
-        tooltipText.style.visibility = '';
-        tooltipText.style.opacity = '';
-        tooltipText.style.pointerEvents = '';
-      }
+      tooltipText.classList.remove('tooltip-visible');
+    });
+    
+    // Add click events for mobile compatibility
+    container.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Check if this tooltip is already open
+      const isOpen = tooltipText.classList.contains('tooltip-visible');
+      
+      // Close all open tooltips first
+      document.querySelectorAll('.tooltip-text.tooltip-visible').forEach(function(tip) {
+        if (tip !== tooltipText) {
+          tip.classList.remove('tooltip-visible');
+        }
+      });
+      
+      // Toggle this tooltip
+      tooltipText.classList.toggle('tooltip-visible');
+      
+      // Stop propagation to prevent document click from immediately closing it
+      e.stopPropagation();
+    });
+    
+    // Close tooltip when clicking elsewhere
+    document.addEventListener('click', function() {
+      tooltipText.classList.remove('tooltip-visible');
     });
     
     // Replace the original element with the tooltip container
