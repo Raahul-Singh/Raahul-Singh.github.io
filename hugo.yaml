@@ -84,10 +84,10 @@ menu:
     #   name: "Writings"
     #   url: "/writings/"
     #   weight: 20
-    # - identifier: "notes"
-    #   name: "Notes"
-    #   url: "/notes/"
-    #   weight: 30
+    - identifier: "notes"
+      name: "Notes"
+      url: "/notes/"
+      weight: 30
     # - identifier: "reading"
     #   name: "Reading List"
     #   url: "/reading/"
