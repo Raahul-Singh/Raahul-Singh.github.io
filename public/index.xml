@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Raahul Singh</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home on Raahul Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post 3</title>
+      <link>http://localhost:1313/posts/post-3/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-3/</guid>
+      <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Thinking, Fast and Slow</title>
+      <link>http://localhost:1313/books/thinking-fast-and-slow/</link>
+      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/books/thinking-fast-and-slow/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Thinking, Fast and Slow&amp;rdquo; is a landmark book by Nobel Prize winner Daniel Kahneman that explores the two systems that drive how we think: System 1 (fast, intuitive, and emotional) and System 2 (slower, more deliberative, and logical). The book exposes cognitive biases that affect our everyday decisions and offers insights into how to recognize and mitigate these biases.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-ideas&#34;&gt;Key Ideas&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-two-systems&#34;&gt;The Two Systems&lt;/h3&gt;&#xA;&lt;p&gt;Kahneman describes two systems that characterize our thinking:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 2</title>
+      <link>http://localhost:1313/posts/post-2/</link>
+      <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-2/</guid>
+      <description>&lt;p&gt;Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.&lt;/p&gt;&#xA;&lt;p&gt;Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sample Technology Essay</title>
+      <link>http://localhost:1313/essays/sample-tech-essay/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essays/sample-tech-essay/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is a sample technical essay to demonstrate the layout and styling of the Gwern-inspired theme. It covers various technical topics and shows how code, blockquotes, and other elements appear in the theme.&lt;/p&gt;&#xA;&lt;h2 id=&#34;typography-and-layout&#34;&gt;Typography and Layout&lt;/h2&gt;&#xA;&lt;p&gt;The typography of this theme is designed for maximum readability. The font choices, line spacing, and margins all contribute to making long-form content easy to read and navigate. This is especially important for technical content that may include complex explanations and code snippets.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 1</title>
+      <link>http://localhost:1313/posts/post-1/</link>
+      <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/post-1/</guid>
+      <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;&#xA;&lt;p&gt;Hello, I&amp;rsquo;m Raahul Singh. I&amp;rsquo;m a [your profession/role] with interests in [your interests]. This website serves as my digital garden where I share essays, book reviews, and other thoughts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;I have a background in [your background]. My professional experience includes [brief description of your work experience].&lt;/p&gt;&#xA;&lt;h2 id=&#34;interests&#34;&gt;Interests&lt;/h2&gt;&#xA;&lt;p&gt;Some topics I&amp;rsquo;m particularly interested in:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Machine Learning and AI&lt;/li&gt;&#xA;&lt;li&gt;Software Engineering&lt;/li&gt;&#xA;&lt;li&gt;Philosophy and Ethics&lt;/li&gt;&#xA;&lt;li&gt;Literature and Writing&lt;/li&gt;&#xA;&lt;li&gt;[Other interests]&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;about-this-site&#34;&gt;About This Site&lt;/h2&gt;&#xA;&lt;p&gt;This site is built with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; using a custom theme inspired by &lt;a href=&#34;https://gwern.net&#34;&gt;Gwern Branwen&amp;rsquo;s website&lt;/a&gt;. The design emphasizes readability and focuses on long-form content.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

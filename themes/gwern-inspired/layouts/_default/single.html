@@ -1,0 +1,113 @@
+{{ define "main" }}
+<article class="content">
+    <header class="content-header">
+        <h1 class="content-title">{{ .Title }}</h1>
+        
+        {{ if .Date }}
+        <div class="content-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+            
+            {{ with .Params.updated }}
+            <span class="update-info">(Updated: 
+                <time datetime="{{ . }}">{{ time.Format "January 2, 2006" . }}</time>)
+            </span>
+            {{ end }}
+            
+            {{ with .Params.status }}
+            <span class="content-status">[{{ . }}]</span>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        {{ with .Params.author }}
+        <div class="content-author">
+            {{ if eq . $.Site.Params.author }}
+            By <span class="author">{{ . }}</span>
+            {{ else }}
+            By <span class="author">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        {{ with .Params.description }}
+        <div class="content-abstract">
+            <p>{{ . }}</p>
+        </div>
+        {{ end }}
+        
+        {{ with .Params.tags }}
+        <div class="content-tags">
+            {{ range . }}
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </header>
+
+    {{ if .Site.Params.features.tableOfContents }}
+    {{ if .TableOfContents }}
+    <aside class="table-of-contents">
+        <h2>Table of Contents</h2>
+        {{ .TableOfContents }}
+    </aside>
+    {{ end }}
+    {{ end }}
+
+    <div class="content-body">
+        {{ .Content }}
+    </div>
+
+    {{ if and (eq .Type "books") .Params.rating }}
+    <div class="book-rating">
+        <span class="rating-label">Rating:</span>
+        <span class="rating-stars">
+            {{ $rating := int .Params.rating }}
+            {{ range seq $rating }}★{{ end }}
+            {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
+        </span>
+        <span class="rating-number">({{ .Params.rating }}/5)</span>
+    </div>
+    {{ end }}
+
+    {{ if or .NextInSection .PrevInSection }}
+    <div class="pagination">
+        {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.Permalink }}" class="prev">← {{ .PrevInSection.Title }}</a>
+        {{ end }}
+        
+        {{ if .NextInSection }}
+        <a href="{{ .NextInSection.Permalink }}" class="next">{{ .NextInSection.Title }} →</a>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    {{ if .Site.Params.features.backlinks }}
+    <div class="backlinks">
+        <h3>Links to this page</h3>
+        {{ $currentPath := .File.Path }}
+        {{ $backlinks := slice }}
+        {{ range .Site.RegularPages }}
+            {{ if and .File }}
+                {{ if not (eq $currentPath .File.Path) }}
+                    {{ if findRE (printf "%s" $.File.ContentBaseName) .Plain }}
+                        {{ $backlinks = $backlinks | append . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ if gt (len $backlinks) 0 }}
+        <ul>
+            {{ range $backlinks }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ else }}
+        <p>No backlinks found.</p>
+        {{ end }}
+    </div>
+    {{ end }}
+</article>
+{{ end }}
