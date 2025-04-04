@@ -3,7 +3,8 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: ""
 tags: []
+status: "finished"
 confidence: "uncertain"
-status: "notes"
 released: false
+draft: true
 ---

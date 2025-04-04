@@ -47,6 +47,7 @@ if [ "$status" = "reading" ] && [ -n "$progress" ]; then
   progress_field="progress: $progress"
 fi
 
+# Generate markdown file
 cat > "$filepath" << EOF
 ---
 title: "$title"
@@ -55,11 +56,12 @@ date: $date
 description: "$description"
 tags: $formatted_tags
 rating: $rating
-cover_image: "$cover_image"
 status: "$status"
+confidence: "$confidence"
 released: $released
 $([ -n "$progress_field" ] && echo "$progress_field")
-confidence: "$confidence"
+cover_image: "$cover_image"
+draft: true
 ---
 
 ## Summary

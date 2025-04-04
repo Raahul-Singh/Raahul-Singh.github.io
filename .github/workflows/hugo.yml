@@ -34,8 +34,33 @@ jobs:
           hugo-version: '0.145.0'
           extended: true
 
+      - name: List files before build
+        run: |
+          echo "Current directory contents:"
+          ls -la
+          echo "Theme directory contents:"
+          ls -la themes
+
+      - name: Create CNAME file in static directory
+        run: |
+          echo "raahulsingh.net" > static/CNAME
+          echo "CNAME file created:"
+          cat static/CNAME
+
       - name: Build
-        run: hugo --minify
+        env:
+          HUGO_ENV: production
+        run: |
+          hugo --minify --baseURL "https://raahulsingh.net/"
+          
+      - name: List files after build
+        run: |
+          echo "Public directory contents:"
+          ls -la public
+          echo "Public directory structure:"
+          find public -type f | head -n 20
+          echo "Checking for CNAME file:"
+          cat public/CNAME || echo "CNAME file not found in public directory"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
