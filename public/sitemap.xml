@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/books/atomic-habits/</loc>
+    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/books/</loc>
+    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/habits/</loc>
+    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/psychology/</loc>
+    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/self-improvement/</loc>
+    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/blue/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
@@ -14,10 +32,7 @@
     <loc>http://localhost:1313/tags/red/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2023-03-15T11:00:00-07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/books/</loc>
+    <loc>http://localhost:1313/tags/behavioral-economics/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/cognitive-biases/</loc>
@@ -26,7 +41,7 @@
     <loc>http://localhost:1313/tags/decision-making/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/psychology/</loc>
+    <loc>http://localhost:1313/tags/non-fiction/</loc>
     <lastmod>2023-03-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/books/thinking-fast-and-slow/</loc>
@@ -34,6 +49,21 @@
   </url><url>
     <loc>http://localhost:1313/posts/post-2/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/anthropology/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/evolution/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/history/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/books/sapiens/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/science/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/essays/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>

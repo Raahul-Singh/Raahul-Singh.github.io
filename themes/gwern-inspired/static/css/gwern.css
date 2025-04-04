@@ -23,6 +23,9 @@
   --tag-color: #555;
   --note-bg: #fffaee;
   --note-border: #e6dcbf;
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: rgba(0, 0, 0, 0.1);
   
   /* Typography */
   --font-serif: "Libre Baskerville", "EB Garamond", Georgia, "Times New Roman", serif;
@@ -30,7 +33,7 @@
   --font-mono: "Cascadia Code", "Fira Code", "JetBrains Mono", Consolas, Menlo, Monaco, monospace;
   
   /* Spacing */
-  --content-width: 42rem;
+  --content-width: 60rem;
   --content-padding: 1.5rem;
   --line-height: 1.6;
   --paragraph-spacing: 1.25em;
@@ -55,6 +58,9 @@
   --tag-color: #ccc;
   --note-bg: #242420;
   --note-border: #444436;
+  --card-bg: #1a1a1a;
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: rgba(0, 0, 0, 0.4);
 }
 
 /* Base Styles */
@@ -366,6 +372,251 @@ html:not(.dark) .theme-icon-dark {
   margin-bottom: 0;
 }
 
+/* Home Books Grid */
+.home-books-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-book-card {
+  background-color: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px var(--card-hover-shadow);
+}
+
+.home-book-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.home-book-cover {
+  height: 180px;
+  overflow: hidden;
+}
+
+.home-book-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.home-book-card:hover .home-book-cover-img {
+  transform: scale(1.05);
+}
+
+.home-book-details {
+  padding: 0.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-book-title {
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+  line-height: 1.3;
+}
+
+.home-book-author {
+  font-size: 0.85rem;
+  color: var(--tag-color);
+  margin: 0 0 0.3rem;
+}
+
+.home-book-rating {
+  color: gold;
+  font-size: 0.8rem;
+  margin-top: auto;
+}
+
+@media (min-width: 1024px) {
+  .home-books-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-books-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Books Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.book-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--card-hover-shadow);
+}
+
+.book-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.book-cover {
+  height: 200px;
+  overflow: hidden;
+}
+
+.book-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-cover-img {
+  transform: scale(1.05);
+}
+
+.book-details {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.book-author {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+  color: var(--tag-color);
+}
+
+.book-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.book-date {
+  font-size: 0.85rem;
+  color: var(--tag-color);
+  margin-bottom: 0.5rem;
+}
+
+.book-tags {
+  margin-bottom: 0.5rem;
+}
+
+.book-description {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .books-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .book-card-inner {
+    flex-direction: column;
+  }
+  
+  .book-cover {
+    height: 180px;
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+/* Single Book Page */
+.book-header-grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.book-cover-container {
+  flex: 0 0 250px;
+}
+
+.book-cover-large {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.book-header-details {
+  flex: 1;
+}
+
+.book-author {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-rating-large {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.book-rating-large .rating-stars {
+  color: gold;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .book-header-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .book-cover-container {
+    flex: 0 0 auto;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
 /* Tags */
 .tag {
   display: inline-block;
@@ -661,5 +912,156 @@ footer {
     padding: 0.5em;
     background-color: var(--note-bg);
     border-left: 3px solid var(--note-border);
+  }
+}
+
+/* Books List Horizontal Layout */
+.books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.book-card-horizontal {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card-horizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--card-hover-shadow);
+}
+
+.book-card-horizontal .book-card-inner {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: stretch;
+}
+
+.book-card-horizontal .book-cover-container {
+  flex: 0 0 150px;
+  align-self: center;
+  padding: 0.75rem 0 0.75rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-card-horizontal .book-cover-img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+.book-card-horizontal:hover .book-cover-img {
+  transform: scale(1.05);
+}
+
+.book-card-horizontal .book-details {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card-horizontal .book-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.3rem;
+  line-height: 1.2;
+}
+
+.book-card-horizontal .book-author {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: var(--tag-color);
+}
+
+.book-card-horizontal .book-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.book-card-horizontal .rating-stars {
+  color: gold;
+  margin-right: 0.5rem;
+}
+
+.book-card-horizontal .book-date {
+  font-size: 0.9rem;
+  color: var(--tag-color);
+  margin-bottom: 0.5rem;
+}
+
+.book-card-horizontal .book-tags {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.book-card-horizontal .tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.book-card-horizontal .tag:hover {
+  background-color: var(--link-color);
+  color: white;
+}
+
+.book-card-horizontal .book-description {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-card-horizontal .read-more {
+  align-self: flex-start;
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.book-card-horizontal .read-more:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .book-card-horizontal .book-card-inner {
+    flex-direction: column;
+  }
+  
+  .book-card-horizontal .book-cover-container {
+    flex: auto;
+    width: 100%;
+    max-height: 220px;
+  }
+  
+  .book-card-horizontal .book-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 } 

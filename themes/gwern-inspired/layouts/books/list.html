@@ -11,17 +11,17 @@
 
     {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
     {{ if $paginator.Pages }}
-    <div class="books-grid">
+    <div class="books-list">
         {{ range $paginator.Pages }}
-        <article class="book-card">
+        <article class="book-card-horizontal">
             <div class="book-card-inner">
-                {{ if .Params.cover_image }}
-                <div class="book-cover">
+                <div class="book-cover-container">
+                    {{ if .Params.cover_image }}
                     <a href="{{ .Permalink }}" class="book-link">
-                        <img src="{{ .Params.cover_image }}" alt="Cover of {{ .Title }}" class="book-cover-img">
+                        <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="book-cover-img" loading="lazy">
                     </a>
+                    {{ end }}
                 </div>
-                {{ end }}
                 <div class="book-details">
                     <h2 class="book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
                     

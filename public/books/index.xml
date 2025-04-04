@@ -6,14 +6,28 @@
     <description>Recent content in Book Reviews on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/books/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Atomic Habits</title>
+      <link>http://localhost:1313/books/atomic-habits/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/books/atomic-habits/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Atomic Habits&amp;rdquo; by James Clear is a comprehensive guide to making small changes in behavior that can lead to remarkable results over time. Clear presents a practical framework for understanding how habits form and how they can be changed, emphasizing the importance of systems over goals and identity-based habits over outcome-based habits.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-ideas&#34;&gt;Key Ideas&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-four-laws-of-behavior-change&#34;&gt;The Four Laws of Behavior Change&lt;/h3&gt;&#xA;&lt;p&gt;Clear presents a simple framework for building good habits and breaking bad ones:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Thinking, Fast and Slow</title>
       <link>http://localhost:1313/books/thinking-fast-and-slow/</link>
       <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/books/thinking-fast-and-slow/</guid>
-      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Thinking, Fast and Slow&amp;rdquo; is a landmark book by Nobel Prize winner Daniel Kahneman that explores the two systems that drive how we think: System 1 (fast, intuitive, and emotional) and System 2 (slower, more deliberative, and logical). The book exposes cognitive biases that affect our everyday decisions and offers insights into how to recognize and mitigate these biases.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-ideas&#34;&gt;Key Ideas&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-two-systems&#34;&gt;The Two Systems&lt;/h3&gt;&#xA;&lt;p&gt;Kahneman describes two systems that characterize our thinking:&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Thinking, Fast and Slow&amp;rdquo; is a groundbreaking work by Nobel Prize-winning psychologist Daniel Kahneman that explores the two systems of thought that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical. Through decades of research, Kahneman reveals the cognitive biases that affect our decision-making and judgment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;two-systems-of-thought&#34;&gt;Two Systems of Thought&lt;/h3&gt;&#xA;&lt;p&gt;The book&amp;rsquo;s central thesis is the dichotomy between two modes of thought:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sapiens: A Brief History of Humankind</title>
+      <link>http://localhost:1313/books/sapiens/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/books/sapiens/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Sapiens: A Brief History of Humankind&amp;rdquo; offers a sweeping narrative of human history, from the emergence of Homo sapiens in Africa to the present day. Harari&amp;rsquo;s central argument is that humans dominate the world because of their unique ability to cooperate flexibly in large numbers, made possible by shared beliefs in common myths and stories—from religions to money to political systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-cognitive-revolution-70000-bce&#34;&gt;The Cognitive Revolution (70,000 BCE)&lt;/h3&gt;&#xA;&lt;p&gt;Around 70,000 years ago, Homo sapiens underwent a cognitive revolution that enabled them to think in unprecedented ways:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

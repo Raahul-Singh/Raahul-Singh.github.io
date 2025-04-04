@@ -18,6 +18,44 @@
 
     <div class="sections-container">
         <section class="content-section">
+            <h2 class="section-title">Recent Books</h2>
+            <div class="home-books-grid">
+                {{ $books := where .Site.RegularPages "Type" "books" | first 4 }}
+                {{ if $books }}
+                {{ range $books }}
+                <div class="home-book-card">
+                    <div class="home-book-card-inner">
+                        {{ if .Params.cover_image }}
+                        <div class="home-book-cover">
+                            <a href="{{ .Permalink }}" class="book-link">
+                                <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="home-book-cover-img" loading="lazy">
+                            </a>
+                        </div>
+                        {{ end }}
+                        <div class="home-book-details">
+                            <h3 class="home-book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                            {{ with .Params.author }}
+                            <p class="home-book-author">by {{ . }}</p>
+                            {{ end }}
+                            {{ if .Params.rating }}
+                            <div class="home-book-rating">
+                                {{ $rating := int .Params.rating }}
+                                {{ range seq $rating }}★{{ end }}
+                                {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+                <p class="view-all"><a href="/books/">View all books →</a></p>
+                {{ else }}
+                <p>No book reviews yet.</p>
+                {{ end }}
+            </div>
+        </section>
+
+        <section class="content-section">
             <h2 class="section-title">Recent Essays</h2>
             <div class="content-list">
                 {{ $essays := where .Site.RegularPages "Type" "essays" | first 5 }}
@@ -38,38 +76,6 @@
                 <p class="view-all"><a href="/essays/">View all essays →</a></p>
                 {{ else }}
                 <p>No essays yet.</p>
-                {{ end }}
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title">Recent Book Reviews</h2>
-            <div class="content-list">
-                {{ $books := where .Site.RegularPages "Type" "books" | first 5 }}
-                {{ if $books }}
-                <ul>
-                    {{ range $books }}
-                    <li>
-                        <a href="{{ .Permalink }}" class="content-item">
-                            <span class="content-title">{{ .Title }}</span>
-                            {{ if .Params.author }}
-                            <span class="content-author">by {{ .Params.author }}</span>
-                            {{ end }}
-                            <span class="content-date">{{ .Date.Format "January 2, 2006" }}</span>
-                        </a>
-                        {{ if .Params.rating }}
-                        <div class="rating">
-                            {{ $rating := int .Params.rating }}
-                            {{ range seq $rating }}★{{ end }}
-                            {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
-                        </div>
-                        {{ end }}
-                    </li>
-                    {{ end }}
-                </ul>
-                <p class="view-all"><a href="/books/">View all books →</a></p>
-                {{ else }}
-                <p>No book reviews yet.</p>
                 {{ end }}
             </div>
         </section>

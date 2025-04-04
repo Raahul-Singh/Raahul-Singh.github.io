@@ -4,7 +4,7 @@
         <div class="book-header-grid">
             {{ if .Params.cover_image }}
             <div class="book-cover-container">
-                <img src="{{ .Params.cover_image }}" alt="Cover of {{ .Title }}" class="book-cover-large">
+                <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="book-cover-large" loading="lazy">
             </div>
             {{ end }}
             
