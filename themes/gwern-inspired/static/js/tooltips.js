@@ -28,6 +28,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add tooltip content to container
     container.appendChild(tooltipText);
     
+    // Add event listeners to keep tooltip visible when hovering on it
+    container.addEventListener('mouseenter', function() {
+      tooltipText.style.visibility = 'visible';
+      tooltipText.style.opacity = '1';
+      tooltipText.style.pointerEvents = 'auto';
+    });
+    
+    tooltipText.addEventListener('mouseenter', function() {
+      this.style.visibility = 'visible';
+      this.style.opacity = '1';
+    });
+    
+    tooltipText.addEventListener('mouseleave', function() {
+      // Only hide if not hovering over container
+      if (!container.matches(':hover')) {
+        this.style.visibility = '';
+        this.style.opacity = '';
+      }
+    });
+    
+    container.addEventListener('mouseleave', function() {
+      // Only hide if not hovering over tooltip
+      if (!tooltipText.matches(':hover')) {
+        tooltipText.style.visibility = '';
+        tooltipText.style.opacity = '';
+        tooltipText.style.pointerEvents = '';
+      }
+    });
+    
     // Replace the original element with the tooltip container
     tooltip.parentNode.replaceChild(container, tooltip);
   });

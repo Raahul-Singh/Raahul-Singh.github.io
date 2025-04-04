@@ -967,14 +967,16 @@ html.dark .theme-icon-dark {
   z-index: 1;
   bottom: 125%;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  margin-bottom: 10px;
+  transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
   box-shadow: 0 5px 20px var(--card-shadow);
   border: 3px solid var(--link-color);
   font-family: var(--font-serif);
   max-height: 80vh;
   overflow-y: auto;
+  pointer-events: none;
 }
 
 .tooltip-container .tooltip-text::after {
@@ -991,7 +993,14 @@ html.dark .theme-icon-dark {
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+/* Allow hovering on the tooltip itself */
+.tooltip-text:hover {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Standard Footnotes */
