@@ -219,16 +219,17 @@ header {
 
 .site-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .site-title {
-  font-family: var(--font-sans);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-right: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
 }
 
 .site-title a {
@@ -239,14 +240,12 @@ header {
 .main-nav {
   display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .main-nav a {
   color: var(--text-color);
   text-decoration: none;
-  font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .main-nav a:hover {
@@ -254,24 +253,56 @@ header {
   text-decoration: underline;
 }
 
-/* Theme toggle */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-icon {
+  color: var(--text-color);
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 #theme-toggle {
   background: none;
   border: none;
   cursor: pointer;
   color: var(--text-color);
+  width: 34px;
+  height: 34px;
+  padding: 5px;
+  border-radius: 4px;
   display: flex;
-  padding: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle:hover {
+  background-color: var(--tag-bg);
 }
 
 .theme-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  display: none;
 }
 
-.dark .theme-icon-light,
-html:not(.dark) .theme-icon-dark {
-  display: none;
+html:not(.dark) .theme-icon-light {
+  display: block;
+}
+
+html.dark .theme-icon-dark {
+  display: block;
 }
 
 /* Home Page */
@@ -891,16 +922,32 @@ footer {
   .site-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
   
   .main-nav {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   
-  #theme-toggle {
+  .header-right {
     position: absolute;
     top: 1rem;
     right: 1rem;
+  }
+  
+  .social-icons {
+    gap: 0.5rem;
+  }
+  
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  #theme-toggle {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
   }
   
   .sidenote {

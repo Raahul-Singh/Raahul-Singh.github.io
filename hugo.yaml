@@ -43,6 +43,12 @@ params:
     - name: "Twitter"
       url: "https://twitter.com/raahul_singh"
       icon: "twitter"
+    - name: "LinkedIn"
+      url: "https://linkedin.com/in/raahulsingh"
+      icon: "linkedin"
+    - name: "Email"
+      url: "mailto:hello@raahulsingh.com"
+      icon: "email"
     # Add other social links as needed
   
   # Content directories
