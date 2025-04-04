@@ -3,16 +3,28 @@ title: "Raahul Singh"
 date: 2023-01-01
 ---
 
-<div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; max-width: 900px;">
-  <img src="/images/profile.jpg" alt="Raahul Singh" style="width: 200px; border-radius: 4px;">
-  <div style="align-self: center;">
-    <p>Hello, I'm Raahul Singh. I'm a [your profession/role] with interests in [your interests]. This website serves as my digital garden where I share essays, book reviews, and other thoughts.</p>
+<style>
+  .container {
+    max-width: 60rem !important;
+  }
+  main, .home-section, .markdown-content {
+    max-width: 60rem !important;
+  }
+</style>
+
+<div style="margin-bottom: 3rem;">
+  <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
+    <img src="/images/profile.jpg" alt="Raahul Singh" style="width: 180px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); flex-shrink: 0;">
+    <div style="align-self: center; flex: 1; min-width: 0;">
+      <p style="font-size: 1.2rem; line-height: 1.6; margin-right: 0;">Hello, I'm Raahul Singh. I'm a software engineer with interests in machine learning and distributed systems. This website serves as my digital garden where I share essays, book reviews, and other thoughts.</p>
+      <p style="font-size: 1.1rem; line-height: 1.6; margin-right: 0;">I'm currently exploring the intersection of machine learning algorithms and distributed computing. My work focuses on building scalable systems that can process and analyze large volumes of data efficiently, while maintaining reliability and fault tolerance.</p>
+    </div>
   </div>
 </div>
 
 ## Background
 
-I have a background in [your background]. My professional experience includes [brief description of your work experience].
+I have a background in computer science with a focus on machine learning algorithms. My professional experience includes working on large-scale data systems and developing machine learning models for real-world applications.
 
 ## Interests
 
@@ -22,7 +34,7 @@ Some topics I'm particularly interested in:
 - Software Engineering
 - Philosophy and Ethics
 - Literature and Writing
-- [Other interests]
+- Economics and Game Theory
 
 ## About This Site
 
@@ -37,13 +49,15 @@ Some features of this site:
 
 ## Contact
 
-You can reach me via:
+<div class="contact-links">
 
 - Email: raahulsingh002@gmail.com
 - GitHub: [raahul-singh](https://github.com/raahul-singh)
 - GitLab: [rasalghul2](https://gitlab.com/rasalghul2)
 - LinkedIn: [raahulsingh42](https://linkedin.com/in/raahulsingh42)
 - Instagram: [raahul.singh42](https://instagram.com/raahul.singh42)
+
+</div>
 
 Feel free to reach out if you have questions, comments, or just want to connect.
 
