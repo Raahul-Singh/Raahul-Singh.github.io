@@ -1,23 +1,8 @@
 {{ define "main" }}
 <section class="home-section">
-    <!-- Simple welcome section -->
-    <div class="welcome-section">
-        <h1 class="profile-title">{{ .Site.Params.author }}</h1>
-        <div class="welcome-text">
-            <p class="profile-description">{{ .Site.Params.authorDescription }}</p>
-            
-            <!-- Main content from markdown file if any -->
-            <div class="home-content">
-                {{ .Content }}
-            </div>
-            
-            <!-- Section links -->
-            <div class="section-links">
-                <a href="/essays/" class="section-link">Essays</a>
-                <a href="/books/" class="section-link">Book Reviews</a>
-                <a href="/about/" class="section-link">About</a>
-            </div>
-        </div>
+    <!-- Content from markdown file -->
+    <div class="markdown-content">
+        {{ .Content }}
     </div>
 
     <!-- Recent content section -->
@@ -27,7 +12,10 @@
         </div>
         
         <ul class="content-list">
-            {{ $recentContent := first 5 (sort (where .Site.RegularPages "Section" "ne" "") "Date" "desc") }}
+            {{ $essays := where .Site.RegularPages "Section" "essays" }}
+            {{ $books := where .Site.RegularPages "Section" "books" }}
+            {{ $combined := $essays | append $books }}
+            {{ $recentContent := first 5 $combined }}
             {{ if $recentContent }}
             {{ range $recentContent }}
             <li class="list-item">
@@ -58,7 +46,6 @@
         </ul>
     </div>
 
-    <!-- Search section if enabled -->
     {{ if .Site.Params.features.searchEnabled }}
     <section class="search-section">
         <h3 class="section-title">Search</h3>
