@@ -26,6 +26,7 @@
   --card-bg: #fff;
   --card-shadow: rgba(0, 0, 0, 0.05);
   --card-hover-shadow: rgba(0, 0, 0, 0.1);
+  --link-color-rgb: 6, 69, 173; /* RGB for #0645ad */
   
   /* Typography */
   --font-serif: "Libre Baskerville", "EB Garamond", Georgia, "Times New Roman", serif;
@@ -61,6 +62,7 @@
   --card-bg: #1a1a1a;
   --card-shadow: rgba(0, 0, 0, 0.2);
   --card-hover-shadow: rgba(0, 0, 0, 0.4);
+  --link-color-rgb: 107, 157, 255; /* RGB for #6b9dff */
 }
 
 /* Base Styles */
@@ -921,30 +923,121 @@ html.dark .theme-icon-dark {
   color: var(--tag-color);
 }
 
-/* Sidenotes */
+/* Sidenotes - Disabled */
 .sidenote-number {
-  counter-increment: sidenote-counter;
-}
-
-.sidenote-number::after {
-  content: counter(sidenote-counter);
-  font-size: 0.7em;
-  vertical-align: super;
-  color: var(--link-color);
-  margin-left: 0.1em;
+  display: none;
 }
 
 .sidenote {
-  font-size: 0.85rem;
-  color: var(--tag-color);
-  float: right;
-  clear: right;
-  margin-right: -45%;
-  width: 40%;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.4;
+  display: none;
+}
+
+/* Enhanced Tooltips - Gwern-style */
+.tooltip-container {
   position: relative;
+  display: inline;
+  border-bottom: none;
+  padding: 0;
+  cursor: help;
+}
+
+.tooltip-container:hover {
+  color: var(--link-hover-color);
+}
+
+.tooltip-icon {
+  font-size: 0.8em;
+  color: var(--link-color);
+  margin-left: 2px;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.tooltip-container .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: 350px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  text-align: left;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 5px 20px var(--card-shadow);
+  border: 3px solid var(--link-color);
+  font-family: var(--font-serif);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.tooltip-container .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--link-color) transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Standard Footnotes */
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: block !important;
+}
+
+.footnotes ol {
+  padding-left: 1.5rem;
+}
+
+.footnotes li {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.footnote-ref {
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.footnote-backref {
+  font-size: 0.9em;
+  color: var(--link-color);
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+.footnote-backref:hover {
+  text-decoration: underline;
+}
+
+/* Ensure footnotes are visible at smaller screen sizes */
+@media (max-width: 768px) {
+  .footnotes {
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
 }
 
 /* Footer */
@@ -1549,4 +1642,11 @@ footer {
   margin: 2rem 0;
   border: none;
   border-top: 1px solid var(--border-color);
+}
+
+/* Media Queries for Tooltips */
+@media (max-width: 768px) {
+  .tooltip-container .tooltip-text {
+    width: 250px;
+  }
 } 

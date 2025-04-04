@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Tooltips and Footnotes in Essays | Raahul Singh</title>
+    <meta name="description" content="A demonstration of how to use tooltips and footnotes effectively in long-form writing">
+    <link rel="canonical" href="http://localhost:1313/essays/tooltips-and-footnotes/">
+    
+    
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    
+    
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/gwern.css">
+    
+    
+    <script>
+        
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark' || (storedTheme === null && prefersDark)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="site-header">
+                <div class="site-title">
+                    <a href="http://localhost:1313/">Raahul Singh</a>
+                </div>
+                <nav class="main-nav">
+                    
+                        <a href="/">Home</a>
+                    
+                        <a href="/essays/">Essays</a>
+                    
+                        <a href="/books/">Books</a>
+                    
+                        <a href="/about/">About</a>
+                    
+                </nav>
+                <div class="header-right">
+                    <div class="social-icons">
+                        
+                            <a href="https://github.com/raahul-singh" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                
+                            </a>
+                        
+                            <a href="https://twitter.com/raahul_singh" target="_blank" rel="noopener noreferrer" class="social-icon" title="Twitter">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                                
+                            </a>
+                        
+                            <a href="https://linkedin.com/in/raahulsingh" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                                
+                            </a>
+                        
+                            <a href="mailto:hello@raahulsingh.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Email">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                
+                            </a>
+                        
+                    </div>
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                        <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/>
+                        </svg>
+                        <svg class="theme-icon theme-icon-dark" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            
+<article class="content">
+    <header class="content-header">
+        <h1 class="content-title">Using Tooltips and Footnotes in Essays</h1>
+        
+        
+        <div class="content-meta">
+            <time datetime="2023-05-25T00:00:00Z">
+                May 25, 2023
+            </time>
+            
+            
+            
+            
+        </div>
+        
+        
+        
+        
+        
+        <div class="content-abstract">
+            <p>A demonstration of how to use tooltips and footnotes effectively in long-form writing</p>
+        </div>
+        
+        
+        
+        <div class="content-tags">
+            
+            <a href="/tags/writing" class="tag">Writing</a>
+            
+            <a href="/tags/typography" class="tag">Typography</a>
+            
+            <a href="/tags/design" class="tag">Design</a>
+            
+        </div>
+        
+    </header>
+
+    
+    
+    <aside class="table-of-contents">
+        <h2>Table of Contents</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tooltips-for-brief-context">Tooltips for Brief Context</a></li>
+    <li><a href="#footnotes-for-deeper-explorations">Footnotes for Deeper Explorations</a></li>
+    <li><a href="#implementation-in-markdown">Implementation in Markdown</a>
+      <ul>
+        <li><a href="#tooltips">Tooltips</a></li>
+        <li><a href="#footnotes">Footnotes</a></li>
+      </ul>
+    </li>
+    <li><a href="#comparison-table">Comparison Table</a></li>
+    <li><a href="#best-practices">Best Practices</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+    
+
+    <div class="content-body">
+        <h1 id="using-tooltips-and-footnotes-effectively">Using Tooltips and Footnotes Effectively</h1>
+<p>Digital writing offers several ways to add supplementary information to your main text. Two powerful options are <span class="tooltip" data-tooltip="Tooltips are small text popups that appear when hovering over a word or phrase. <br><br>They can include <b>rich formatting</b>, <i>styling</i>, and even <a href='https://en.wikipedia.org/wiki/Tooltip'>links</a> for additional context.">tooltips</span> and standard footnotes<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h2 id="tooltips-for-brief-context">Tooltips for Brief Context</h2>
+<p>Tooltips are perfect for providing brief definitions or context without interrupting the reading flow. They are ideal for:</p>
+<ul>
+<li>Defining <span class="tooltip" data-tooltip="<b>Technical terms</b> are specialized vocabulary specific to a particular field or subject. <br><br>For example, in computer science, terms like 'algorithm' or 'recursion' have specific technical meanings.">technical terms</span></li>
+<li>Providing quick <span class="tooltip" data-tooltip="Additional context helps readers understand the broader implications or background of a statement. <br><br>This can include historical information, prerequisites, or connections to other concepts.">additional context</span></li>
+<li>Adding <span class="tooltip" data-tooltip="Clarifying notes explain potential ambiguities or provide precision where the main text needs to remain concise. <br><br>They can prevent misunderstandings without disrupting the main argument.">clarifying notes</span></li>
+</ul>
+<p>The advantage of tooltips is that they&rsquo;re immediately available on hover, requiring minimal effort from the reader. They work well for short explanations that enhance understanding but aren&rsquo;t essential to your main argument.</p>
+<h2 id="footnotes-for-deeper-explorations">Footnotes for Deeper Explorations</h2>
+<p>Footnotes are better suited for longer explanations, citations, or tangential thoughts that would disrupt the flow of your main text. They&rsquo;re excellent for:</p>
+<ol>
+<li>Detailed explanations or elaborations<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li>Citations and references<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+<li>Counterarguments or alternative perspectives<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
+</ol>
+<p>Footnotes remain visible at the bottom of the page, allowing readers to reference them at their convenience.</p>
+<h2 id="implementation-in-markdown">Implementation in Markdown</h2>
+<h3 id="tooltips">Tooltips</h3>
+<p>To create tooltips in your markdown, use the following HTML:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">span</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;tooltip&#34;</span> <span style="color:#75af00">data-tooltip</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;This text appears when hovering&#34;</span><span style="color:#111">&gt;</span>Hover over me<span style="color:#111">&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><p>The tooltip text is stored in the <code>data-tooltip</code> attribute and appears when the reader hovers over the text. You can include HTML in the tooltip for rich formatting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">span</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;tooltip&#34;</span> <span style="color:#75af00">data-tooltip</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;&lt;b&gt;Bold text&lt;/b&gt; and &lt;i&gt;italic text&lt;/i&gt; in tooltips&#34;</span><span style="color:#111">&gt;</span>Formatted tooltip<span style="color:#111">&lt;/</span><span style="color:#f92672">span</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><h3 id="footnotes">Footnotes</h3>
+<p>For footnotes, use the standard markdown footnote syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>This text has a footnote reference[^label].
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[^label]: This is the footnote content that appears at the bottom of the page.
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>   You can add multiple paragraphs by indenting the second paragraph.
+</span></span></code></pre></div><h2 id="comparison-table">Comparison Table</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Tooltips</th>
+          <th>Footnotes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Length</td>
+          <td>Brief (1-3 sentences)</td>
+          <td>Can be extensive</td>
+      </tr>
+      <tr>
+          <td>Formatting</td>
+          <td>Supports HTML</td>
+          <td>Supports Markdown</td>
+      </tr>
+      <tr>
+          <td>Visibility</td>
+          <td>On hover only</td>
+          <td>Always visible at page bottom</td>
+      </tr>
+      <tr>
+          <td>Best for</td>
+          <td>Definitions, brief context</td>
+          <td>Citations, detailed explanations</td>
+      </tr>
+      <tr>
+          <td>Implementation</td>
+          <td>HTML span elements</td>
+          <td>Standard markdown syntax</td>
+      </tr>
+      <tr>
+          <td>Intrusiveness</td>
+          <td>Minimal, appears in place</td>
+          <td>Requires looking away from main text</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="best-practices">Best Practices</h2>
+<p>For optimal readability, follow these guidelines:</p>
+<ol>
+<li>Use tooltips for brief clarifications that enhance the current paragraph<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></li>
+<li>Use footnotes for citations and longer asides</li>
+<li>Avoid overusing either technique, as they can become distracting</li>
+<li>Ensure your main text is comprehensible without the supplementary information</li>
+<li>Consider using <span class="tooltip" data-tooltip="Progressive disclosure is a technique where information is revealed gradually, starting with the most important details and allowing readers to dig deeper if interested.">progressive disclosure</span> principles</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Tooltips and footnotes provide flexible options for adding supplementary information to your essays. By choosing the right technique for the right purpose, you can create a layered reading experience that accommodates different levels of reader engagement.</p>
+<p>Try implementing these techniques in your own writing to see how they enhance the reader&rsquo;s experience and understanding of your content.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Footnotes appear at the bottom of the page and are referenced by superscript numbers in the text. They can contain multiple paragraphs and are ideal for longer explanations or citations.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Like this more detailed explanation that provides additional information about the main point. Footnotes can be several sentences long and even include multiple paragraphs if necessary.</p>
+<p>They can contain multiple paragraphs and are particularly useful for discussing nuances, exceptions, or detailed examples that would bog down the main text.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Smith, J. (2020). <em>The Art of Annotation: How Footnotes and Tooltips Enhance Digital Reading</em>. Journal of Digital Typography, 15(2), 45-67.</p>
+<p>Citations in footnotes can follow various style guides (APA, MLA, Chicago, etc.) and can include additional commentary on the source.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Some might argue that all supplementary information should be integrated into the main text for maximum clarity. While this approach has merit in some contexts, it can make the main text unnecessarily verbose and difficult to follow.</p>
+<p>Others believe that important information should never be relegated to footnotes. However, this perspective doesn&rsquo;t account for different levels of reader interest and expertise.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>The general rule is that if the information can be communicated in 1-3 sentences, it works well as a tooltip. Otherwise, a footnote is more appropriate.</p>
+<p>When deciding between tooltips and footnotes, also consider how essential the information is to your argument. Critical information should be in the main text, supplementary information in tooltips, and tangential or specialized information in footnotes.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+    
+    <div class="pagination">
+        
+        <a href="http://localhost:1313/essays/sample-tech-essay/" class="prev">← Sample Technology Essay</a>
+        
+        
+        
+    </div>
+    
+    
+    
+</article>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Raahul Singh</p>
+            <p class="social-links">
+                
+                    <a href="https://github.com/raahul-singh" target="_blank" rel="noopener noreferrer" class="social-link github">
+                        GitHub
+                    </a>
+                
+                    <a href="https://twitter.com/raahul_singh" target="_blank" rel="noopener noreferrer" class="social-link twitter">
+                        Twitter
+                    </a>
+                
+                    <a href="https://linkedin.com/in/raahulsingh" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
+                        LinkedIn
+                    </a>
+                
+                    <a href="mailto:hello@raahulsingh.com" target="_blank" rel="noopener noreferrer" class="social-link email">
+                        Email
+                    </a>
+                
+            </p>
+        </footer>
+    </div>
+
+    
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
+    
+    <script src="/js/gwern.js"></script>
+    
+    
+    <script src="/js/tooltips.js"></script>
+</body>
+</html>

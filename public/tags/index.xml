@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 May 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design</title>
+      <link>http://localhost:1313/tags/design/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Typography</title>
+      <link>http://localhost:1313/tags/typography/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/typography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writing</title>
+      <link>http://localhost:1313/tags/writing/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/writing/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Habits</title>
       <link>http://localhost:1313/tags/habits/</link>

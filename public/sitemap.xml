@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/design/</loc>
+    <lastmod>2023-05-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essays/</loc>
+    <lastmod>2023-05-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2023-05-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/typography/</loc>
+    <lastmod>2023-05-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essays/tooltips-and-footnotes/</loc>
+    <lastmod>2023-05-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/writing/</loc>
+    <lastmod>2023-05-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/books/atomic-habits/</loc>
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -15,9 +33,6 @@
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/self-improvement/</loc>
-    <lastmod>2023-05-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2023-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/blue/</loc>
@@ -64,9 +79,6 @@
   </url><url>
     <loc>http://localhost:1313/tags/science/</loc>
     <lastmod>2023-02-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/essays/</loc>
-    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/programming/</loc>
     <lastmod>2023-02-01T00:00:00+00:00</lastmod>

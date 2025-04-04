@@ -10,7 +10,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   // Process sidenotes
-  convertFootnotesToSidenotes();
+  // Disabled sidenotes in favor of standard footnotes and tooltips
+  // convertFootnotesToSidenotes();
   
   // Handle table of contents highlighting
   setupTableOfContents();
