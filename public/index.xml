@@ -78,12 +78,5 @@
       <guid>https://raahulsingh.net/posts/post-1/</guid>
       <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>About</title>
-      <link>https://raahulsingh.net/about/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/about/</guid>
-      <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;&#xA;&lt;div style=&#34;display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; max-width: 900px;&#34;&gt;&#xA;  &lt;img src=&#34;https://raahulsingh.net/images/profile.jpg&#34; alt=&#34;Raahul Singh&#34; style=&#34;width: 200px; border-radius: 4px;&#34;&gt;&#xA;  &lt;div style=&#34;align-self: center;&#34;&gt;&#xA;    &lt;p&gt;Hello, I&#39;m Raahul Singh. I&#39;m a [your profession/role] with interests in [your interests]. This website serves as my digital garden where I share essays, book reviews, and other thoughts.&lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;I have a background in [your background]. My professional experience includes [brief description of your work experience].&lt;/p&gt;&#xA;&lt;h2 id=&#34;interests&#34;&gt;Interests&lt;/h2&gt;&#xA;&lt;p&gt;Some topics I&amp;rsquo;m particularly interested in:&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
