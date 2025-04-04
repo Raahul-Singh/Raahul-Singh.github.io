@@ -1,10 +1,13 @@
 ---
 title: "Atomic Habits"
+draft: true
 author: "James Clear"
-date: 2023-05-10
-description: "A review of James Clear's practical guide to building good habits and breaking bad ones."
-tags: ["Self-improvement", "Psychology", "Habits"]
+date: 2022-06-15
+description: "An Easy & Proven Way to Build Good Habits & Break Bad Ones"
+tags: ["Habits", "Self-Improvement", "Psychology"]
 rating: 5
+confidence: "highly likely"
+status: "finished"
 cover_image: "https://m.media-amazon.com/images/I/51-nXsSRfZL._SY445_SX342_.jpg"
 ---
 

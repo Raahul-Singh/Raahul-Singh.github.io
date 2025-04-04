@@ -1,10 +1,11 @@
 ---
 title: "Sapiens: A Brief History of Humankind"
+draft: true
 author: "Yuval Noah Harari"
-date: 2023-02-10
+date: 2023-01-05
 description: "A thought-provoking exploration of human history from the Stone Age to the present day, examining how Homo sapiens came to dominate the planet."
-tags: ["History", "Anthropology", "Science", "Evolution", "Non-Fiction"]
-rating: 5
+tags: ["History", "Anthropology", "Science"]
+rating: 4.5
 cover_image: "https://m.media-amazon.com/images/I/713jIoMO3UL._SY522_.jpg"
 status: "reading"
 progress: 65

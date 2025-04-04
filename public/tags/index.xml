@@ -2,178 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Raahul Singh</title>
-    <link>https://raahulsingh.net/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://raahulsingh.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Minimalism</title>
-      <link>https://raahulsingh.net/tags/minimalism/</link>
+      <link>http://localhost:1313/tags/minimalism/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/minimalism/</guid>
+      <guid>http://localhost:1313/tags/minimalism/</guid>
       <description></description>
     </item>
     <item>
       <title>Productivity</title>
-      <link>https://raahulsingh.net/tags/productivity/</link>
+      <link>http://localhost:1313/tags/productivity/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/productivity/</guid>
+      <guid>http://localhost:1313/tags/productivity/</guid>
       <description></description>
     </item>
     <item>
       <title>Technology</title>
-      <link>https://raahulsingh.net/tags/technology/</link>
+      <link>http://localhost:1313/tags/technology/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/technology/</guid>
+      <guid>http://localhost:1313/tags/technology/</guid>
       <description></description>
     </item>
     <item>
       <title>Design</title>
-      <link>https://raahulsingh.net/tags/design/</link>
+      <link>http://localhost:1313/tags/design/</link>
       <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/design/</guid>
+      <guid>http://localhost:1313/tags/design/</guid>
       <description></description>
     </item>
     <item>
       <title>Typography</title>
-      <link>https://raahulsingh.net/tags/typography/</link>
+      <link>http://localhost:1313/tags/typography/</link>
       <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/typography/</guid>
+      <guid>http://localhost:1313/tags/typography/</guid>
       <description></description>
     </item>
     <item>
       <title>Writing</title>
-      <link>https://raahulsingh.net/tags/writing/</link>
+      <link>http://localhost:1313/tags/writing/</link>
       <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/writing/</guid>
+      <guid>http://localhost:1313/tags/writing/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>https://raahulsingh.net/tags/markdown/</link>
-      <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/markdown/</guid>
+      <link>http://localhost:1313/tags/markdown/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Tips</title>
-      <link>https://raahulsingh.net/tags/tips/</link>
-      <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/tips/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Habits</title>
-      <link>https://raahulsingh.net/tags/habits/</link>
-      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/habits/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Psychology</title>
-      <link>https://raahulsingh.net/tags/psychology/</link>
-      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/psychology/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Self-Improvement</title>
-      <link>https://raahulsingh.net/tags/self-improvement/</link>
-      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/self-improvement/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blue</title>
-      <link>https://raahulsingh.net/tags/blue/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>https://raahulsingh.net/tags/blue/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Green</title>
-      <link>https://raahulsingh.net/tags/green/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>https://raahulsingh.net/tags/green/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Red</title>
-      <link>https://raahulsingh.net/tags/red/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>https://raahulsingh.net/tags/red/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Behavioral Economics</title>
-      <link>https://raahulsingh.net/tags/behavioral-economics/</link>
-      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/behavioral-economics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cognitive Biases</title>
-      <link>https://raahulsingh.net/tags/cognitive-biases/</link>
-      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/cognitive-biases/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Decision Making</title>
-      <link>https://raahulsingh.net/tags/decision-making/</link>
-      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/decision-making/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Non-Fiction</title>
-      <link>https://raahulsingh.net/tags/non-fiction/</link>
-      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/non-fiction/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Anthropology</title>
-      <link>https://raahulsingh.net/tags/anthropology/</link>
-      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/anthropology/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Evolution</title>
-      <link>https://raahulsingh.net/tags/evolution/</link>
-      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/evolution/</guid>
+      <link>http://localhost:1313/tags/tips/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tips/</guid>
       <description></description>
     </item>
     <item>
       <title>History</title>
-      <link>https://raahulsingh.net/tags/history/</link>
-      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/history/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Science</title>
-      <link>https://raahulsingh.net/tags/science/</link>
-      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/science/</guid>
+      <link>http://localhost:1313/tags/history/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/history/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>https://raahulsingh.net/tags/programming/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/programming/</guid>
+      <link>http://localhost:1313/tags/programming/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/programming/</guid>
       <description></description>
     </item>
     <item>
-      <title>Web Development</title>
-      <link>https://raahulsingh.net/tags/web-development/</link>
-      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/tags/web-development/</guid>
+      <title>Blue</title>
+      <link>http://localhost:1313/tags/blue/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/tags/blue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Green</title>
+      <link>http://localhost:1313/tags/green/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/tags/green/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Red</title>
+      <link>http://localhost:1313/tags/red/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/tags/red/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Anthropology</title>
+      <link>http://localhost:1313/tags/anthropology/</link>
+      <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/anthropology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Science</title>
+      <link>http://localhost:1313/tags/science/</link>
+      <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Habits</title>
+      <link>http://localhost:1313/tags/habits/</link>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/habits/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Psychology</title>
+      <link>http://localhost:1313/tags/psychology/</link>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/psychology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Improvement</title>
+      <link>http://localhost:1313/tags/self-improvement/</link>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/self-improvement/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Behavioral Economics</title>
+      <link>http://localhost:1313/tags/behavioral-economics/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/behavioral-economics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Decision Making</title>
+      <link>http://localhost:1313/tags/decision-making/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/decision-making/</guid>
       <description></description>
     </item>
   </channel>

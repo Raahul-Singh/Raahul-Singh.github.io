@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Behavioral Economics on Raahul Singh</title>
-    <link>https://raahulsingh.net/tags/behavioral-economics/</link>
+    <link>http://localhost:1313/tags/behavioral-economics/</link>
     <description>Recent content in Behavioral Economics on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Mar 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://raahulsingh.net/tags/behavioral-economics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/behavioral-economics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thinking, Fast and Slow</title>
-      <link>https://raahulsingh.net/reading/thinking-fast-and-slow/</link>
-      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/reading/thinking-fast-and-slow/</guid>
+      <link>http://localhost:1313/examples/reading/thinking-fast-and-slow/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/examples/reading/thinking-fast-and-slow/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;Thinking, Fast and Slow&amp;rdquo; is a groundbreaking work by Nobel Prize-winning psychologist Daniel Kahneman that explores the two systems of thought that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical. Through decades of research, Kahneman reveals the cognitive biases that affect our decision-making and judgment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;two-systems-of-thought&#34;&gt;Two Systems of Thought&lt;/h3&gt;&#xA;&lt;p&gt;The book&amp;rsquo;s central thesis is the dichotomy between two modes of thought:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,10 +1,13 @@
 ---
 title: "Thinking, Fast and Slow"
+draft: true
 author: "Daniel Kahneman"
-date: 2023-03-15
-description: "A comprehensive review of Daniel Kahneman's influential book on cognitive biases and decision-making."
-tags: ["Psychology", "Decision Making", "Cognitive Biases", "Behavioral Economics", "Non-Fiction"]
+date: 2022-02-10
+description: "An exploration of the two systems that drive the way we think"
+tags: ["Psychology", "Behavioral Economics", "Decision Making"]
 rating: 4.5
+confidence: "likely"
+status: "finished"
 cover_image: "https://m.media-amazon.com/images/I/41shZGS-G+L._SY445_SX342_.jpg"
 ---
 

@@ -1,10 +1,11 @@
 ---
-title: "Useful Markdown Tips"
-date: 2023-05-15
-description: "A collection of useful Markdown formatting tips"
-tags: ["Markdown", "Writing", "Tips"]
+title: "Markdown Tips and Tricks"
+draft: true
+date: 2023-04-15
+description: "Useful markdown techniques for better writing"
+tags: ["Writing", "Markdown", "Tips"]
 confidence: "certain"
-status: "finished"
+status: "notes"
 ---
 
 # Useful Markdown Tips

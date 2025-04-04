@@ -30,7 +30,7 @@ markup:
 
 # Site parameters
 params:
-  description: "Personal website of Raahul Singh - Essays, book notes, and more."
+  description: "Personal website of Raahul Singh - Writings, book notes, and more."
   # Your details
   author: "Raahul Singh"
   authorDescription: "I write about technology, books, and ideas that matter."
@@ -62,7 +62,7 @@ params:
   
   # Content directories
   contentTypes:
-    essays: "Essays"
+    writings: "Writings"
     notes: "Notes"
     reading: "Reading List"
   
@@ -79,19 +79,19 @@ menu:
     - identifier: "home"
       name: "Home"
       url: "/"
-      weight: 1
-    - identifier: "essays"
-      name: "Essays"
-      url: "/essays/"
-      weight: 2
+      weight: 10
+    - identifier: "writings"
+      name: "Writings"
+      url: "/writings/"
+      weight: 20
     - identifier: "notes"
       name: "Notes"
       url: "/notes/"
-      weight: 3
+      weight: 30
     - identifier: "reading"
       name: "Reading List"
       url: "/reading/"
-      weight: 4
+      weight: 40
 
 # Set default content settings
 taxonomies:
@@ -100,6 +100,6 @@ taxonomies:
 
 # Set permalinks
 permalinks:
-  essays: "/essays/:filename/"
+  writings: "/writings/:filename/"
   notes: "/notes/:filename/"
   reading: "/reading/:filename/"

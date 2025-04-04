@@ -2,25 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on Raahul Singh</title>
-    <link>https://raahulsingh.net/notes/</link>
+    <link>http://localhost:1313/notes/</link>
     <description>Recent content in Notes on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://raahulsingh.net/notes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Digital Minimalism</title>
-      <link>https://raahulsingh.net/notes/digital-minimalism/</link>
-      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/notes/digital-minimalism/</guid>
-      <description>&lt;h1 id=&#34;digital-minimalism&#34;&gt;Digital Minimalism&lt;/h1&gt;&#xA;&lt;p&gt;Digital minimalism is a philosophy that helps you question what digital communication tools (and behaviors surrounding these tools) add the most value to your life. It is about using technology with intention and purpose.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-principles&#34;&gt;Core Principles&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Clutter is costly&lt;/strong&gt;: Digital clutter is mentally draining just like physical clutter&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Optimization is important&lt;/strong&gt;: Deciding which technologies to use and how to use them is complex&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Intentionality is satisfying&lt;/strong&gt;: Being more intentional about technology makes life better&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;practical-steps&#34;&gt;Practical Steps&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Perform a digital declutter: Take a 30-day break from optional technologies&lt;/li&gt;&#xA;&lt;li&gt;Rediscover offline activities that you find meaningful and satisfying&lt;/li&gt;&#xA;&lt;li&gt;Rebuild your digital life from scratch, adding back only the tools that serve a purpose&lt;/li&gt;&#xA;&lt;li&gt;Create rules for when and how you use technology&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve found that implementing simple rules like &amp;ldquo;no phones during meals&amp;rdquo; and having designated times for checking email and social media has significantly improved my focus and wellbeing.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Useful Markdown Tips</title>
-      <link>https://raahulsingh.net/notes/markdown-tips/</link>
-      <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://raahulsingh.net/notes/markdown-tips/</guid>
-      <description>&lt;h1 id=&#34;useful-markdown-tips&#34;&gt;Useful Markdown Tips&lt;/h1&gt;&#xA;&lt;p&gt;Markdown is a lightweight markup language that allows you to format text using a simple syntax. Here are some tips that I find particularly useful:&lt;/p&gt;&#xA;&lt;h2 id=&#34;text-formatting&#34;&gt;Text Formatting&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;Italic text&lt;/em&gt; is created with single asterisks or underscores: &lt;code&gt;*italic*&lt;/code&gt; or &lt;code&gt;_italic_&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bold text&lt;/strong&gt; uses double asterisks or underscores: &lt;code&gt;**bold**&lt;/code&gt; or &lt;code&gt;__bold__&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;del&gt;Strikethrough&lt;/del&gt; uses double tildes: &lt;code&gt;~~strikethrough~~&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;code-blocks&#34;&gt;Code Blocks&lt;/h2&gt;&#xA;&lt;p&gt;For inline code, use backticks: &lt;code&gt;console.log(&#39;Hello world!&#39;)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;For code blocks, use triple backticks with an optional language identifier:&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

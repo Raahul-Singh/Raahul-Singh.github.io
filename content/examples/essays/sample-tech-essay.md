@@ -1,8 +1,11 @@
 ---
-title: "Sample Technology Essay"
-date: 2023-02-01
-description: "This is a sample technical essay demonstrating the layout and style."
-tags: ["Technology", "Web Development", "Programming"]
+title: "The Evolution of Programming Languages"
+draft: true
+date: 2023-03-20
+description: "A brief history of programming languages and their impact on software development"
+tags: ["Programming", "Technology", "History"]
+confidence: "likely"
+status: "essay"
 ---
 
 ## Introduction

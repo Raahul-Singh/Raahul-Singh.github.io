@@ -1,5 +1,6 @@
 ---
 title: "Digital Minimalism"
+draft: true
 date: 2023-06-10
 description: "Brief thoughts on practicing digital minimalism"
 tags: ["Productivity", "Technology", "Minimalism"]
