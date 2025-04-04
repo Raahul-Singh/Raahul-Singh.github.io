@@ -35,6 +35,9 @@ params:
   author: "Raahul Singh"
   authorDescription: "I write about technology, books, and ideas that matter."
   
+  # Favicon
+  favicon: "/favicon.jpg"
+  
   # Social links
   socialLinks:
     - name: "GitHub"
