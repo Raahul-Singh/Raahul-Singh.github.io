@@ -16,7 +16,8 @@ echo "Enter essay details:"
 read -p "Title: " title
 read -p "Description: " description
 read -p "Tags (comma-separated): " tags_input
-read -p "Featured image URL (optional, press Enter to skip): " featured_image
+read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
+read -p "Status (notes/draft/in progress/finished): " status
 
 # Format today's date
 date=$(date +%Y-%m-%d)
@@ -48,42 +49,62 @@ title: "$title"
 date: $date
 description: "$description"
 tags: $formatted_tags
+confidence: "$confidence"
+status: "$status"
 ${featured_image_line}
 ---
 
 ## Introduction
 
-Begin your essay with an engaging introduction that sets the context and presents your main argument or thesis.
+Introduce the main topic and provide context. Explain why this topic is important or interesting and what readers can expect to learn from this essay.
 
 ## Background
 
-Provide any necessary background information or context that the reader needs to understand your topic.
+Provide relevant background information on the topic. This could include:
+- Historical context
+- Previous research or discussions
+- Key terminology or concepts
 
 ## Main Point 1
 
-Develop your first main point or argument. Use evidence, examples, and logical reasoning to support your claims.
+Present your first main point with supporting evidence and examples.
+
+### Supporting Evidence
+
+Elaborate on the supporting evidence for your first point.
 
 ## Main Point 2
 
-Develop your second main point or argument. Consider addressing counterarguments or alternative perspectives.
+Present your second main point with supporting evidence and examples.
+
+### Supporting Evidence
+
+Elaborate on the supporting evidence for your second point.
 
 ## Main Point 3
 
-Develop your third main point or argument. Continue building a compelling case for your thesis.
+Present your third main point with supporting evidence and examples.
+
+### Supporting Evidence
+
+Elaborate on the supporting evidence for your third point.
 
 ## Implications
 
-Discuss the broader implications of your argument. Why does this matter? What can we learn from it?
+Discuss the implications of your arguments. This could include:
+- Practical applications
+- Theoretical significance
+- Future directions
 
 ## Conclusion
 
-Summarize your key points and restate your thesis in a new light. Consider ending with a thought-provoking question or call to action.
+Summarize your main points and restate the significance of the topic. Offer final thoughts or recommendations.
 
 ## References
 
-- Reference 1
-- Reference 2
-- Reference 3
+1. First reference
+2. Second reference
+3. Third reference
 EOF
 
 echo "Created new essay at $filepath"

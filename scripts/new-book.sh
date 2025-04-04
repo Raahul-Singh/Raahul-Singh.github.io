@@ -3,7 +3,7 @@
 # Script to create a new book review
 
 # Set directory
-BOOKS_DIR="content/books"
+BOOKS_DIR="content/reading"
 
 # Check if the directory exists, create if not
 if [ ! -d "$BOOKS_DIR" ]; then
@@ -18,6 +18,9 @@ read -p "Author: " author
 read -p "Description: " description
 read -p "Rating (1-5): " rating
 read -p "Amazon image URL: " cover_image
+read -p "Status (reading/completed): " status
+read -p "Progress (0-100) if reading: " progress
+read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
 read -p "Tags (comma-separated): " tags_input
 
 # Format today's date
@@ -37,7 +40,12 @@ done
 formatted_tags=${formatted_tags%, }
 formatted_tags+="]"
 
-# Generate markdown file
+# Generate markdown file with conditional progress field
+progress_field=""
+if [ "$status" = "reading" ] && [ -n "$progress" ]; then
+  progress_field="progress: $progress"
+fi
+
 cat > "$filepath" << EOF
 ---
 title: "$title"
@@ -47,6 +55,9 @@ description: "$description"
 tags: $formatted_tags
 rating: $rating
 cover_image: "$cover_image"
+status: "$status"
+$([ -n "$progress_field" ] && echo "$progress_field")
+confidence: "$confidence"
 ---
 
 ## Summary
@@ -100,4 +111,4 @@ EOF
 
 echo "Created new book review at $filepath"
 echo "You can now edit it with your content editor."
-echo "Preview it with 'hugo server -D' and visit http://localhost:1313/books/" 
+echo "Preview it with 'hugo server' and visit http://localhost:1313/reading/" 

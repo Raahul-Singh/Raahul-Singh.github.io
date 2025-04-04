@@ -1,5 +1,8 @@
 ---
-date: '{{ .Date }}'
-draft: true
-title: '{{ replace .File.ContentBaseName "-" " " | title }}'
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+description: ""
+tags: []
+confidence: "uncertain"
+status: "notes"
 ---
