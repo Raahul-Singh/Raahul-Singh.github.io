@@ -2,18 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing on Raahul Singh</title>
-    <link>http://localhost:57756/tags/writing/</link>
+    <link>http://localhost:1313/tags/writing/</link>
     <description>Recent content in Writing on Raahul Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 25 May 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:57756/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Tooltips and Footnotes in Essays</title>
-      <link>http://localhost:57756/essays/tooltips-and-footnotes/</link>
+      <link>http://localhost:1313/essays/tooltips-and-footnotes/</link>
       <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57756/essays/tooltips-and-footnotes/</guid>
+      <guid>http://localhost:1313/essays/tooltips-and-footnotes/</guid>
       <description>&lt;h1 id=&#34;using-tooltips-and-footnotes-effectively&#34;&gt;Using Tooltips and Footnotes Effectively&lt;/h1&gt;&#xA;&lt;p&gt;Digital writing offers several ways to add supplementary information to your main text. Two powerful options are &lt;span class=&#34;tooltip&#34; data-tooltip=&#34;Tooltips are small text popups that appear when hovering over a word or phrase. &lt;br&gt;&lt;br&gt;They can include &lt;b&gt;rich formatting&lt;/b&gt;, &lt;i&gt;styling&lt;/i&gt;, and even &lt;a href=&#39;https://en.wikipedia.org/wiki/Tooltip&#39;&gt;links&lt;/a&gt; for additional context.&#34;&gt;tooltips&lt;/span&gt; and standard footnotes&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tooltips-for-brief-context&#34;&gt;Tooltips for Brief Context&lt;/h2&gt;&#xA;&lt;p&gt;Tooltips are perfect for providing brief definitions or context without interrupting the reading flow. They are ideal for:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Useful Markdown Tips</title>
+      <link>http://localhost:1313/notes/markdown-tips/</link>
+      <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/markdown-tips/</guid>
+      <description>&lt;h1 id=&#34;useful-markdown-tips&#34;&gt;Useful Markdown Tips&lt;/h1&gt;&#xA;&lt;p&gt;Markdown is a lightweight markup language that allows you to format text using a simple syntax. Here are some tips that I find particularly useful:&lt;/p&gt;&#xA;&lt;h2 id=&#34;text-formatting&#34;&gt;Text Formatting&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;Italic text&lt;/em&gt; is created with single asterisks or underscores: &lt;code&gt;*italic*&lt;/code&gt; or &lt;code&gt;_italic_&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bold text&lt;/strong&gt; uses double asterisks or underscores: &lt;code&gt;**bold**&lt;/code&gt; or &lt;code&gt;__bold__&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;del&gt;Strikethrough&lt;/del&gt; uses double tildes: &lt;code&gt;~~strikethrough~~&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;code-blocks&#34;&gt;Code Blocks&lt;/h2&gt;&#xA;&lt;p&gt;For inline code, use backticks: &lt;code&gt;console.log(&#39;Hello world!&#39;)&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;For code blocks, use triple backticks with an optional language identifier:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
