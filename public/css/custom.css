@@ -1,26 +1,9 @@
 /* Custom CSS adjustments for Raahul Singh's website */
 
-/* Fix section description alignment with title */
-section.list-section > header.section-header > p.section-description,
-.section-description,
-.section-header p.section-description,
-.content-abstract {
-  margin: 0.5rem 0 1.5rem 0 !important;
-  font-size: 1.1rem !important;
-  line-height: 1.5 !important;
-}
-
 /* Make section headers have consistent spacing */
 .section-header, 
 .content-header {
   margin-bottom: 1.5rem;
-}
-
-/* Ensure headings and descriptions are properly spaced */
-h1 + p, 
-.section-title + p,
-.content-title + div {
-  margin-top: 0.5rem !important;
 }
 
 /* Confidence tag styling */
