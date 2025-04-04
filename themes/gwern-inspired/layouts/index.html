@@ -1,94 +1,71 @@
 {{ define "main" }}
 <section class="home-section">
-    <div class="profile">
-        <div class="profile-content">
-            {{ with resources.Get "profile-image.jpg" }}
-            <div class="profile-image">
-                <img src="{{ .RelPermalink }}" alt="{{ $.Site.Params.author }}" width="150" height="150">
+    <!-- Simple welcome section -->
+    <div class="welcome-section">
+        <h1 class="profile-title">{{ .Site.Params.author }}</h1>
+        <div class="welcome-text">
+            <p class="profile-description">{{ .Site.Params.authorDescription }}</p>
+            
+            <!-- Main content from markdown file if any -->
+            <div class="home-content">
+                {{ .Content }}
             </div>
-            {{ end }}
-            <div class="profile-info">
-                <h1 class="profile-title">{{ .Site.Params.author }}</h1>
-                <p class="profile-description">{{ .Site.Params.authorDescription }}</p>
+            
+            <!-- Section links -->
+            <div class="section-links">
+                <a href="/essays/" class="section-link">Essays</a>
+                <a href="/books/" class="section-link">Book Reviews</a>
+                <a href="/about/" class="section-link">About</a>
             </div>
         </div>
     </div>
 
-    {{ .Content }}
-
-    <div class="sections-container">
-        <section class="content-section">
-            <h2 class="section-title">Recent Books</h2>
-            <div class="home-books-grid">
-                {{ $books := where .Site.RegularPages "Type" "books" | first 4 }}
-                {{ if $books }}
-                {{ range $books }}
-                <div class="home-book-card">
-                    <div class="home-book-card-inner">
-                        {{ if .Params.cover_image }}
-                        <div class="home-book-cover">
-                            <a href="{{ .Permalink }}" class="book-link">
-                                <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="home-book-cover-img" loading="lazy">
-                            </a>
-                        </div>
-                        {{ end }}
-                        <div class="home-book-details">
-                            <h3 class="home-book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                            {{ with .Params.author }}
-                            <p class="home-book-author">by {{ . }}</p>
-                            {{ end }}
-                            {{ if .Params.rating }}
-                            <div class="home-book-rating">
-                                {{ $rating := int .Params.rating }}
-                                {{ range seq $rating }}★{{ end }}
-                                {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-                {{ end }}
-                <p class="view-all"><a href="/books/">View all books →</a></p>
-                {{ else }}
-                <p>No book reviews yet.</p>
-                {{ end }}
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title">Recent Essays</h2>
-            <div class="content-list">
-                {{ $essays := where .Site.RegularPages "Type" "essays" | first 5 }}
-                {{ if $essays }}
-                <ul>
-                    {{ range $essays }}
-                    <li>
-                        <a href="{{ .Permalink }}" class="content-item">
-                            <span class="content-title">{{ .Title }}</span>
-                            <span class="content-date">{{ .Date.Format "January 2, 2006" }}</span>
-                        </a>
-                        {{ with .Params.description }}
-                        <p class="content-description">{{ . }}</p>
-                        {{ end }}
-                    </li>
+    <!-- Recent content section -->
+    <div class="recent-content">
+        <div class="section-header-simple">
+            <h3 class="section-title">Recent Content</h3>
+        </div>
+        
+        <ul class="content-list">
+            {{ $recentContent := first 5 (sort (where .Site.RegularPages "Section" "ne" "") "Date" "desc") }}
+            {{ if $recentContent }}
+            {{ range $recentContent }}
+            <li class="list-item">
+                <div class="item-title-line">
+                    <h4 class="item-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                    {{ if eq .Section "books" }}
+                    {{ with .Params.author }}
+                    <span class="item-meta-inline">by {{ . }}</span>
                     {{ end }}
-                </ul>
-                <p class="view-all"><a href="/essays/">View all essays →</a></p>
-                {{ else }}
-                <p>No essays yet.</p>
-                {{ end }}
-            </div>
-        </section>
+                    {{ if .Params.rating }}
+                    <span class="item-rating">
+                        {{ $rating := int .Params.rating }}
+                        {{ range seq $rating }}★{{ end }}
+                        {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
+                    </span>
+                    {{ end }}
+                    {{ end }}
+                </div>
+                <div class="item-meta">
+                    <span class="item-section">{{ if eq .Section "books" }}Book Review{{ else }}Essay{{ end }}</span>
+                    <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
+                </div>
+            </li>
+            {{ end }}
+            {{ else }}
+            <li>No content yet.</li>
+            {{ end }}
+        </ul>
     </div>
 
+    <!-- Search section if enabled -->
     {{ if .Site.Params.features.searchEnabled }}
     <section class="search-section">
-        <h2 class="section-title">Search</h2>
+        <h3 class="section-title">Search</h3>
         <form id="search-form" class="search-form">
             <input type="search" id="search-input" placeholder="Search for content..." aria-label="Search">
             <button type="submit">Search</button>
         </form>
-        <div id="search-results" class="search-results"></div>
     </section>
     {{ end }}
 </section>
