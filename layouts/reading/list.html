@@ -32,6 +32,22 @@
                         <p class="book-author">by {{ . }}</p>
                         {{ end }}
                         
+                        {{ with .Params.rating }}
+                        <div class="book-rating">
+                            <span class="rating-stars">
+                                {{ $rating := int . }}
+                                {{ range seq $rating }}★{{ end }}
+                                {{ if eq (mod . 1) 0.5 }}½{{ end }}
+                            </span>
+                            <span class="rating-number">({{ . }}/5)</span>
+                        </div>
+                        {{ end }}
+                        
+                        <!-- Status as confidence tag -->
+                        {{ with .Params.status }}
+                        <span class="confidence-tag">finished: {{ . }}</span>
+                        {{ end }}
+                        
                         {{ with .Params.progress }}
                         <div class="reading-progress">
                             <div class="progress-bar">
@@ -56,8 +72,7 @@
         </div>
     </div>
 
-    <!-- Completed Books section is hidden until content is added -->
-    <!-- 
+    {{/* Completed Books section is hidden until content is added 
     <h3>Completed Books</h3>
     {{ $paginator := .Paginate (where .Pages ".Params.status" "ne" "reading") }}
     {{ if $paginator.Pages }}
@@ -90,8 +105,9 @@
                     </div>
                     {{ end }}
                     
-                    {{ with .Params.confidence }}
-                    <span class="confidence-tag">Confidence: {{ . }}</span>
+                    <!-- Status as confidence tag -->
+                    {{ with .Params.status }}
+                    <span class="confidence-tag">finished: {{ . }}</span>
                     {{ end }}
                     
                     {{ if .Date }}
@@ -135,6 +151,6 @@
     {{ else }}
     <p>No completed books found.</p>
     {{ end }}
-    -->
+    */}}
 </section>
 {{ end }} 
