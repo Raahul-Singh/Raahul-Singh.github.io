@@ -16,11 +16,13 @@ echo "Enter note details:"
 read -p "Title: " title
 read -p "Description: " description
 read -p "Tags (comma-separated): " tags_input
-read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
-read -p "Released (true/false, determines if published to RSS feed): " released
+read -p "Confidence (uncertain/possible/likely/highly likely/certain) [uncertain]: " confidence_input
 
-# Format today's date
-date=$(date +%Y-%m-%d)
+# Set default for confidence if empty
+confidence=${confidence_input:-uncertain}
+
+# Format today's date with time
+date=$(date +%Y-%m-%dT%H:%M:%S%z)
 
 # Create filename from title
 filename=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
@@ -45,7 +47,7 @@ description: "$description"
 tags: $formatted_tags
 status: "finished"
 confidence: "$confidence"
-released: $released
+released: false
 draft: true
 ---
 

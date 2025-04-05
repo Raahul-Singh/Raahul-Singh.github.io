@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to create a new writing
+# Script to create a new writing file
 
 # Set directory
 WRITINGS_DIR="content/writings"
@@ -16,11 +16,13 @@ echo "Enter writing details:"
 read -p "Title: " title
 read -p "Description: " description
 read -p "Tags (comma-separated): " tags_input
-read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
-read -p "Released (true/false, determines if published to RSS feed): " released
+read -p "Confidence (uncertain/possible/likely/highly likely/certain) [uncertain]: " confidence_input
 
-# Format today's date
-date=$(date +%Y-%m-%d)
+# Set default for confidence if empty
+confidence=${confidence_input:-uncertain}
+
+# Format today's date with time
+date=$(date +%Y-%m-%dT%H:%M:%S%z)
 
 # Create filename from title
 filename=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
@@ -36,12 +38,6 @@ done
 formatted_tags=${formatted_tags%, }
 formatted_tags+="]"
 
-# Generate featured image line if provided
-featured_image_line=""
-if [ ! -z "$featured_image" ]; then
-  featured_image_line="featured_image: \"$featured_image\""
-fi
-
 # Generate markdown file
 cat > "$filepath" << EOF
 ---
@@ -51,9 +47,8 @@ description: "$description"
 tags: $formatted_tags
 status: "finished"
 confidence: "$confidence"
-released: $released
+released: false
 draft: true
-${featured_image_line}
 ---
 
 ## Introduction
@@ -109,6 +104,6 @@ Summarize your main points and restate the significance of the topic. Offer fina
 3. Third reference
 EOF
 
-echo "Created new writing at $filepath"
+echo "Created new writing file at $filepath"
 echo "You can now edit it with your content editor."
-echo "Preview it with 'hugo server -D' and visit http://localhost:1313/writings/" 
+echo "Preview it with 'hugo server' and visit http://localhost:1313/writings/" 

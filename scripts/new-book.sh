@@ -18,14 +18,29 @@ read -p "Author: " author
 read -p "Description: " description
 read -p "Rating (1-5): " rating
 read -p "Amazon image URL: " cover_image
-read -p "Status (reading/finished): " status
-read -p "Progress (0-100) if reading: " progress
-read -p "Confidence (uncertain/possible/likely/highly likely/certain): " confidence
-read -p "Released (true/false, determines if published to RSS feed): " released
+read -p "Status (reading/finished) [reading]: " status_input
+
+# Enforce reading as default status
+status=${status_input:-reading}
+if [ "$status" != "reading" ] && [ "$status" != "finished" ]; then
+  echo "Invalid status. Using default: reading"
+  status="reading"
+fi
+
+# Only ask for progress if status is reading
+progress=""
+if [ "$status" = "reading" ]; then
+  read -p "Progress (0-100): " progress
+fi
+
+read -p "Confidence (uncertain/possible/likely/highly likely/certain) [uncertain]: " confidence_input
 read -p "Tags (comma-separated): " tags_input
 
-# Format today's date
-date=$(date +%Y-%m-%d)
+# Set default for confidence if empty
+confidence=${confidence_input:-uncertain}
+
+# Format today's date with time
+date=$(date +%Y-%m-%dT%H:%M:%S%z)
 
 # Create filename from title
 filename=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
@@ -58,7 +73,7 @@ tags: $formatted_tags
 rating: $rating
 status: "$status"
 confidence: "$confidence"
-released: $released
+released: false
 $([ -n "$progress_field" ] && echo "$progress_field")
 cover_image: "$cover_image"
 draft: true
