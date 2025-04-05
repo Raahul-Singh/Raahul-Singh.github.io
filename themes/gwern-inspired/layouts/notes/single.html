@@ -12,12 +12,8 @@
         {{ end }}
         {{ end }}
         
-        {{ with .Params.status }}
-        <span class="content-status">[{{ . }}]</span>
-        {{ end }}
-        
         <!-- Confidence tag with default value -->
-        <span class="confidence-tag note-confidence-tag">Confidence: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
+        <span class="confidence-tag note-confidence-tag">finished: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
       </div>
       
       {{ if .Params.tags }}

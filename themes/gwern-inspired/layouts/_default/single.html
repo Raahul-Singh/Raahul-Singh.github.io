@@ -14,13 +14,9 @@
                 <time datetime="{{ . }}">{{ time.Format "January 2, 2006" . }}</time>)
             </span>
             {{ end }}
-            
-            {{ with .Params.status }}
-            <span class="content-status">[{{ . }}]</span>
-            {{ end }}
 
             <!-- Confidence tag with default value -->
-            <span class="confidence-tag">Confidence: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
+            <span class="confidence-tag">finished: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
         </div>
         {{ end }}
         

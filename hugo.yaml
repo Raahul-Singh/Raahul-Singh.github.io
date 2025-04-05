@@ -81,10 +81,10 @@ menu:
       name: "Home"
       url: "/"
       weight: 10
-    # - identifier: "writings"
-    #   name: "Writings"
-    #   url: "/writings/"
-    #   weight: 20
+    - identifier: "writings"
+      name: "Writings"
+      url: "/writings/"
+      weight: 20
     - identifier: "notes"
       name: "Notes"
       url: "/notes/"
