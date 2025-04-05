@@ -2,6 +2,7 @@ baseURL: "https://raahulsingh.net/"
 languageCode: "en-us"
 title: "Raahul Singh"
 theme: "gwern-inspired"
+buildDrafts: true
 
 # Enable syntax highlighting
 markup:

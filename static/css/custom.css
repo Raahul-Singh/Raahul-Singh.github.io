@@ -6,23 +6,18 @@
   margin-bottom: 1.5rem;
 }
 
-/* Confidence tag styling */
+/* Confidence tag styling - simplified */
 .confidence-tag {
-  display: inline-block !important;
-  margin: 0.5rem !important;
-  padding: 0.25rem 0.5rem !important;
-  border-radius: 4px !important;
-  font-size: 0.8rem !important;
-  background-color: #0066cc !important;
-  color: white !important;
-  font-weight: normal !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: normal;
 }
 
 /* Single content page confidence tag positioning */
 .content-meta .confidence-tag {
-  margin-left: 0.5rem !important;
+  margin-left: 0.5rem;
 }
 
 /* Currently reading section */
