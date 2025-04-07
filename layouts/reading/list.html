@@ -9,38 +9,6 @@
 
     {{ .Content }}
 
-    <!-- What I Read Today Section -->
-    <div class="reading-log">
-        <h3>What I Read Today</h3>
-        <div class="reading-log-entries">
-            {{ $readingLogs := where .Pages ".Params.type" "reading_log" }}
-            {{ if $readingLogs }}
-            {{ range sort $readingLogs "Date" "desc" }}
-            <article class="reading-log-entry">
-                <div class="reading-log-header">
-                    <h4 class="reading-log-title">
-                        {{ if .Params.book_title }}
-                        <a href="{{ .Permalink }}">{{ .Params.book_title }}</a>
-                        {{ else }}
-                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        {{ end }}
-                    </h4>
-                    <div class="reading-log-date">{{ .Date.Format "January 2, 2006" }}</div>
-                </div>
-                <div class="reading-log-content">
-                    {{ .Summary }}
-                </div>
-                <div class="read-more">
-                    <a href="{{ .Permalink }}">read full entry...</a>
-                </div>
-            </article>
-            {{ end }}
-            {{ else }}
-            <p>No reading logs available yet.</p>
-            {{ end }}
-        </div>
-    </div>
-
     <!-- Currently Reading Section -->
     <div class="currently-reading">
         <h3>Currently Reading</h3>
