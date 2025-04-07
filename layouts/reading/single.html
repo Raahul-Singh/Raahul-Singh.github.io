@@ -42,15 +42,6 @@
       </div>
     </header>
     
-    {{ if and (.Site.Params.enableToc | default true) .TableOfContents }}
-    <div class="toc">
-      <div class="toc-header">Table of Contents</div>
-      <div class="toc-content">
-        {{ .TableOfContents }}
-      </div>
-    </div>
-    {{ end }}
-    
     <div class="content-body">
       {{ .Content }}
     </div>

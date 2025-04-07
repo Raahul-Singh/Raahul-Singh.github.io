@@ -45,17 +45,6 @@
         {{ end }}
     </header>
 
-    {{ if .Site.Params.features.tableOfContents }}
-    {{ if .TableOfContents }}
-    <div class="toc">
-      <div class="toc-header">Table of Contents</div>
-      <div class="toc-content">
-        {{ .TableOfContents }}
-      </div>
-    </div>
-    {{ end }}
-    {{ end }}
-
     <div class="content-body">
         {{ .Content }}
     </div>

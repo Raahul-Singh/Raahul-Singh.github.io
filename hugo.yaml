@@ -10,11 +10,12 @@ markup:
     style: monokailight
     lineNos: false
   
-  # Enable table of contents and other features
+  # Table of contents configuration (disabled)
   tableOfContents:
     endLevel: 3
     ordered: false
     startLevel: 2
+    enabled: false
   
   # Configure Goldmark (Markdown renderer)
   goldmark:
@@ -71,7 +72,7 @@ params:
   features:
     darkMode: true
     sidenotes: true
-    tableOfContents: true
+    tableOfContents: false
     searchEnabled: false
     
 # Menu configuration
