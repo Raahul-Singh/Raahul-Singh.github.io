@@ -27,41 +27,37 @@
                     </div>
                     <div class="book-details">
                         <h2 class="book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                        <hr class="title-separator">
                         
-                        {{ with .Params.author }}
-                        <p class="book-author">by {{ . }}</p>
-                        {{ end }}
-                        
-                        {{ with .Params.rating }}
-                        <div class="book-rating">
+                        <p class="book-byline">By {{ .Params.author }}, {{ with .Params.progress }}{{ . }}% completed{{ end }} • 
+                            {{ if .Params.rating }}
                             <span class="rating-stars">
-                                {{ $rating := int . }}
-                                {{ range seq $rating }}★{{ end }}
-                                {{ if eq (mod . 1) 0.5 }}½{{ end }}
+                                {{ $fullStars := math.Floor .Params.rating }}
+                                {{ range seq $fullStars }}★{{ end }}
+                                {{ if gt (sub .Params.rating $fullStars) 0.0 }}½{{ end }}
                             </span>
-                            <span class="rating-number">({{ . }}/5)</span>
+                            {{ else }}
+                            Not rated
+                            {{ end }}
+                        </p>
+                        
+                        <div class="book-description">
+                            {{ .Description | default (.Summary | plainify) }}
+                        </div>
+                        
+                        {{ if .Params.tags }}
+                        <div class="book-tags">
+                            <span>Tags: </span>
+                            {{ range $index, $tag := .Params.tags }}
+                            {{ if $index }}, {{ end }}
+                            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                            {{ end }}
                         </div>
                         {{ end }}
                         
-                        <!-- Status as confidence tag -->
-                        {{ with .Params.status }}
-                        <span class="confidence-tag">finished: {{ . }}</span>
-                        {{ end }}
-                        
-                        {{ with .Params.progress }}
-                        <div class="reading-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: {{ . }}%"></div>
-                            </div>
-                            <span class="progress-text">{{ . }}% complete</span>
+                        <div class="read-more">
+                            <a href="{{ .Permalink }}">continue reading...</a>
                         </div>
-                        {{ end }}
-                        
-                        {{ with .Description }}
-                        <p class="book-description">{{ . }}</p>
-                        {{ else }}
-                        <p class="book-description">{{ .Summary | plainify | truncate 160 }}</p>
-                        {{ end }}
                     </div>
                 </div>
             </article>
@@ -89,46 +85,37 @@
                 </div>
                 <div class="book-details">
                     <h2 class="book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                    <hr class="title-separator">
                     
-                    {{ with .Params.author }}
-                    <p class="book-author">by {{ . }}</p>
-                    {{ end }}
-                    
-                    {{ with .Params.rating }}
-                    <div class="book-rating">
+                    <p class="book-byline">By {{ .Params.author }}, read on {{ .Date.Format "January 2, 2006" }} • 
+                        {{ if .Params.rating }}
                         <span class="rating-stars">
-                            {{ $rating := int . }}
-                            {{ range seq $rating }}★{{ end }}
-                            {{ if eq (mod . 1) 0.5 }}½{{ end }}
+                            {{ $fullStars := math.Floor .Params.rating }}
+                            {{ range seq $fullStars }}★{{ end }}
+                            {{ if gt (sub .Params.rating $fullStars) 0.0 }}½{{ end }}
                         </span>
-                        <span class="rating-number">({{ . }}/5)</span>
+                        {{ else }}
+                        Not rated
+                        {{ end }}
+                    </p>
+                    
+                    <div class="book-description">
+                        {{ .Description | default (.Summary | plainify) }}
                     </div>
-                    {{ end }}
                     
-                    <!-- Status as confidence tag -->
-                    {{ with .Params.status }}
-                    <span class="confidence-tag">finished: {{ . }}</span>
-                    {{ end }}
-                    
-                    {{ if .Date }}
-                    <p class="book-date">{{ .Date.Format "January 2, 2006" }}</p>
-                    {{ end }}
-                    
-                    {{ with .Params.tags }}
+                    {{ if .Params.tags }}
                     <div class="book-tags">
-                        {{ range . }}
-                        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                        <span>Tags: </span>
+                        {{ range $index, $tag := .Params.tags }}
+                        {{ if $index }}, {{ end }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
                         {{ end }}
                     </div>
                     {{ end }}
                     
-                    {{ with .Description }}
-                    <p class="book-description">{{ . }}</p>
-                    {{ else }}
-                    <p class="book-description">{{ .Summary | plainify | truncate 160 }}</p>
-                    {{ end }}
-                    
-                    <a href="{{ .Permalink }}" class="read-more">Read review →</a>
+                    <div class="read-more">
+                        <a href="{{ .Permalink }}">read thoughts...</a>
+                    </div>
                 </div>
             </div>
         </article>

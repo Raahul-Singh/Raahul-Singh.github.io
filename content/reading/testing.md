@@ -1,15 +1,15 @@
 ---
-title: "trial x"
-author: "ne"
-date: 2025-04-05T01:54:10+0100
-description: "teat"
-tags: []
-rating: 4
-status: "reading"
-confidence: "uncertain"
+title: "testing"
+author: "me"
+date: 2025-04-07T00:39:11+0100
+description: "trial"
+tags: ["fire", "ice"]
+rating: 5
+status: "finished"
+confidence: "likely"
 released: false
 
-cover_image: ""
+cover_image: "https://raahulsingh.net/images/profile.jpg"
 draft: true
 ---
 
@@ -59,4 +59,4 @@ Add your concluding thoughts about the book here.
 
 ---
 
-*Rating: 4/5 - Add a one-line summary of your rating.*
+*Rating: 5/5 - Add a one-line summary of your rating.*

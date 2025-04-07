@@ -2,73 +2,49 @@
 <div class="container">
   <article class="content">
     <header class="content-header">
-      <div class="book-header-grid">
+      <div class="book-header">
         {{ with .Params.cover_image }}
-        <div class="book-cover-container">
+        <div class="book-cover-container book-cover-large-container">
           <img src="{{ . | safeURL }}" alt="Cover of {{ $.Title }}" class="book-cover-large" loading="lazy">
         </div>
         {{ end }}
         
         <div class="book-header-details">
-          <h1>{{ .Title }}</h1>
+          <h1 class="book-title">{{ .Title }}</h1>
+          <hr class="title-separator">
           
-          {{ with .Params.author }}
-          <div class="book-author">by {{ . }}</div>
-          {{ end }}
-          
-          {{ with .Params.rating }}
-          <div class="book-rating-large">
-            <span class="rating-stars">
-              {{ $rating := int . }}
-              {{ range seq $rating }}★{{ end }}
-              {{ if eq (mod . 1) 0.5 }}½{{ end }}
-            </span>
-            <span class="rating-number">{{ . }}/5</span>
-          </div>
-          {{ end }}
-          
-          <!-- Status as confidence tag -->
-          {{ with .Params.status }}
-          <span class="confidence-tag">finished: {{ . }}</span>
-          {{ end }}
-          
-          {{ if .Params.progress }}
-          <div class="reading-progress">
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: {{ .Params.progress }}%"></div>
-            </div>
-            <span class="progress-text">{{ .Params.progress }}% complete</span>
-          </div>
-          {{ end }}
-          
-          <div class="content-meta">
-            <span class="content-date">Read on {{ .Date.Format "January 2, 2006" }}</span>
-            
-            {{ if .Lastmod }}
-            {{ if gt .Lastmod .Date }}
-            <span class="update-info">(Updated: {{ .Lastmod.Format "January 2, 2006" }})</span>
-            {{ end }}
-            {{ end }}
-          </div>
-          
-          {{ if .Params.tags }}
-          <div class="content-tags">
-            {{ range .Params.tags }}
-            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
-            {{ end }}
-          </div>
-          {{ end }}
+          <p class="book-byline">By {{ .Params.author }}, read on {{ .Date.Format "January 2, 2006" }} • 
+              {{ if .Params.rating }}
+              <span class="rating-stars">
+                  {{ $fullStars := math.Floor .Params.rating }}
+                  {{ range seq $fullStars }}★{{ end }}
+                  {{ if gt (sub .Params.rating $fullStars) 0.0 }}½{{ end }}
+              </span>
+              {{ else }}
+              Not rated
+              {{ end }}
+          </p>
           
           {{ with .Description }}
           <p class="content-abstract">{{ . }}</p>
+          {{ end }}
+          
+          {{ if .Params.tags }}
+          <div class="book-tags">
+            <span>Tags: </span>
+            {{ range $index, $tag := .Params.tags }}
+            {{ if $index }}, {{ end }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+          </div>
           {{ end }}
         </div>
       </div>
     </header>
     
     {{ if and (.Site.Params.enableToc | default true) .TableOfContents }}
-    <div class="table-of-contents">
-      <h2>Contents</h2>
+    <div class="toc">
+      <div class="toc-header">Table of Contents</div>
       {{ .TableOfContents }}
     </div>
     {{ end }}
