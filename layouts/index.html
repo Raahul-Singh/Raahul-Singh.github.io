@@ -41,6 +41,11 @@
                  </span>
                  <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
              </div>
+             {{ with .Description }}
+             <div class="item-description">{{ . }}</div>
+             {{ else }}
+             <div class="item-description">{{ .Summary | plainify | truncate 160 }}</div>
+             {{ end }}
         </li>
          {{ end }}
          {{ else }}
