@@ -78,8 +78,24 @@ function convertFootnotesToSidenotes() {
  * Setup table of contents for active section highlighting
  */
 function setupTableOfContents() {
-  const toc = document.querySelector('.table-of-contents');
+  const toc = document.querySelector('.toc');
   if (!toc) return;
+  
+  // Add collapsible functionality
+  const tocHeader = toc.querySelector('.toc-header');
+  const tocContent = toc.querySelector('.toc-content');
+  
+  if (tocHeader && tocContent) {
+    // Add click event listener to toggle collapse state
+    tocHeader.addEventListener('click', function(e) {
+      // Toggle collapsed class on both elements
+      tocHeader.classList.toggle('collapsed');
+      tocContent.classList.toggle('collapsed');
+      
+      // Prevent event from bubbling up
+      e.stopPropagation();
+    });
+  }
   
   const headings = document.querySelectorAll('h2, h3, h4, h5, h6');
   if (headings.length === 0) return;

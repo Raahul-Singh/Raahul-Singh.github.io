@@ -264,4 +264,129 @@
   .book-details, .book-header-details {
     text-align: center;
   }
+}
+
+/* Collapsible table of contents styling */
+.toc {
+  margin: 1rem 0 2rem 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Dark background */
+}
+
+.toc-header {
+  font-weight: 600; /* Increase font weight */
+  margin-bottom: 0;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff; /* White text */
+  font-size: 1.1rem; /* Slightly larger font */
+  background-color: #1a1a1a;
+  letter-spacing: 0.02em; /* Add a tiny bit of letter spacing for emphasis */
+}
+
+.toc-header::after {
+  content: "−";
+  font-size: 1.2rem;
+  opacity: 0.9;
+  color: #fff;
+}
+
+.toc-header.collapsed::after {
+  content: "+";
+}
+
+.toc-content {
+  display: block;
+  font-size: 0.9rem;
+  padding: 0.25rem 1rem 1rem; /* Reduce top padding */
+  background-color: #1a1a1a;
+}
+
+.toc-content.collapsed {
+  display: none;
+}
+
+/* Style TOC links */
+.toc-content ul {
+  padding-left: 1.25rem;
+  margin: 0.25rem 0 0.5rem; /* Reduce top margin */
+  list-style-type: disc;
+}
+
+.toc-content li {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.toc-content a {
+  color: #6da4e8; /* Blue links */
+  text-decoration: none;
+}
+
+.toc-content a:hover {
+  text-decoration: underline;
+}
+
+/* Adjust mobile styles for the collapsible TOC */
+@media (max-width: 768px) {
+  .toc {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Reading log styling */
+.reading-log {
+  margin-bottom: 2rem;
+}
+
+.reading-log h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.reading-log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reading-log-entry {
+  padding: 1rem;
+  border: 1px solid var(--separator-color, #ddd);
+  border-radius: 4px;
+  background-color: var(--background-secondary, #f8f8f8);
+}
+
+.reading-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.reading-log-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.reading-log-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.reading-log-content {
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .reading-log-header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 } 

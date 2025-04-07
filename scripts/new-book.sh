@@ -83,6 +83,30 @@ draft: true
 
 Add a brief summary of the book here.
 
+$([ "$status" = "reading" ] && echo "## Reading Log
+
+### $(date +%B\ %d,\ %Y)
+
+#### Today's Reading
+Pages/chapters read today.
+
+#### Key Insights
+- Main insight or quote 1
+- Main insight or quote 2
+- Main insight or quote 3
+
+#### Thoughts
+My thoughts and reflections on today's reading.
+
+#### Questions
+- Question 1
+- Question 2
+
+#### Action Items
+- [ ] Action item 1
+- [ ] Action item 2
+")
+
 ## Key Concepts
 
 ### Concept 1

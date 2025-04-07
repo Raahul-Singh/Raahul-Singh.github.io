@@ -47,10 +47,12 @@
 
     {{ if .Site.Params.features.tableOfContents }}
     {{ if .TableOfContents }}
-    <aside class="table-of-contents">
-        <h2>Table of Contents</h2>
+    <div class="toc">
+      <div class="toc-header">Table of Contents</div>
+      <div class="toc-content">
         {{ .TableOfContents }}
-    </aside>
+      </div>
+    </div>
     {{ end }}
     {{ end }}
 

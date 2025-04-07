@@ -45,7 +45,9 @@
     {{ if and (.Site.Params.enableToc | default true) .TableOfContents }}
     <div class="toc">
       <div class="toc-header">Table of Contents</div>
-      {{ .TableOfContents }}
+      <div class="toc-content">
+        {{ .TableOfContents }}
+      </div>
     </div>
     {{ end }}
     
