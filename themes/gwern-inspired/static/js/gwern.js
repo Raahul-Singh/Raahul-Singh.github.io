@@ -9,15 +9,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Process sidenotes
-  // Disabled sidenotes in favor of standard footnotes and tooltips
-  // convertFootnotesToSidenotes();
+  // Create sidenotes from footnotes
+  convertFootnotesToSidenotes();
   
-  // Enhance footnote navigation
-  enhanceFootnotes();
-  
-  // Handle table of contents highlighting
-  setupTableOfContents();
+  // No longer calling setupTableOfContents()
   
   // Add external link indicators
   markExternalLinks();
@@ -75,77 +70,12 @@ function convertFootnotesToSidenotes() {
 }
 
 /**
- * Setup table of contents for active section highlighting
+ * Setup table of contents for active section highlighting 
+ * Note: TOC has been disabled but function is kept for compatibility
  */
 function setupTableOfContents() {
-  const toc = document.querySelector('.toc');
-  if (!toc) return;
-  
-  // Add collapsible functionality
-  const tocHeader = toc.querySelector('.toc-header');
-  const tocContent = toc.querySelector('.toc-content');
-  
-  if (tocHeader && tocContent) {
-    // Add click event listener to toggle collapse state
-    tocHeader.addEventListener('click', function(e) {
-      // Toggle collapsed class on both elements
-      tocHeader.classList.toggle('collapsed');
-      tocContent.classList.toggle('collapsed');
-      
-      // Prevent event from bubbling up
-      e.stopPropagation();
-    });
-  }
-  
-  const headings = document.querySelectorAll('h2, h3, h4, h5, h6');
-  if (headings.length === 0) return;
-  
-  // Create an IntersectionObserver to highlight active section
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const id = entry.target.getAttribute('id');
-      if (!id) return;
-      
-      const tocLink = toc.querySelector(`a[href="#${id}"]`);
-      if (!tocLink) return;
-      
-      if (entry.isIntersecting) {
-        // Remove active class from all links
-        toc.querySelectorAll('a').forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Add active class to current link
-        tocLink.classList.add('active');
-      }
-    });
-  }, { rootMargin: '0px 0px -80% 0px' });
-  
-  // Observe each heading
-  headings.forEach(heading => {
-    if (heading.getAttribute('id')) {
-      observer.observe(heading);
-    }
-  });
-  
-  // Add smooth scrolling to TOC links
-  toc.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 20,
-          behavior: 'smooth'
-        });
-        
-        // Update URL hash without jumping
-        history.pushState(null, null, `#${targetId}`);
-      }
-    });
-  });
+  // TOC functionality is disabled
+  return;
 }
 
 /**
