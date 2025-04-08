@@ -53,6 +53,11 @@ jobs:
         run: |
           hugo --minify --baseURL "https://raahulsingh.net/"
           
+      - name: Create .nojekyll file
+        run: |
+          touch public/.nojekyll
+          echo ".nojekyll file created"
+          
       - name: List files after build
         run: |
           echo "Public directory contents:"
