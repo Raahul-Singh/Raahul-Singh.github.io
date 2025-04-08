@@ -3,4 +3,4 @@ title: "Reading List"
 date: 2023-01-01
 ---
 
-This is my reading list - a collection of books I've read along with my thoughts, notes, and takeaways. I read widely across various genres, with a focus on science, philosophy, psychology, and technology. 
+My library with books I've read and books I'm currently reading. Under construction for now, and ever.
