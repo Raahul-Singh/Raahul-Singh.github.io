@@ -49,15 +49,9 @@
                         <!-- Add RSS icon -->
                         {{ partial "rss-icon.html" . }}
                         
-                        <!-- Add CV icon -->
-                        <a href="/cv" target="_blank" rel="noopener noreferrer" class="social-icon" title="CV">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
+                        <!-- Add CV text link instead of icon -->
+                        <a href="/Raahul_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer" class="social-icon" title="Download CV" style="font-weight: 900; font-size: 16px; padding: 0 3px; letter-spacing: 0.5px;">
+                            CV
                         </a>
                         
                         {{ range .Site.Params.socialLinks }}
@@ -137,7 +131,7 @@
                 {{ end }}
                 
                 <!-- Add CV link to footer -->
-                <a href="/cv" target="_blank" rel="noopener noreferrer" class="social-link cv">
+                <a href="/Raahul_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer" class="social-link cv">
                     CV
                 </a>
                 

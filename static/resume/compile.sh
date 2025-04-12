@@ -17,8 +17,8 @@ if [ $? -eq 0 ]; then
         
         # Move the PDF to the static directory root with the new name
         # Using quotes to handle spaces in filename
-        mv "raahul_singh_resume.pdf" "../Raahul's Resume.pdf"
-        echo "Output saved as Raahul's Resume.pdf in static directory"
+        mv "raahul_singh_resume.pdf" "../Raahul_Singh_Resume.pdf"
+        echo "Output saved as Raahul_Singh_Resume.pdf in static directory"
         
         # Clean up auxiliary files
         echo "Cleaning up temporary files..."
