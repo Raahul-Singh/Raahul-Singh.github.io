@@ -268,7 +268,7 @@
   height: 34px;
   padding: 5px;
   margin: 0;
-  margin-left: -0.5rem; /* Reduce the extra space between GitLab and theme toggle more */
+  margin-left: -0.5rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -282,18 +282,14 @@
 
 #theme-toggle:hover {
   opacity: 1;
-  background-color: var(--tag-bg);
+  background-color: transparent;
 }
 
 /* Fix the boldness of the theme icon */
 .theme-icon {
   display: none;
-  stroke-width: 1.5px;
-}
-
-/* Make the moon icon less bold */
-.theme-icon-dark path {
-  fill-opacity: 0.9;
+  width: 20px;
+  height: 20px;
 }
 
 html:not(.dark) .theme-icon-light {
