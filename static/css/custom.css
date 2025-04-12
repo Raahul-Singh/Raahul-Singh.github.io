@@ -235,7 +235,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.5rem;
   color: var(--text-color);
   transition: color 0.2s ease;
 }
@@ -248,6 +247,68 @@
   width: 20px;
   height: 20px;
   stroke-width: 2px;
+}
+
+/* Ensure consistent spacing between all social icons */
+.social-icons {
+  display: flex;
+  gap: 0.75rem !important;
+  align-items: center;
+}
+
+.social-icons a, .social-icons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjust the theme toggle button to match other social icons */
+#theme-toggle {
+  width: 34px;
+  height: 34px;
+  padding: 5px;
+  margin: 0;
+  margin-left: -0.5rem; /* Reduce the extra space between GitLab and theme toggle more */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+#theme-toggle:hover {
+  opacity: 1;
+  background-color: var(--tag-bg);
+}
+
+/* Fix the boldness of the theme icon */
+.theme-icon {
+  display: none;
+  stroke-width: 1.5px;
+}
+
+/* Make the moon icon less bold */
+.theme-icon-dark path {
+  fill-opacity: 0.9;
+}
+
+html:not(.dark) .theme-icon-light {
+  display: block;
+}
+
+html.dark .theme-icon-dark {
+  display: block;
+}
+
+/* CV icon styling */
+.social-icon[title="CV"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive adjustments */
