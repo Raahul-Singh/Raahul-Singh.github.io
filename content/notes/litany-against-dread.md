@@ -2,7 +2,7 @@
 title: "Litany Against Dread"
 date: 2025-05-03T17:41:08+0100
 description: "Late night reminder on why I do what I do."
-tags: ["Musings"]
+tags: ["Musings", "LinkedIn"]
 status: "finished"
 confidence: "likely"
 released: true
