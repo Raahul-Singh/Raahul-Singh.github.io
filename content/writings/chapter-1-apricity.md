@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1: Apricity"
-date: 2025-05-04T14:58:10+0100
+date: 2020-06-15T00:00:00+0530
 description: "An endeavour to better understand our Sun's choleric disposition"
 tags: ["GSoC", "Medium"]
 status: "finished"
@@ -36,7 +36,8 @@ And there you have it,
 
 **Solar Weather Forecasting using linear algebra.**
 
----
+<div style="text-align: center; margin: 20px 0;">. . .</div>
+
 ### The Dataset
 When thinking about flares, you may imagine something like this :
 
@@ -91,7 +92,7 @@ The score provided on the rankings file follows the [Elo rating system](https://
 
 I have [recreated the ELO rating algorithm in python](https://github.com/Raahul-Singh/pythia/pull/26), to reassign complexity score to the Active Regions. This gives us better control over the range of values, which in turn can be tuned to match the sensitivity of the forecasting model.
 
----
+<div style="text-align: center; margin: 20px 0;">. . .</div>
 
 ### Apollo's chosen one
 
@@ -111,33 +112,45 @@ Although we have just started, there is a lot you can do with Pythia already.
 
 To install Pythia, for now, run the following command:
 
+<script src="https://gist.github.com/Raahul-Singh/2185031b6e68f32109dec490b7972fe5.js"></script>
 
 Some of the functionalities that Pythia offers, as of writing this post are:
 
-Using Pythia, you can get the measured properties of any AR in the Sunspotter dataset. This is done using SunPy's HEK module. This is the function description.
+Using Pythia, you can get the measured properties of any AR in the Sunspotter dataset. This is done using [SunPy's HEK](https://docs.sunpy.org/en/stable/guide/acquiring_data/hek.html) module. This is the function description:
 
+<script src="https://gist.github.com/Raahul-Singh/572f2b8b10d988f339ae9caf61445c72.js"></script>
 
-You can also download the full disk MDI magnetograms. This uses SunPy's FIDO module to get the magnetogram as a FITS file. The following function returns an MDI map for a given observation date. Should the observation date not be in the Sunspotter dataset CSV files currently loaded in the Sunspotter object, the observation date nearest to the given observation date is used.
+You can also download the full disk MDI magnetograms. This uses [SunPy's FIDO](https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html) module to get the magnetogram as a FITS file. The following function returns an [MDI map](https://docs.sunpy.org/en/stable/guide/data_types/maps.html) for a given observation date. Should the observation date not be in the Sunspotter dataset CSV files currently loaded in the Sunspotter object, the observation date nearest to the given observation date is used.
 
+<script src="https://gist.github.com/Raahul-Singh/0b21103bde4bbd56c69784ce43302709.js"></script>
 
 Should you wish for all the maps in a given range, you can use:
 
+<script src="https://gist.github.com/Raahul-Singh/0fd191fafd107e93aae4269fc9745cae.js"></script>
 
 Finally, if you wish to plot all the ARs on a full disk magnetogram for which we have data, for any observation date,
 
+<script src="https://gist.github.com/Raahul-Singh/7138ac5c07ff053e62497ac6613dad04.js"></script>
 
 Which, when used for observation date 2002–03–18 09:39:01 gets you the following plot. I have magnified it to highlight the fact that Active Regions come in all shapes and sizes.
 
+<figure>
+  <img src="/images/apricity-ar-mapped.png" alt="ARs Plotted on an MDI map">
+  <figcaption style="text-align: center;">ARs Plotted on an MDI map</figcaption>
+</figure>
 
-ARs Plotted on an MDI map
+<div style="text-align: center; margin: 20px 0;">. . .</div>
+
 What I have given is a brief introduction of the project, along with some code examples. Pythia is in active development and there are modules which I have not mentioned here. I encourage my readers to install Pythia and play around with the code!
 
-If you find any bugs or would like me to add any features, feel free to open an issue on the main repository.
+If you find any bugs or would like me to add any features, [feel free to open an issue on the main repository](https://github.com/Raahul-Singh/pythia/issues).
 
 My next post will be all about the Exploratory Data Analysis of the Sunspotter data, where we shall delve deep into the Sunspotter dataset.
 
 Till then,
 
-Divina Luceit Vos!
+**Divina Luceit Vos!**
 
 :)
+
+<div style="font-style: italic; color: #888888;">(Ported from an earlier Medium <a href="https://medium.com/swlh/chapter-1-apricity-aef3bd172dab">post</a>)</div>
