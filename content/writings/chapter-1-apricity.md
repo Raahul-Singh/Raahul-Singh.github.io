@@ -5,8 +5,8 @@ description: "An endeavour to better understand our Sun's choleric disposition"
 tags: ["GSoC", "Medium"]
 status: "finished"
 confidence: "certain"
-released: false
-draft: true
+released: true
+draft: false
 ---
 
 <figure>
