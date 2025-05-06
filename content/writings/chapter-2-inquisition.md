@@ -5,8 +5,8 @@ description: "Does AR Complexity correlate to Flaring Activity?"
 tags: ["GSoC", "Medium"]
 status: "finished"
 confidence: "certain"
-released: true
-draft: false
+released: false
+draft: true
 ---
 
 <figure>
