@@ -23,8 +23,8 @@
 
 % Fonts
 \usepackage{fontspec}
-\usepackage{lato}
-\usepackage{raleway}
+\setmainfont[Color=primary, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/raleway/]{Raleway-ExtraLight}
 
 % Date command
 \usepackage[absolute]{textpos}
@@ -32,7 +32,7 @@
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
 \newcommand{\lastupdated}{\begin{textblock}{60}(155,5)
-\color{date}\fontspec{Raleway}\fontsize{8pt}{10pt}\selectfont 
+\color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont 
 Last Updated on \today
 \end{textblock}}
 
@@ -40,12 +40,12 @@ Last Updated on \today
 \newcommand{\namesection}[3]{
 \centering{
 \fontsize{40pt}{60pt}
-\fontspec{Lato}\selectfont #1 
-\fontspec{Lato}\selectfont #2
+\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #1 
+\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont #2
 } \\[5pt]
 \centering{
 \color{headings}
-\fontspec{Raleway}\fontsize{11pt}{14pt}\selectfont #3}
+\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3}
 \noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}}
 \vspace{-15pt}
 }
@@ -58,22 +58,22 @@ Last Updated on \today
 
 % Headings
 \titleformat{\section}{\color{headings}
-\scshape\fontspec{Lato}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
 
 % Subheadings
 \titleformat{\subsection}{
-\color{subheadings}\fontspec{Lato}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
 
 \newcommand{\runsubsection}[1]{
-\color{subheadings}\fontspec{Lato}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
+\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
 
 % Descriptors
 \newcommand{\descript}[1]{
-\color{subheadings}\raggedright\scshape\fontspec{Raleway}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+\color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
 
 % Location
 \newcommand{\location}[1]{
-\color{headings}\raggedright\fontspec{Raleway}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
+\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
 
 % Bullet Lists
 \newenvironment{tightemize}{
