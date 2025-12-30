@@ -79,3 +79,12 @@ Last Updated on \today
 \newenvironment{tightemize}{
 \vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
 {\end{itemize}\vspace{-\topsep}} 
+
+% Timeline - similar to location but slightly smaller for long text
+\newcommand{\timeline}[1]{
+    \color{headings}
+    \raggedright
+    \fontspec[Path = fonts/raleway/]{Raleway-Medium}
+    \fontsize{9pt}{11pt}\selectfont {#1\\} 
+    \normalfont
+}
