@@ -44,7 +44,7 @@
     </div>
     {{ end }}
 
-    {{ range ($done.GroupByDate "2006").Reverse }}
+    {{ range $done.GroupByDate "2006" }}
     <div class="reading-group" data-group>
         <div class="reading-year-label">{{ .Key }}</div>
         {{ range .Pages.ByDate.Reverse }}
