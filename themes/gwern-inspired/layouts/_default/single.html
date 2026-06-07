@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="content">
     <header class="content-header">
-        {{ with .Params.kind }}<div class="post-series">{{ . }}</div>{{ end }}
+        <div class="post-series"><a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>{{ with .Params.kind }} &middot; {{ . }}{{ end }}</div>
 
         <h1 class="content-title">{{ .Title }}</h1>
 

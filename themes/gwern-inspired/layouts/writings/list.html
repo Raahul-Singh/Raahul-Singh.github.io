@@ -2,6 +2,7 @@
 {{ $items := where .Site.RegularPages "Section" "in" (slice "writings" "notes") }}
 <section class="list-section">
     <header class="section-header">
+        {{ with .Params.eyebrow }}<div class="section-eyebrow">{{ . }}</div>{{ end }}
         <h1 class="section-title">{{ .Title }}</h1>
         {{ with .Description }}<p class="section-description">{{ . }}</p>{{ end }}
     </header>

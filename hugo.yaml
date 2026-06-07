@@ -62,6 +62,10 @@ menu:
       name: "Reading"
       url: "/reading/"
       weight: 20
+    # - identifier: "now"
+    #   name: "Now"
+    #   url: "/now/"
+    #   weight: 30
 
 taxonomies:
   tag: "tags"

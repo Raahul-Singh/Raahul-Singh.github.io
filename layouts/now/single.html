@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="content">
+    <header class="content-header">
+        <!-- <div class="post-series">/now</div> -->
+        <h1 class="content-title">{{ .Title }}</h1>
+        <div class="content-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">Last updated {{ .Date.Format "2006-01-02" }}</time>
+            {{ with .Params.location }}<span class="sep">&middot;</span><span>from {{ . }}</span>{{ end }}
+        </div>
+    </header>
+    <div class="content-body now-body">
+        {{ .Content }}
+    </div>
+    <div class="glyph-rule"><span class="g">&#10022;</span></div>
+</article>
+{{ end }}
