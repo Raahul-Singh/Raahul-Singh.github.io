@@ -274,7 +274,6 @@ body { counter-reset: sidenote-counter; }
 .sidenote::before {
   content: counter(sidenote-counter);
   font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-right: 7px;
-  counter-increment: sidenote-counter;
 }
 /* on narrower screens, sidenotes collapse inline */
 @media (max-width: 1180px) {
