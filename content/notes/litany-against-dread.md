@@ -8,9 +8,6 @@ confidence: "likely"
 released: true
 draft: false
 ---
-
-# Litany Against Dread
-
 At almost three in the night, tonight, perhaps more so than on other nights, it is important that I remind myself why I do what I do.
 Sure, there’s that old joke that the goal of all jobs is to maximise shareholder value, and to be frank, I don’t mind it as much. They have invested their money indirectly on me and my work, and for that I am grateful.
 It is not prestige though. Yes it is important, yes I wish to be perceived as capable and smart, to be accepted, but it doesn’t really do much for me beyond a point. Perhaps I don’t take myself too seriously to care.
