@@ -11,10 +11,10 @@
     {{ with .Site.Params.intro }}<p class="hero__intro">{{ . }}</p>{{ end }}
     <div class="hero__meta">
       <span>{{ len $writings }} essays</span><span class="dot"></span>
-      <span>{{ len $notes }} notes</span><span class="dot"></span>
-      {{ with .Site.Params.resumeURL }}<a class="link" href="{{ . }}" target="_blank" rel="noopener">résumé&#8202;&#8599;</a>{{ end }}
+      <span>{{ len $notes }} notes</span>
+      <!-- <span class="dot"></span> -->
+      <!-- {{ with .Site.Params.resumeURL }}<a class="link" href="{{ . }}" target="_blank" rel="noopener">résumé&#8202;&#8599;</a>{{ end }} -->
     </div>
-
     {{/* layered mountain ridge silhouette (decorative) */}}
     <svg class="ridge" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
       <defs>
