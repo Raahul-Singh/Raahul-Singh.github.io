@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="{{ "css/normalize.css" | relURL }}">
     <link rel="stylesheet" href="{{ "css/gwern.css" | relURL }}">
 
+    <!-- KaTeX for math rendering -->
+    {{ partial "math.html" . }}
+
     <!-- Theme: dark-first. Only switch to light if explicitly chosen. -->
     <script>
         (function () {
@@ -103,5 +106,8 @@
     <script src="{{ "js/gwern.js" | relURL }}"></script>
     <!-- Tooltips -->
     <script src="{{ "js/tooltips.js" | relURL }}"></script>
+
+    <!-- Analytics -->
+    {{ partial "analytics.html" . }}
 </body>
 </html>

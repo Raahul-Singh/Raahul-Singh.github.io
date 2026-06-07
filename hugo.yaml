@@ -33,6 +33,7 @@ markup:
 # Site parameters
 params:
   description: "Personal website of Raahul Singh - Writings, book notes, and more."
+  resumeURL: "/Raahul_Singh_Resume.pdf"
   # Your details
   author: "Raahul Singh"
   authorDescription: "I write about technology, books, and ideas that matter."
