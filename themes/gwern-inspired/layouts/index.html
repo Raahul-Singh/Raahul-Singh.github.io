@@ -1,62 +1,61 @@
 {{ define "main" }}
-<section class="home-section">
-    <!-- Content from markdown file -->
-    <div class="markdown-content">
-      {{ .Content }}
-    </div>
-    
-    <!-- Recent content section -->
-    <div class="recent-content">
-      <div class="section-header-simple">
-         <h3 class="section-title">Recent Content</h3>
-      </div>
-      
-      <ul class="content-list">
-         {{ $writings := where .Site.RegularPages "Section" "writings" }}
-         {{ $books := where .Site.RegularPages "Section" "reading" }}
-         {{ $notes := where .Site.RegularPages "Section" "notes" }}
-         {{ $combined := $writings | append $books | append $notes }}
-         {{ $recentContent := sort $combined "Date" "desc" | first 5 }}
-         {{ if $recentContent }}
-         {{ range $recentContent }}
-        <li class="list-item">
-          <div class="item-title-line">
-                 <h4 class="item-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-                 {{ if eq .Section "reading" }}
-                 {{ with .Params.author }}
-                 <span class="item-meta-inline">by {{ . }}</span>
-                 {{ end }}
-                 {{ if .Params.rating }}
-                 <span class="item-rating">
-                     {{ $rating := int .Params.rating }}
-                     {{ range seq $rating }}★{{ end }}
-                     {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
-                 </span>
-                 {{ end }}
-                 {{ end }}
-          </div>
-             <div class="item-meta">
-                 <span class="item-section">
-                     {{ if eq .Section "reading" }}Reading{{ else if eq .Section "notes" }}Note{{ else if eq .Section "writings" }}Writing{{ else }}Content{{ end }}
-                 </span>
-                 <span class="item-date">{{ .Date.Format "January 2, 2006" }}</span>
-             </div>
-        </li>
-         {{ end }}
-         {{ else }}
-         <li>No content yet.</li>
-         {{ end }}
-     </ul>
+{{ $writings := where .Site.RegularPages "Section" "writings" }}
+{{ $notes := where .Site.RegularPages "Section" "notes" }}
+{{ $stream := where .Site.RegularPages "Section" "in" (slice "writings" "notes") }}
+
+{{/* -------------------------------------------------- HERO -------- */}}
+<div class="hero">
+    {{ with .Site.Params.coords }}<span class="hero__coords">{{ . | safeHTML }}</span>{{ end }}
+    <div class="hero__eyebrow">{{ .Site.Params.role | default "AI Research Engineer" }}{{ with .Site.Params.started }} &middot; est. {{ . }}{{ end }}</div>
+    <h1 class="hero__name">Raahul <span class="alt">Singh</span></h1>
+    <p class="hero__intro">{{ .Site.Params.intro | default "Hello, I'm Raahul Singh — an AI research engineer with interests in machine learning, analysis, physics, philosophy, history, literature, and a whole bunch of other things. This website is an archive of whatever moves me enough to make a note about it." }}</p>
+    <div class="hero__meta">
+      <span>{{ len $writings }} essays</span><span class="dot"></span>
+      <span>{{ len $notes }} notes</span><span class="dot"></span>
+      <a class="link" href="{{ .Site.Params.resumeURL | default "/resume.pdf" }}" target="_blank" rel="noopener">résumé&#8202;&#8599;</a>
     </div>
 
-    {{ if .Site.Params.features.searchEnabled }}
-    <section class="search-section">
-        <h3 class="section-title">Search</h3>
-        <form id="search-form" class="search-form">
-            <input type="search" id="search-input" placeholder="Search for content..." aria-label="Search">
-            <button type="submit">Search</button>
-        </form>
-    </section>
+    {{/* layered mountain ridge silhouette (decorative) */}}
+    <svg class="ridge" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="rg1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="var(--bg-2)" stop-opacity="0"/>
+          <stop offset="1" stop-color="var(--bg-2)" stop-opacity="0.9"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,320 L0,250 L160,200 L300,255 L470,180 L620,250 L820,195 L1020,255 L1230,210 L1440,250 L1440,320 Z" fill="url(#rg1)"/>
+      <path d="M0,320 L0,285 L240,250 L430,290 L640,240 L880,288 L1120,250 L1340,290 L1440,275 L1440,320 Z" fill="var(--bg)"/>
+    </svg>
+  </div>
+
+<section class="home-feed">
+
+  {{/* ------------------------------- WRITING (essays + notes) -------- */}}
+  {{ with $stream.ByDate.Reverse }}
+  <section class="home-block">
+    <div class="home-block__head">
+      <h2>Writing</h2>
+      <a class="more" href="{{ "writings/" | relLangURL }}">all {{ len $stream }} &rarr;</a>
+    </div>
+    {{ range first 6 . }}
+    {{ $kind := .Params.kind | default (cond (eq .Section "notes") "Note" "Essay") }}
+    <a class="entry" href="{{ .Permalink }}">
+      <div class="entry__body">
+        <div class="entry__title">{{ .Title }}</div>
+        {{ with .Description }}<div class="entry__dek">{{ . }}</div>{{ end }}
+        <div class="entry__line">
+          <span class="entry__kind">{{ $kind }}</span>
+          {{ if ne .Section "notes" }}<span class="entry__sep">&middot;</span><span>{{ .ReadingTime }} min</span>{{ end }}
+          {{ range first 3 (.Params.tags | default slice) }}<span class="entry__tag">{{ . }}</span>{{ end }}
+        </div>
+      </div>
+      <span class="entry__date">{{ .Date.Format "2006-01-02" }}</span>
+    </a>
     {{ end }}
+  </section>
+  {{ end }}
+
+  <div class="glyph-rule"><span class="g">&#10022;</span></div>
+
 </section>
-{{ end }} 
+{{ end }}

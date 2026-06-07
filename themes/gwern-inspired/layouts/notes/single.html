@@ -1,59 +1,38 @@
 {{ define "main" }}
-<div class="container">
-  <article class="content">
+<article class="content">
     <header class="content-header">
-      <h1>{{ .Title }}</h1>
-      <div class="content-meta">
-        <span class="content-date">{{ .Date.Format ($.Site.Params.dateFormat | default "January 2, 2006") }}</span>
-        
-        {{ if .Lastmod }}
-        {{ if gt .Lastmod .Date }}
-        <span class="update-info">(Updated: {{ .Lastmod.Format ($.Site.Params.dateFormat | default "January 2, 2006") }})</span>
+        <div class="post-series">Note</div>
+        <h1 class="content-title">{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+        <div class="content-abstract"><p>{{ . }}</p></div>
         {{ end }}
+
+        {{ with .Params.tags }}
+        <div class="content-tags">
+            {{ range . }}<a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+        </div>
         {{ end }}
-        
-        <!-- Confidence tag with default value -->
-        <span class="confidence-tag note-confidence-tag">finished: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
-      </div>
-      
-      {{ if .Params.tags }}
-      <div class="content-tags">
-        {{ range .Params.tags }}
-        <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+
+        {{ if .Date }}
+        <div class="content-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ if and .Lastmod (gt .Lastmod .Date) }}
+            <span class="update-info">(Updated: {{ .Lastmod.Format "January 2, 2006" }})</span>
+            {{ end }}
+        </div>
         {{ end }}
-      </div>
-      {{ end }}
-      
-      {{ if .Description }}
-      <p class="content-abstract">{{ .Description }}</p>
-      {{ end }}
     </header>
-    
+
     <div class="content-body">
-      {{ .Content }}
+        {{ .Content }}
     </div>
-    
-    {{ if .Site.Params.enableGitInfo }}
-    <div class="content-meta">
-      {{ with .GitInfo }}
-      <p class="git-info">Last modified: {{ .AuthorDate.Format ($.Site.Params.dateFormat | default "January 2, 2006") }}</p>
-      {{ end }}
-    </div>
-    {{ end }}
-    
+
+    <div class="glyph-rule"><span class="g">&#10022;</span></div>
+
     <nav class="pagination">
-      {{ with .PrevInSection }}
-      <a href="{{ .Permalink }}" class="pagination-prev">← {{ .Title }}</a>
-      {{ else }}
-      <span></span>
-      {{ end }}
-      
-      {{ with .NextInSection }}
-      <a href="{{ .Permalink }}" class="pagination-next">{{ .Title }} →</a>
-      {{ else }}
-      <span></span>
-      {{ end }}
+        {{ with .PrevInSection }}<a href="{{ .Permalink }}" class="pagination-prev">&larr; {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+        {{ with .NextInSection }}<a href="{{ .Permalink }}" class="pagination-next">{{ .Title }} &rarr;</a>{{ else }}<span></span>{{ end }}
     </nav>
-  </article>
-</div>
-{{ end }} 
+</article>
+{{ end }}

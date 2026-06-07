@@ -1,5 +1,5 @@
 baseURL: "https://raahulsingh.net/"
-languageCode: "en-us"
+locale: "en-us"
 title: "Raahul Singh"
 theme: "gwern-inspired"
 buildDrafts: false
@@ -48,9 +48,6 @@ params:
     # - name: "X"
     #   url: "https://x.com/raahulsingh42"
     #   icon: "x"
-    - name: "Instagram"
-      url: "https://instagram.com/raahul.singh42"
-      icon: "instagram"
     - name: "LinkedIn"
       url: "https://linkedin.com/in/raahulsingh42"
       icon: "linkedin"
@@ -102,9 +99,9 @@ taxonomies:
 
 # Set permalinks
 permalinks:
-  writings: "/writings/:filename/"
-  notes: "/notes/:filename/"
-  reading: "/reading/:filename/"
+  writings: /writings/:contentbasename/
+  # notes: "/notes/:filename/"
+  reading: "/reading/:contentbasename/"
 
 # RSS settings
 outputFormats:

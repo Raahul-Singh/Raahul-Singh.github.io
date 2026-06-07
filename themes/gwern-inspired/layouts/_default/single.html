@@ -1,41 +1,14 @@
 {{ define "main" }}
 <article class="content">
     <header class="content-header">
-        <h1 class="content-title">{{ .Title }}</h1>
-        
-        {{ if .Date }}
-        <div class="content-meta">
-            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                {{ .Date.Format "January 2, 2006" }}
-            </time>
-            
-            {{ with .Params.updated }}
-            <span class="update-info">(Updated: 
-                <time datetime="{{ . }}">{{ time.Format "January 2, 2006" . }}</time>)
-            </span>
-            {{ end }}
+        {{ with .Params.kind }}<div class="post-series">{{ . }}</div>{{ end }}
 
-            <!-- Confidence tag with default value -->
-            <span class="confidence-tag">finished: {{ if .Params.confidence }}{{ .Params.confidence }}{{ else }}uncertain{{ end }}</span>
-        </div>
-        {{ end }}
-        
-        {{ with .Params.author }}
-        <div class="content-author">
-            {{ if eq . $.Site.Params.author }}
-            By <span class="author">{{ . }}</span>
-            {{ else }}
-            By <span class="author">{{ . }}</span>
-            {{ end }}
-        </div>
-        {{ end }}
-        
+        <h1 class="content-title">{{ .Title }}</h1>
+
         {{ with .Params.description }}
-        <div class="content-abstract">
-            <p>{{ . }}</p>
-        </div>
+        <div class="content-abstract"><p>{{ . }}</p></div>
         {{ end }}
-        
+
         {{ with .Params.tags }}
         <div class="content-tags">
             {{ range . }}
@@ -43,61 +16,37 @@
             {{ end }}
         </div>
         {{ end }}
+
+        {{ if .Date }}
+        <div class="content-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ with .Params.status }}<span class="sep">&middot;</span><span class="status-tag">{{ . }}</span>{{ end }}
+            <span class="sep">&middot;</span><span>{{ .ReadingTime }} min read</span>
+            {{ with .Params.updated }}
+            <span class="update-info">(Updated: <time datetime="{{ . }}">{{ time.Format "January 2, 2006" . }}</time>)</span>
+            {{ end }}
+        </div>
+        {{ end }}
     </header>
+
+    {{ if and (.Params.toc | default true) (findRE "<a" .TableOfContents) }}
+    <nav class="toc">
+        <div class="toc__label">Contents</div>
+        {{ .TableOfContents }}
+    </nav>
+    {{ end }}
 
     <div class="content-body">
         {{ .Content }}
     </div>
 
-    {{ if and (eq .Type "books") .Params.rating }}
-    <div class="book-rating">
-        <span class="rating-label">Rating:</span>
-        <span class="rating-stars">
-            {{ $rating := int .Params.rating }}
-            {{ range seq $rating }}★{{ end }}
-            {{ if eq (mod .Params.rating 1) 0.5 }}½{{ end }}
-        </span>
-        <span class="rating-number">({{ .Params.rating }}/5)</span>
-    </div>
-    {{ end }}
+    <div class="glyph-rule"><span class="g">&#10022;</span></div>
 
     {{ if or .NextInSection .PrevInSection }}
-    <div class="pagination">
-        {{ if .PrevInSection }}
-        <a href="{{ .PrevInSection.Permalink }}" class="prev">← {{ .PrevInSection.Title }}</a>
-        {{ end }}
-        
-        {{ if .NextInSection }}
-        <a href="{{ .NextInSection.Permalink }}" class="next">{{ .NextInSection.Title }} →</a>
-        {{ end }}
-    </div>
-    {{ end }}
-    
-    {{ if .Site.Params.features.backlinks }}
-    <div class="backlinks">
-        <h3>Links to this page</h3>
-        {{ $currentPath := .File.Path }}
-        {{ $backlinks := slice }}
-        {{ range .Site.RegularPages }}
-            {{ if and .File }}
-                {{ if not (eq $currentPath .File.Path) }}
-                    {{ if findRE (printf "%s" $.File.ContentBaseName) .Plain }}
-                        {{ $backlinks = $backlinks | append . }}
-                    {{ end }}
-                {{ end }}
-            {{ end }}
-        {{ end }}
-
-        {{ if gt (len $backlinks) 0 }}
-        <ul>
-            {{ range $backlinks }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
-        {{ else }}
-        <p>No backlinks found.</p>
-        {{ end }}
-    </div>
+    <nav class="pagination">
+        {{ with .PrevInSection }}<a href="{{ .Permalink }}" class="prev">&larr; {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+        {{ with .NextInSection }}<a href="{{ .Permalink }}" class="next">{{ .Title }} &rarr;</a>{{ else }}<span></span>{{ end }}
+    </nav>
     {{ end }}
 </article>
 {{ end }}

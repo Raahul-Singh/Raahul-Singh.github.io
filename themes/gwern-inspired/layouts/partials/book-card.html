@@ -1,0 +1,41 @@
+{{/* book-card.html — horizontal book card for the reading list */}}
+<article class="book-card-horizontal">
+    <div class="book-card-inner">
+        <div class="book-cover-container">
+            {{ if .Params.cover_image }}
+            <a href="{{ .Permalink }}" class="book-link">
+                <img src="{{ .Params.cover_image | safeURL }}" alt="Cover of {{ .Title }}" class="book-cover-img" loading="lazy">
+            </a>
+            {{ end }}
+        </div>
+        <div class="book-details">
+            <h2 class="book-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            {{ with .Params.author }}<p class="book-author">by {{ . }}</p>{{ end }}
+
+            {{ with .Params.rating }}
+            <div class="book-rating">
+                <span class="rating-stars">{{ $r := int . }}{{ range seq $r }}★{{ end }}{{ if eq (mod . 1) 0.5 }}½{{ end }}</span>
+                <span class="rating-number">({{ . }}/5)</span>
+            </div>
+            {{ end }}
+
+            {{ with .Params.progress }}
+            <div class="reading-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: {{ . }}%"></div></div>
+                <span class="progress-text">{{ . }}% complete</span>
+            </div>
+            {{ end }}
+
+            {{ if .Date }}<p class="book-date">{{ .Date.Format "January 2, 2006" }}</p>{{ end }}
+
+            {{ with .Params.tags }}
+            <div class="book-tags">
+                {{ range . }}<a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+            </div>
+            {{ end }}
+
+            {{ with .Description }}<p class="book-description">{{ . }}</p>{{ end }}
+            <a href="{{ .Permalink }}" class="read-more">Read review &rarr;</a>
+        </div>
+    </div>
+</article>

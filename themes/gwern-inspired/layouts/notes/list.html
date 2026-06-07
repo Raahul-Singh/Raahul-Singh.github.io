@@ -1,69 +1,40 @@
 {{ define "main" }}
 <section class="list-section">
-  <header class="section-header">
-    <h1 class="section-title">{{ .Title }}</h1>
-    {{ with .Description }}
-    <p class="section-description">{{ . }}</p>
-    {{ end }}
-  </header>
-  
-  {{ .Content }}
-  
-  {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
-  {{ if $paginator.Pages }}
-  <div class="content-list">
-    {{ range $paginator.Pages }}
-    <article class="list-item">
-      <h2 class="list-item-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      
-      <div class="list-item-meta">
-        {{ if .Date }}
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-          {{ .Date.Format "January 2, 2006" }}
-        </time>
+    <header class="section-header">
+        <h1 class="section-title">{{ .Title }}</h1>
+        {{ with .Description }}<p class="section-description">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ with .Content }}<div class="markdown-content">{{ . }}</div>{{ end }}
+
+    {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+    {{ if $paginator.Pages }}
+    <div class="notes-list">
+        {{ range $paginator.Pages }}
+        <article class="note-row">
+            <div class="note-row__when">{{ .Date.Format "2006-01-02" }}</div>
+            <div>
+                <div class="note-row__title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+                <div class="note-row__body">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}</div>
+                {{ with .Params.tags }}
+                <div class="note-row__tags">
+                    {{ range . }}<a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>{{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </article>
         {{ end }}
-        
-        {{ with .Params.confidence }}
-        <span class="confidence-tag">finished: {{ . }}</span>
-        {{ else }}
-        <span class="confidence-tag">finished: uncertain</span>
-        {{ end }}
-      </div>
-      
-      {{ with .Params.tags }}
-      <div class="list-item-tags">
-        {{ range . }}
-        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
-        {{ end }}
-      </div>
-      {{ end }}
-      
-      {{ with .Description }}
-      <p class="list-item-description">{{ . }}</p>
-      {{ else }}
-      <p class="list-item-description">{{ .Summary | plainify | truncate 160 }}</p>
-      {{ end }}
-      
-      <a href="{{ .Permalink }}" class="read-more">Read more →</a>
-    </article>
+    </div>
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination">
+        {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&larr; Previous</a>{{ else }}<span></span>{{ end }}
+        <span class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+        {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-next">Next &rarr;</a>{{ else }}<span></span>{{ end }}
+    </nav>
     {{ end }}
-  </div>
-  
-  {{ if gt $paginator.TotalPages 1 }}
-  <nav class="pagination">
-    {{ if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">← Previous</a>
+    {{ else }}
+    <p>No notes found.</p>
     {{ end }}
-    
-    <span class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
-    
-    {{ if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}" class="pagination-next">Next →</a>
-    {{ end }}
-  </nav>
-  {{ end }}
-  {{ else }}
-  <p>No notes found.</p>
-  {{ end }}
 </section>
-{{ end }} 
+{{ end }}

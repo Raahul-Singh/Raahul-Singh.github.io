@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $items := where .Site.RegularPages "Section" "in" (slice "writings" "notes") }}
 <section class="list-section">
     <header class="section-header">
         <h1 class="section-title">{{ .Title }}</h1>
@@ -7,18 +8,17 @@
 
     {{ with .Content }}<div class="markdown-content">{{ . }}</div>{{ end }}
 
-    {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
-    {{ if $paginator.Pages }}
+    {{ if $items }}
     <div class="entries">
-        {{ range $paginator.Pages }}
+        {{ range $items.ByDate.Reverse }}
+        {{ $kind := .Params.kind | default (cond (eq .Section "notes") "Note" "Essay") }}
         <a class="entry" href="{{ .Permalink }}">
             <div class="entry__body">
                 <div class="entry__title">{{ .Title }}</div>
                 {{ with .Description }}<div class="entry__dek">{{ . }}</div>{{ end }}
                 <div class="entry__line">
-                    <span class="entry__kind">{{ .Params.kind | default "Essay" }}</span>
-                    <span class="entry__sep">&middot;</span>
-                    <span>{{ .ReadingTime }} min</span>
+                    <span class="entry__kind">{{ $kind }}</span>
+                    {{ if ne .Section "notes" }}<span class="entry__sep">&middot;</span><span>{{ .ReadingTime }} min</span>{{ end }}
                     {{ range first 3 (.Params.tags | default slice) }}<span class="entry__tag">{{ . }}</span>{{ end }}
                 </div>
             </div>
@@ -26,16 +26,8 @@
         </a>
         {{ end }}
     </div>
-
-    {{ if gt $paginator.TotalPages 1 }}
-    <nav class="pagination">
-        {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&larr; Previous</a>{{ else }}<span></span>{{ end }}
-        <span class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
-        {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-next">Next &rarr;</a>{{ else }}<span></span>{{ end }}
-    </nav>
-    {{ end }}
     {{ else }}
-    <p>No content found.</p>
+    <p>No writing yet.</p>
     {{ end }}
 </section>
 {{ end }}
