@@ -13,18 +13,18 @@
     <div class="entries">
         {{ range $items.ByDate.Reverse }}
         {{ $kind := .Params.kind | default (cond (eq .Section "notes") "Note" "Essay") }}
-        <a class="entry" href="{{ .Permalink }}">
+        <div class="entry">
             <div class="entry__body">
-                <div class="entry__title">{{ .Title }}</div>
+                <a class="entry__title entry__cover" href="{{ .Permalink }}">{{ .Title }}</a>
                 {{ with .Description }}<div class="entry__dek">{{ . }}</div>{{ end }}
                 <div class="entry__line">
                     <span class="entry__kind">{{ $kind }}</span>
                     {{ if ne .Section "notes" }}<span class="entry__sep">&middot;</span><span>{{ .ReadingTime }} min</span>{{ end }}
-                    {{ range first 3 (.Params.tags | default slice) }}<span class="entry__tag">{{ . }}</span>{{ end }}
+                    {{ range $i, $t := (first 3 (.Params.tags | default slice)) }}{{ if $i }}, {{ end }}<a class="entry__tag" href="{{ "/tags/" | relURL }}{{ $t | urlize }}/">{{ $t | lower }}</a>{{ end }}
                 </div>
             </div>
             <span class="entry__date">{{ .Date.Format "2006-01-02" }}</span>
-        </a>
+        </div>
         {{ end }}
     </div>
     {{ else }}

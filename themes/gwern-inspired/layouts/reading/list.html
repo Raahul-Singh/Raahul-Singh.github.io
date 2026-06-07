@@ -6,28 +6,91 @@
         {{ with .Description }}<p class="section-description">{{ . }}</p>{{ end }}
     </header>
 
-    {{ with .Content }}<div class="markdown-content">{{ . }}</div>{{ end }}
-
-    <!-- Currently reading -->
     {{ $reading := where .Pages ".Params.status" "reading" }}
-    {{ with $reading }}
-    <div class="currently-reading">
-        <h3>Currently Reading</h3>
-        <div class="books-list">
-            {{ range . }}{{ partial "book-card.html" . }}{{ end }}
-        </div>
+    {{ $done := where .Pages ".Params.status" "finished" }}
+
+    {{/* collect all unique tags across all books */}}
+    {{ $allTags := slice }}
+    {{ range .Pages }}
+        {{ range .Params.tags }}
+            {{ $allTags = $allTags | append . }}
+        {{ end }}
+    {{ end }}
+    {{ $allTags = $allTags | uniq | sort }}
+
+    {{ if gt (len $allTags) 0 }}
+    <div class="reading-filter" id="reading-filter">
+        <span class="reading-filter__label">filter</span>
+        <button class="reading-filter__tag is-active" data-tag="all">all</button>
+        {{ range $allTags }}<button class="reading-filter__tag" data-tag="{{ . | lower }}">{{ . | lower }}</button>{{ end }}
     </div>
     {{ end }}
 
-    <!-- Completed -->
-    {{ $done := where .Pages ".Params.status" "ne" "reading" }}
-    {{ with $done }}
-    <h3>Completed Books</h3>
-    <div class="books-list">
-        {{ range .ByDate.Reverse }}{{ partial "book-card.html" . }}{{ end }}
+    {{ with $reading }}
+    <div class="reading-group" data-group>
+        <div class="reading-year-label">Currently Reading</div>
+        {{ range . }}
+        <div class="reading-row" data-tags="{{ delimit (.Params.tags | default slice) "," | lower }}">
+            {{ with .Params.cover_image }}<img class="reading-cover" src="{{ . }}" alt="">{{ end }}
+            <div class="reading-meta">
+                {{ if .Params.book_url }}<a class="reading-title" href="{{ .Params.book_url }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}<span class="reading-title">{{ .Title }}</span>{{ end }}
+                <span class="reading-author">{{ .Params.author }}</span>
+                {{ with .Description }}<span class="reading-desc">{{ . }}</span>{{ end }}
+                {{ with .Params.tags }}<div class="reading-tags">{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a class="entry__tag" href="{{ "/tags/" | relURL }}{{ $t | urlize }}/">{{ $t | lower }}</a>{{ end }}</div>{{ end }}
+            </div>
+            {{ with .Params.reviewURL }}<a class="reading-review" href="{{ . }}">review</a>{{ end }}
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+
+    {{ range ($done.GroupByDate "2006").Reverse }}
+    <div class="reading-group" data-group>
+        <div class="reading-year-label">{{ .Key }}</div>
+        {{ range .Pages.ByDate.Reverse }}
+        <div class="reading-row" data-tags="{{ delimit (.Params.tags | default slice) "," | lower }}">
+            {{ with .Params.cover_image }}<img class="reading-cover" src="{{ . }}" alt="">{{ end }}
+            <div class="reading-meta">
+                {{ if .Params.book_url }}<a class="reading-title" href="{{ .Params.book_url }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}<span class="reading-title">{{ .Title }}</span>{{ end }}
+                <span class="reading-author">{{ .Params.author }}</span>
+                {{ with .Description }}<span class="reading-desc">{{ . }}</span>{{ end }}
+                {{ with .Params.tags }}<div class="reading-tags">{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a class="entry__tag" href="{{ "/tags/" | relURL }}{{ $t | urlize }}/">{{ $t | lower }}</a>{{ end }}</div>{{ end }}
+            </div>
+            {{ with .Params.reviewURL }}<a class="reading-review" href="{{ . }}">review</a>{{ end }}
+        </div>
+        {{ end }}
     </div>
     {{ end }}
 
     {{ if not .Pages }}<p>No books yet.</p>{{ end }}
 </section>
+
+<script>
+(function () {
+    var filter = document.getElementById('reading-filter');
+    if (!filter) return;
+    filter.addEventListener('click', function (e) {
+        var btn = e.target.closest('.reading-filter__tag');
+        if (!btn) return;
+        var tag = btn.dataset.tag;
+        filter.querySelectorAll('.reading-filter__tag').forEach(function (b) {
+            b.classList.toggle('is-active', b === btn);
+        });
+        document.querySelectorAll('.reading-row').forEach(function (row) {
+            if (tag === 'all') {
+                row.style.display = '';
+            } else {
+                var tags = row.dataset.tags ? row.dataset.tags.split(',').map(function(t){return t.trim();}) : [];
+                row.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
+            }
+        });
+        // hide groups where all rows are hidden
+        document.querySelectorAll('[data-group]').forEach(function (group) {
+            var rows = group.querySelectorAll('.reading-row');
+            var anyVisible = Array.prototype.some.call(rows, function (r) { return r.style.display !== 'none'; });
+            group.style.display = anyVisible ? '' : 'none';
+        });
+    });
+})();
+</script>
 {{ end }}
