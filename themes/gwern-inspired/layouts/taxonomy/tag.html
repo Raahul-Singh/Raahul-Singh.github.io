@@ -38,9 +38,14 @@
     {{ end }}
 
     {{ if $books }}
-    <div class="reading-group{{ if $writings }} reading-group--spaced{{ end }}">
-        <div class="reading-year-label"><a href="{{ "/reading/" | relURL }}">Reading</a></div>
-        {{ range sort $books "Date" "desc" }}
+    {{ $bookPages := $books }}
+    {{ $reading := where $bookPages ".Params.status" "reading" }}
+    {{ $done := where $bookPages ".Params.status" "finished" }}
+    {{ $spaced := $writings }}
+    {{ with $reading }}
+    <div class="reading-group{{ if $spaced }} reading-group--spaced{{ end }}">
+        <div class="reading-year-label">Currently Reading &middot; <a href="{{ "/reading/" | relURL }}">all books</a></div>
+        {{ range . }}
         <div class="reading-row">
             {{ with .Params.cover_image }}<img class="reading-cover" src="{{ . }}" alt="">{{ end }}
             <div class="reading-meta">
@@ -52,6 +57,25 @@
         </div>
         {{ end }}
     </div>
+    {{ $spaced = true }}
+    {{ end }}
+    {{ range $done.GroupByDate "2006" }}
+    <div class="reading-group{{ if $spaced }} reading-group--spaced{{ end }}">
+        <div class="reading-year-label">{{ .Key }} &middot; <a href="{{ "/reading/" | relURL }}">all books</a></div>
+        {{ range .Pages.ByDate.Reverse }}
+        <div class="reading-row">
+            {{ with .Params.cover_image }}<img class="reading-cover" src="{{ . }}" alt="">{{ end }}
+            <div class="reading-meta">
+                {{ if .Params.book_url }}<a class="reading-title" href="{{ .Params.book_url }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}<span class="reading-title">{{ .Title }}</span>{{ end }}
+                <span class="reading-author">{{ .Params.author }}</span>
+                {{ with .Description }}<span class="reading-desc">{{ . }}</span>{{ end }}
+                {{ with .Params.tags }}<div class="reading-tags">{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a class="entry__tag" href="{{ "/tags/" | relURL }}{{ $t | urlize }}/">{{ $t | lower }}</a>{{ end }}</div>{{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    {{ $spaced = true }}
+    {{ end }}
     {{ end }}
 
 </section>
