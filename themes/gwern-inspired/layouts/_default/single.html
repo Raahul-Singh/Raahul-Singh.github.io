@@ -44,8 +44,8 @@
 
     {{ if or .NextInSection .PrevInSection }}
     <nav class="pagination">
-        {{ with .PrevInSection }}<a href="{{ .Permalink }}" class="prev">&larr; {{ .Title }}</a>{{ else }}<span></span>{{ end }}
-        {{ with .NextInSection }}<a href="{{ .Permalink }}" class="next">{{ .Title }} &rarr;</a>{{ else }}<span></span>{{ end }}
+        {{ with .PrevInSection }}<a href="{{ .Permalink }}" class="prev">{{ .Title }}</a>{{ else }}<span></span>{{ end }}
+        {{ with .NextInSection }}<a href="{{ .Permalink }}" class="next">{{ .Title }}</a>{{ else }}<span></span>{{ end }}
     </nav>
     {{ end }}
 </article>

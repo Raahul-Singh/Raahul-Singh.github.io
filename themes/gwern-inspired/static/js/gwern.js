@@ -85,7 +85,7 @@ function markExternalLinks() {
   const currentHost = window.location.hostname;
   
   document.querySelectorAll('a').forEach(link => {
-    if (link.hostname && link.hostname !== currentHost && !link.classList.contains('social-link')) {
+    if (link.hostname && link.hostname !== currentHost && !link.classList.contains('social-link') && !link.classList.contains('social-icon')) {
       // Set proper attributes for external links
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noopener noreferrer');

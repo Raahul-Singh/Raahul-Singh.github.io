@@ -35,7 +35,7 @@
   <section class="home-block">
     <div class="home-block__head">
       <h2>Writing</h2>
-      <a class="more" href="{{ "writings/" | relLangURL }}">all {{ len $stream }} &rarr;</a>
+      <a class="more" href="{{ "writings/" | relLangURL }}">all {{ len $stream }}</a>
     </div>
     {{ range first 6 . }}
     {{ $kind := .Params.kind | default (cond (eq .Section "notes") "Note" "Essay") }}

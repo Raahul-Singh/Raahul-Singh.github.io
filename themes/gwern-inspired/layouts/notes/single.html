@@ -31,8 +31,8 @@
     <div class="glyph-rule"><span class="g">&#10022;</span></div>
 
     <nav class="pagination">
-        {{ with .PrevInSection }}<a href="{{ .Permalink }}" class="pagination-prev">&larr; {{ .Title }}</a>{{ else }}<span></span>{{ end }}
-        {{ with .NextInSection }}<a href="{{ .Permalink }}" class="pagination-next">{{ .Title }} &rarr;</a>{{ else }}<span></span>{{ end }}
+        {{ with .PrevInSection }}<a href="{{ .Permalink }}" class="pagination-prev">{{ .Title }}</a>{{ else }}<span></span>{{ end }}
+        {{ with .NextInSection }}<a href="{{ .Permalink }}" class="pagination-next">{{ .Title }}</a>{{ else }}<span></span>{{ end }}
     </nav>
 </article>
 {{ end }}

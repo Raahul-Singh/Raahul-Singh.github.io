@@ -27,7 +27,7 @@ over your project root (or your current theme), replacing the old
 
 ## The résumé is just a PDF link
 
-Drop your file at **`static/resume.pdf`** and you're done — a `Résumé ↗`
+Drop your file at **`static/resume.pdf`** and you're done — a `Résumé`
 link appears in the nav and on the home hero automatically. To point
 somewhere else:
 ```toml

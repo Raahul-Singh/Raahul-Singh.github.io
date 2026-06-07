@@ -41,10 +41,10 @@
                 </div>
                 <nav class="main-nav">
                     {{ range .Site.Menus.main }}
-                        <a href="{{ .URL | relLangURL }}"{{ if .Params.external }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}{{ if .Params.external }}&#8202;&#8599;{{ end }}</a>
+                        <a href="{{ .URL | relLangURL }}"{{ if .Params.external }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a>
                     {{ end }}
                     {{ with .Site.Params.resumeURL | default "/resume.pdf" }}
-                        <a href="{{ . }}" target="_blank" rel="noopener" class="nav-resume">Résumé&#8202;&#8599;</a>
+                        <a href="{{ . }}" target="_blank" rel="noopener" class="nav-resume">Résumé</a>
                     {{ end }}
                 </nav>
                 <div class="header-right">

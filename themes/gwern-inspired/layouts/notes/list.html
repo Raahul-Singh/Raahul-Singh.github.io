@@ -31,7 +31,7 @@
     <nav class="pagination">
         {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&larr; Previous</a>{{ else }}<span></span>{{ end }}
         <span class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
-        {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-next">Next &rarr;</a>{{ else }}<span></span>{{ end }}
+        {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-next">Next</a>{{ else }}<span></span>{{ end }}
     </nav>
     {{ end }}
     {{ else }}

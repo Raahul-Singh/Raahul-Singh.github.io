@@ -128,7 +128,7 @@ main#main-content { position: relative; z-index: 1; }
   transition: text-decoration-color .2s, color .2s;
 }
 .content-body a:hover, .markdown-content a:hover { text-decoration-color: var(--accent); color: var(--ink); }
-.external-link::after { content: " ↗"; font-size: .8em; color: var(--faint); }
+.external-link::after { content: ""; }
 
 /* =========================================================================
    HOME
