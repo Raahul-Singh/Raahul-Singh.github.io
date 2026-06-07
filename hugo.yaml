@@ -10,13 +10,11 @@ markup:
     style: monokailight
     lineNos: false
   
-  # Table of contents configuration (disabled)
   tableOfContents:
     endLevel: 3
     ordered: false
     startLevel: 2
-    enabled: false
-  
+
   # Configure Goldmark (Markdown renderer)
   goldmark:
     renderer:
@@ -36,12 +34,7 @@ params:
   resumeURL: "/Raahul_Singh_Resume.pdf"
   # Your details
   author: "Raahul Singh"
-  authorDescription: "I write about technology, books, and ideas that matter."
-  
-  # Favicon
-  favicon: "/favicon.jpg"
-  
-  # Social links
+
   socialLinks:
     - name: "GitHub"
       url: "https://github.com/raahul-singh"
@@ -58,21 +51,7 @@ params:
     # - name: "Email"
     #   url: "mailto:raahulsingh002@gmail.com"
     #   icon: "email"
-    # Add other social links as needed
   
-  # Content directories
-  contentTypes:
-    writings: "Writings"
-    notes: "Notes"
-    reading: "Reading List"
-  
-  # Features
-  features:
-    darkMode: true
-    sidenotes: true
-    tableOfContents: false
-    searchEnabled: false
-    
 # Menu configuration
 menu:
   main:
