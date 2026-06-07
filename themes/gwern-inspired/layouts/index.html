@@ -6,13 +6,13 @@
 {{/* -------------------------------------------------- HERO -------- */}}
 <div class="hero">
     {{ with .Site.Params.coords }}<span class="hero__coords">{{ . | safeHTML }}</span>{{ end }}
-    <div class="hero__eyebrow">{{ .Site.Params.role | default "AI Research Engineer" }}{{ with .Site.Params.started }} &middot; est. {{ . }}{{ end }}</div>
-    <h1 class="hero__name">Raahul <span class="alt">Singh</span></h1>
-    <p class="hero__intro">{{ .Site.Params.intro | default "Hello, I'm Raahul Singh — an AI research engineer with interests in machine learning, analysis, physics, philosophy, history, literature, and a whole bunch of other things. This website is an archive of whatever moves me enough to make a note about it." }}</p>
+    {{ with .Site.Params.role }}<div class="hero__eyebrow">{{ . }}{{ with $.Site.Params.started }} &middot; est. {{ . }}{{ end }}</div>{{ end }}
+    <h1 class="hero__name">{{ .Site.Title }}</h1>
+    {{ with .Site.Params.intro }}<p class="hero__intro">{{ . }}</p>{{ end }}
     <div class="hero__meta">
       <span>{{ len $writings }} essays</span><span class="dot"></span>
       <span>{{ len $notes }} notes</span><span class="dot"></span>
-      <a class="link" href="{{ .Site.Params.resumeURL | default "/resume.pdf" }}" target="_blank" rel="noopener">résumé&#8202;&#8599;</a>
+      {{ with .Site.Params.resumeURL }}<a class="link" href="{{ . }}" target="_blank" rel="noopener">résumé&#8202;&#8599;</a>{{ end }}
     </div>
 
     {{/* layered mountain ridge silhouette (decorative) */}}

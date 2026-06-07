@@ -4,21 +4,17 @@ title: "Raahul Singh"
 theme: "gwern-inspired"
 buildDrafts: false
 
-# Enable syntax highlighting
 markup:
   highlight:
     style: monokailight
     lineNos: false
-  
   tableOfContents:
     endLevel: 3
     ordered: false
     startLevel: 2
-
-  # Configure Goldmark (Markdown renderer)
   goldmark:
     renderer:
-      unsafe: true # Enable raw HTML in markdown files
+      unsafe: true
     extensions:
       definitionList: true
       footnote: true
@@ -28,12 +24,16 @@ markup:
       taskList: true
       typographer: true
 
-# Site parameters
 params:
   description: "Personal website of Raahul Singh - Writings, book notes, and more."
   resumeURL: "/Raahul_Singh_Resume.pdf"
-  # Your details
   author: "Raahul Singh"
+
+  # Home hero
+  # role: "AI Research Engineer"
+  # started: 2024
+  coords: "51.5072° N, 0.1276° W | London"
+  intro: "Hello, I'm Raahul Singh — an AI research engineer with interests in machine learning, analysis, physics, philosophy, history, literature, and a whole bunch of other things. This website is an archive of whatever moves me enough to make a note about it."
 
   socialLinks:
     - name: "GitHub"
@@ -48,48 +48,34 @@ params:
     - name: "GitLab"
       url: "https://gitlab.com/rasalghul2"
       icon: "gitlab"
-    # - name: "Email"
-    #   url: "mailto:raahulsingh002@gmail.com"
-    #   icon: "email"
-  
-# Menu configuration
+    - name: "Email"
+      url: "mailto:raahulsingh002@gmail.com"
+      icon: "email"
+
 menu:
   main:
-    - identifier: "home"
-      name: "Home"
-      url: "/"
-      weight: 10
-    - identifier: "writings"
-      name: "Writings"
+    - identifier: "writing"
+      name: "Writing"
       url: "/writings/"
-      weight: 20
-    - identifier: "notes"
-      name: "Notes"
-      url: "/notes/"
-      weight: 30
+      weight: 10
     - identifier: "reading"
-      name: "Reading List"
+      name: "Reading"
       url: "/reading/"
-      weight: 40
+      weight: 20
 
-# Set default content settings
 taxonomies:
   tag: "tags"
   category: "categories"
 
-# Set permalinks
 permalinks:
   writings: /writings/:contentbasename/
-  # notes: "/notes/:filename/"
   reading: "/reading/:contentbasename/"
 
-# RSS settings
 outputFormats:
   RSS:
     mediatype: "application/rss+xml"
     baseName: "feed"
 
-# Output formats for different page types
 outputs:
   home:
     - HTML
